@@ -3,6 +3,23 @@
 2.Jelenlegi helyzet
 
 3.Vágyálom rendszer
+    A vágyott rendszer egy olyan stratégia játék, amely kellemes kikapcsolódást 
+nyújt a játékosnak, játékosoknak. Fontos, hogy a játék kellő nehézségű legyen. 
+Nem szabad, hogy a játékosok azért hagyják abba, mert nem tudják megnyerni, esetleg 
+túl hosszú és megunják. Meg kell találni az egyensúlyt. Az lenne a legjobb, ha 
+több játékmóddal, nehézségi szinttel rendelkezne, hogy mindenki megtalálja a neki 
+megfelelőt.
+    A játék kezelhetőségét tekintve is el kell nyerje a felhasználók tetszését. 
+Úgy kell megjelenjenek az egyes játékelemek, hogy azok jól átláthatóak legyenek. 
+Már a menünek is úgy kell kinéznie, hogy a felhasználó könnybe lábadjon. Könnyen
+áttekinthetőek kell legyenek az esetleges játékmódok. A felhasználónak egyértelmű, 
+de rövid magyarázatot kell adni a játékról. Olyan útmutatóra van szükség, amely
+hasznos és nem zavaró.
+    Manapság fontos a játékosok közötti verseny lehetősége. Manapság minden játék 
+törekszik az esport-ra. Ezért jó lenne, ha ebben a játékban is lenne arra lehetőség, 
+hogy a játékosok összemérjék eredményeiket.
+    A játék sokkal élvezetesebb lenne, ha többjátékos lehetőség is a játékosok
+rendelkezésére állna. Ma már minden játék tartalmaz többjátékos funkciót.
 
 4.Jelenlegi üzleti folyamatok
 
