@@ -1,0 +1,34 @@
+1.Bevezetés
+
+2.Jelenlegi helyzet
+
+3.Vágyálom rendszer
+    A játék egy táblán játszható stratégiai játék. A tábla mérete jó lenne ha
+változtatható lenne, attól függően, hogy mennyi ideig akarják játszani. A tábla
+mezőkből állna. Minden mező tartalmazna valamilyen befektetési lehetőséget.
+    A játékosok véletlenszerű helyről kezdjenek, de ezeket a poziciókat úgy kell
+meghatározni, hogy ne kerüljenek patthelyzetbe a játékosok. A játékosok az első 
+kockával való gurítást a kezdésért csinálják. Aki nagyobbat dob, az kezd.
+    Minden kör egy gurítással kezdődik. A kocka nem feltétlenül kell tartalmazzon
+1-től 6-ig számokat. Az a legjobb ha ezek a számok a pálya méretéhez igazodnak.
+A gurítás után a játékos annyit lép, ahányat gurított. Majd eldönti, hogy belevág-e
+a mező által felkínált lehetőségekbe.
+    Minden játékos látja előre egy bizonyos távolságban, hogy mit takarnak az egyes
+mezők. Minden játékos egy bizonyos kezdő egyenleggel kezd, amit a játék során befektet,
+gyatapít.
+    Az nyeri a játékot, aki eléri az ellenfél játékos egyenlegének egy bizonyos
+többszörösét. Vagy lehet időre menő játék is, ekkor az nyer, aki az idő lejártáig
+a legnagyobb egyenleget éri el.
+    A mezők által kínált befektetések egy bizonyos összegbe kerüljenek, illetve 
+körönként egy bizonyos profitot hozzanak. Olyan mezők is legyenek, amelyek valamilyen
+bónuszt nyújtsanak. Ezek a mezők csak akkor tárják fel tartalmukat, ha a játékos
+már rajta áll. Illetve, ha egy ilyen mezőre lép a játékos, akkor legyen kötelező
+élni a mező lehetőségeivel, akár rossz, akár jó az a játékosnak.
+    Jó lenne, ha lenne lehetőség a játékosok egymással való versenyeztetésére.
+Legjobb lenne, ha a nyeréskor elért egyenleg bekerülne egy listába, ahol rangsorolva
+vannak a játékosok. Persze fontos, hogy a különböző játékmódok különböző listákra
+legyenek rögzítve.
+
+4.Jelenlegi üzleti folyamatok
+
+5.Igényelt üzleti folyamatok
