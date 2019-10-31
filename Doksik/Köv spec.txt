@@ -11,6 +11,18 @@ a játék webes változatát, így nagy mintán tudnak adatot gyűjteni, és a v
 kapcsolatban álló cégek által elhelyezett hirdetések is sokakhoz eljuthatnak.
 
 2.Jelenlegi helyzet
+    A játék még fejlesztés alatt áll: pontos játékszabályok még nincsenek, a játékban 
+szereplő mezők értékei sincsenek még meghatározva stb., de ezek a hiányosságok 
+nem jelentenek akadályt a szoftveres megvalósítás elkezdésében.
+    Eddig a játék kezdetleges változatait kézzel állították elő (leginkább papírt 
+használtak), ezen próbálgatták finomítani a szabályokat, így próbálták ki, milyen 
+vele játszani. Ha valamelyik alap elképzelésükön változtattak, új prototípust 
+készítettek. Egy idő után nehézkessé vált ezek elkészítése és a játék menetének 
+szimulálása is.
+    Jelenleg ott tartanak, hogy a játék kipróbálásához és a szabályok érdemi 
+teszteléséhez a papír alapú változat már alkalmatlan, így a továbbfejlesztéshez 
+szükség lenne egy szoftveres keretre, melyben megadható a táblaméret, és ami 
+körönként újraszámolja a játékosok egyenlegét a potenciális mezőértékek alapján.
 
 3.Vágyálom rendszer
     A vágyott rendszer egy olyan stratégia játék, amely kellemes kikapcsolódást 
