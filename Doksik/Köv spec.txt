@@ -1,4 +1,14 @@
 1.Bevezetés
+    A vállalat fő tevékenysége cégek közötti partnerkapcsolatok kiépítésének segítése. 
+Filozófiája szerint a cégek közötti együttműködés akkor lehet a leghatékonyabb, ha 
+közöttük megvan a kellő bizalom és azokról a dolgokról, melyek miatt szükséges 
+együttműködniük, hasonlóan gondolkodnak.
+    Emiatt fontos a partnerek igényeinek felmérése, gondolkodásmódjuk feltérképezése, 
+mely a vállalat kutatási és innovációs részlegének feladata. Egyik projektjük egy 
+startégiai játék fejlesztése, mellyel az emberek döntéshozatalait és stratégiai 
+techikáit kívánják vizsgálni. A projekt célja kettős: minél több emberhez eljuttatni 
+a játék webes változatát, így nagy mintán tudnak adatot gyűjteni, és a velük 
+kapcsolatban álló cégek által elhelyezett hirdetések is sokakhoz eljuthatnak.
 
 2.Jelenlegi helyzet
 
