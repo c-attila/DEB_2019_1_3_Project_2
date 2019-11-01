@@ -12,6 +12,29 @@ fejlesztése könnyebb legyen és az emberek számára is könnyen hozzáférhet
 ezzel biztosítva "önkénteseket" a kutatásukhoz.
 
 2.Jelenlegi helyzet
+    Mivel a játék eredetileg nem egy tervezett projekt volt, hanem pár alkalmazott 
+saját szórakoztatására készült játék, így a fejlesztése sem a tervezett projektek 
+esetében szokásos módon folyt. A játék, mint potenciális kutatási projekt ötletét 
+a kutatási részlegen dolgozó egyik, pszichológia-szociológia területen tevékenykedő 
+alkalmazott vetette fel, de mivel akkor még nem nyilvánították a játékot hivatalos 
+projektté, így anyagi támogatást sem kapott.
+    Később, mivel elég ígéretesnek tűnt, projektté nyilvánították, és ennek megfelelően
+folyik a fejlesztése azóta. Jelenleg is fejlesztés alatt áll, a pontos játékszabályok 
+és a játék mezői, mezőértékei stb. még nem véglegesek. Ez a fejlesztés folyamán 
+eleinte nem jelentett nagy gondot, de később, ahogy a játék komplexitása nőtt, úgy lett 
+egyre körülményesebb a fejlesztés. Bizonyos módosítások esetén új prototípust kell 
+legyártani, melynek elkészítése időigényes, továbbá a játék jellegéből adódóan nehézkes 
+a játék állását nyomon követni már.
+    Jelenleg elég nagy igény van a játék szoftveres megvalósítására. Bár még nincs kész 
+a játék, várhatóan csak olyan módosítások lesznek már benne, amelyek a készülő szoftver 
+minimális módosítását követelik meg csupán.
+    Nyilvánvaló előny lenne a játékosok körönkénti pontjainak újraszámítása a nehézkes 
+kézi számoláshoz képest, ami rendkívüli mértékben felgyorsítaná a játék menetét, emellett 
+a jelenlegi egyetlen prototípus helyett a szoftveres megvalósításával egyszerre többen 
+tudnának játszani.
+    Mindez nagy mértékben felgyorsítaná a játék fejlesztését, finomítását, és a játék 
+végső soron úgyis szoftveres alkalmazásként lenne alkalmas arra, hogy minél több 
+ember tudjon vele játszani, segítve ezzel a vizsgálódást, mely életre hívta a projektet.
 
 3.Vágyálom rendszer
     A játék egy táblán játszható stratégiai játék. A tábla mérete jó lenne ha
