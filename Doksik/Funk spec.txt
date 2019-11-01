@@ -1,4 +1,15 @@
 1.Bevezetés
+    A megrendelő egy olyan vállalat, mely a fő tevékenysége - cégek közötti partner-
+kapcsolatok kialakításának segítése - mellett nagy hangsúlyt fektet a kutatásra és az 
+innovatív megoldások alkalmazására, mellyel a cégek közötti hatékony együttműködés 
+kulcselemeinek megértését és javítását célozza meg.
+    Egyik projektjük egy olyan stratégiai játék fejlesztése, mely alkalmas lehet 
+az emberek döntéshozatali képességének és stratégiai gondolkodásának vizsgálatára. 
+Eredetileg a játékot a kutatási részleg pár alkalmazottja gondolta ki saját maguk 
+szórakoztatására, ám később úgy vélték, hogy érdemes lehet vele komolyabban is 
+foglalkozni, így megszületett az igény a játék szoftveres implementálására, hogy a 
+fejlesztése könnyebb legyen és az emberek számára is könnyen hozzáférhető legyen, 
+ezzel biztosítva "önkénteseket" a kutatásukhoz.
 
 2.Jelenlegi helyzet
 
