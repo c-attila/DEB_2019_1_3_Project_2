@@ -15,7 +15,7 @@ A gurítás után a játékos annyit lép, ahányat gurított. Majd eldönti, ho
 a mező által felkínált lehetőségekbe.
     Minden játékos látja előre egy bizonyos távolságban, hogy mit takarnak az egyes
 mezők. Minden játékos egy bizonyos kezdő egyenleggel kezd, amit a játék során befektet,
-gyatapít.
+gyarapít.
     Az nyeri a játékot, aki eléri az ellenfél játékos egyenlegének egy bizonyos
 többszörösét. Vagy lehet időre menő játék is, ekkor az nyer, aki az idő lejártáig
 a legnagyobb egyenleget éri el.
@@ -30,5 +30,36 @@ vannak a játékosok. Persze fontos, hogy a különböző játékmódok különb
 legyenek rögzítve.
 
 4.Jelenlegi üzleti folyamatok
+    A jelenlegi folyamatokban egy papír alapú táblajátékkal van lehetőség lejátszani 
+egy kört. A szervezők egy terembe hívják a játékosokat/tesztalanyokat. A játékosok 
+előveszik a játék elemeit tartalmazó dobozt és elkezdik összerakni. A táblát 
+az asztalra teszik. Ezután összekeverik a megvásárolható javakat jelképező karton-
+lapocskákat. Ezeket lefordítva helyezik el a mezőkre. A játékpénzeket, amik a 
+pontokat reprezentálják, illetve a többi kelléket a tábla mellé helyezik. Ezután
+egy dobókocka segítségével eldöntik, hogy ki kezdjen, illetve, hogy melyik mezőn. 
+Aki nagyobbat dob, az kezd, illetve azon a mezőn, amit a dobókocka segítségével 
+megállapítottak. Ha a játék nem 6x6-os táblán történik, a kockával többet kell 
+dobni, vagy, ha kisebb a tábla mint 6x6, akkor nagyobb szám esetén újradobni. 
+Ha a játék elkezdődött és a bábuk is fel lettek helyezve kezdő mezejükre, a 
+játékosok felfordítják a lefordított kartonlapokat, attól függően, hogy mekkora 
+látóterük. Ezután elkezdenek lépegetni és mezőket megvásárolni. A kocka segítségével 
+döntik el, hogy ki mennyit léphet egy adott körben. A játék alapesetben addig 
+tart, amíg valamelyik játékos eléri a másik játékos pontjának egy meghatározott 
+többszörösét. A játék egy bizonyos idő letelte után is véget érhet. Ilyenkor az 
+nyer, aki a legtöbb pontttal rendelkezik.
+    A játék fejlesztői egy fejlesztés során úgy tudják tesztelni, kipróbálni azt, 
+ha legyártják az új, szükséges elemeket. Miután kitalálták, hogy min szeretnének 
+változtatni vagy milyen új funkciót szeretnének megvalósítani, felveszik a 
+kapcsolatot a táblajáték gyártójával. Nekik megadják a legyártani kívánt elemek 
+pontos leírását, mennyiségét (általában csak a minimálisan szükséges) és, hogy 
+mennyire sürgős a rendelésük. Ezután a gyártó elkészíti az új elemeket és 
+elküldi őket a megrendelőnek. Ez a szállítással együtt hetekbe telhet. Ha 
+megvannak az új alkotórészek, a fejlesztők kipróbálhatják az újításaikat.
 
 5.Igényelt üzleti folyamatok
+    A megrendelő igényei szerint egy játszma a számítógépen sokka könnyebben 
+lejátszható lesz, mint eddig papír alapon volt és a fejlesztési és tesztelési 
+folyamatok is sokkal gördülékenyebben fognak történni. A program segítségével 
+a játékosoknak nem kell a tábla összerakásával bajlódniuk, illetve kockadobással, 
+pontok számolásával sem. A fejlesztők sokkal hatékonyabban tudnak a játék 
+működésén módosítani és kiegészíteni azt.
