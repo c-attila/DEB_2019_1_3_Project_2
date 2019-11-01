@@ -45,5 +45,25 @@ rendelkezésére állna. Ma már minden játék tartalmaz többjátékos funkci�
 jó lenne ha ez is adna erre lehetőséget.
 
 4.Jelenlegi üzleti folyamatok
+    A jelenlegi üzleti folyamatok a következők szerint zajlanak. Ahhoz, hogy egy
+kört lejátszon egy játékos, elő kell vegye a papír alapú táblát, a bábukat és az
+egyéb dolgokat szemléltető eszközöket, például a pontot szemléltető játékpénzeket
+vagy a megvásárolható javakat szemléltető kartonlapocskákat. A körök elteltével 
+a kartonlapocskákat mindig fel kell fordítaniuk, ahogy az a játékosok látókörébe 
+kerül, illetve a játékpénzt is cserélgetniük kell, ha egymás mezejére lépnek. 
+A játék során ez jelenti a legnagyobb nehézségeket mind a játékosoknak, mind a 
+szervezőknek is. A játék fejlesztése során mégse ez a legnehezebb, hanem az, ha 
+a fejlesztők új funkciókat akarnak behozni vagy akár a meglévőkön szeretnének 
+módosítani. Ilyenkor a játék adott részét vagy az újakat újra kell gyártsák, így 
+minden új ötlet kipróbálásához több hetet is várni kell a gyártási és szállítási 
+folyamatok miatt. Ez azért van, mert a fizikai játékot nem a megrendelő, hanem 
+egy másik cég gyártja egy másik városban.
 
 5.Igényelt üzleti folyamatok
+    A megrendelő igényei szerint a folyamatok jelentősen leegyszerűsítődnek. Ez 
+sok időt szabadíthat majd fel a számukra és jelentősen felgyorsítaná a fejlesztési 
+folyamatot. A program megvalósítása után nem szükséges a módosításokat vagy új 
+funkciókat legyártani és szállítaniuk, elég, ha ezeket számítógépen megvalósítják
+és már ki is próbálhatják az új verziót. Ha kisebb módosításról van szó, a megrendelő
+is átírhatja a kívánt értékeket, ha egy nagyobbról, akkor azt mi fejlesztenénk le
+rendkívül rövid idő alatt.
