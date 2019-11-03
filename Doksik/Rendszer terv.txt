@@ -1,0 +1,12 @@
+1. Használt eszközök
+Programozási nyelv: Java
+Platform: Android
+Adatbázis: MySQL, Java Persistence API, SQLite
+
+2. A program részletes működése
+
+2.1. Menük
+
+2.2. Játékmódok
+
+2.3. Játékmenet
