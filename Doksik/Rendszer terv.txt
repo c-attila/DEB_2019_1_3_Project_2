@@ -1,12 +1,56 @@
 1. Használt eszközök
 Programozási nyelv: Java
 Platform: Android
+Megjelenítés: XML
 Adatbázis: MySQL, Java Persistence API, SQLite
 
 2. A program részletes működése
 
 2.1. Menük
+A játék főmenüjében navigálhatunk a játék egyes funckiói között. Egyik menüben 
+megnézhetjük a már elért eredményeinket, illetve a különböző ranglistákat. Egy 
+másik menüben kiválaszthatjuk, hogy milyen játékmódban szeretnénk játszani. Ezek 
+lehetnek a következők: pontra menő és időre menő játékmódok. Ezen kívül ugyan itt
+tudnák a játékosok kiválasztani az egyes változtatható paraméterek nagyságát.
+Például, hogy mekkora legyen a bábuk látómezeje, a tábla mérete, az időre menő 
+mód esetében a játékidő vagy a pontra menő esetében a pontkülönbség mértéke.
+Ezeket a Java és XML-ek segítségével fogjuk megvalósítani. A ranglistákat és 
+eredményeket megjelenítő menüben az adatokat egy adatbázisból fogjuk lekérni, 
+valamint a lokális SQLite adatbázist is segítségül fogjuk hívni.
+A játékmódot kiválasztó menüben a bekért paraméterek alapján fog a játék üzleti 
+logikája futni.
 
 2.2. Játékmódok
+A játék alapvetően két játékmódot tartalmaz. Az egyik a pontra menő, a másik 
+pedig időre menő játékmód. A pontra menő játékmód akkor ér véget, ha az egyik 
+játékosnak bizonyos mennyiséggel több pontja van az ellenfelénél. Ez lehet 
+bizonyos ponttal több, vagy valamennyivel többszöröse is. Az alapértelmezett érték 
+az ellenfél pontjának kétszerese. Az időre menő játékmód értelemszerűen akkor 
+ér véget, ha lejárt az idő. Mindkét mód esetében, ha elfogyik az összes 
+megvásárolható mező, akkor a legtöbb ponttal rendelkező játékos nyer.
+Gyakorlatban a játékmód kiválasztását úgy alkalmazzuk, hogy a kiválasztott 
+módnak megfelelően fut le a program üzleti logikája. A mezőkbe bekért értékeket 
+az üzleti logika átveszi és annak megfelelően használja fel, hogy a játékos 
+milyen játékmódot választott ki a menüben.
 
 2.3. Játékmenet
+A játékmódok kiválasztása után elkezdődik a tényleges játék. Ekkor leképeződik 
+az n-szer m-es tábla, aminek a paramétereit a játékosok választották ki. A 
+mezőkön lévő megvásárolható javak és azoknak értékei (áraik, körönkénti 
+profitjaik) random generálódnak le, így izgalmasabbá és változatosabbá téve a 
+játékot. Ezeket a mezőket egy 2 dimenziós array-ben tároljuk és egy Mező osztályt 
+használunk hozzá. Megjelenítéshez grid-eket fogunk használni.
+A Mező osztálya: tartalmazni fog egy string-et, ami a mező, megvásárolható tulajdon 
+neve, illetve két egész számot, ami a mező ára és körönkénti profitja. A táblán 
+megjelenhetnek "kérdőjel mezők", amik meglepetést tartogathatnak. Ha a játékos 
+rálép, meg kell vegye az ott kínált tulajdont, de kaphat valamiféle büntetést 
+is, ami negatív hatással lehet a játékosra.
+A Játékos osztálya: Két int-et tartalmaz, ami meghatározza, hogy hol található 
+a táblán, egy másikat ami tárolja a jelenlegi vagyonát, illetve egy olyat, ami 
+tárolja, hogy jelenleg mennyi körönkénti profitot kap. Az utóbbi kettő értéket 
+a tábla mellett jelenítjük meg text formában. Ezen kívül a játékos kap még egy 
+listát, amiben tároljuk, hogy melyik mezőket birtokolja.
+Egy mezőre rálépve, ha azt még nem birtokolja senki, a játékos választhat, hogy 
+megveszi-e azt a mezőt, vagy sem. Ha az ellenfél birtokolja, kötelezően ki kell 
+fizesse az arra a mezőre vonatkozó körönkénti profitot. Ha ezt nem tudja, 
+csődbe megy és az ellenfél nyert.
