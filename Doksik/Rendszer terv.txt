@@ -54,3 +54,11 @@ Egy mezőre rálépve, ha azt még nem birtokolja senki, a játékos választhat
 megveszi-e azt a mezőt, vagy sem. Ha az ellenfél birtokolja, kötelezően ki kell 
 fizesse az arra a mezőre vonatkozó körönkénti profitot. Ha ezt nem tudja, 
 csődbe megy és az ellenfél nyert.
+
+3. Adatbázis használata
+Az eredmények tárolására egy adatbázist használunk, amihez a remotemysql.com 
+szolgáltatását fogjuk igénybe venni. Továbbá az adatok tárolásához az OrmLite-ot 
+használjuk. Ezt az adatbázist használjuk arra, hogy a játékosok eredményeit 
+lementsük és arra is, hogy a ranglistát és más eredményeket megjelenítsünk. A 
+játszma végén mindig mentésre kerül a játékos ideje és pontszáma egy táblába és 
+megjelenítéskor ugyan ebből a táblából kérdezzük vissza.
