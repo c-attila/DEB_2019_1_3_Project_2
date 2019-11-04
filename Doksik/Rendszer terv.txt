@@ -74,11 +74,21 @@ lehet eljuttatni.
 Projekt terv
 Projektszerepkörök és felelősségek:
 Front-end fejlesztő: Felelőssége a játék vizuális megjelenítésének a fejlesztése
-Back-end fejlesztő: Felelőssége a játék funkcióinak, logikájának a fejleszétése.
-                    Az adatbázis kezelése.
+Back-end fejlesztő: Felelőssége a játék funkcióinak, logikájának a fejlesztése.
+Az adatbázis kezelése.
 
 Projektmunkások és felelősségeik:
 Mándrik Alex András: az üzleti logika fejlesztése, illetve a vizuális megjelenítés.
 Cornea Attila: az adatbázis kezelése, illetve az üzleti logika fejlesztése.
 Murvai András: az üzleti logika fejlesztése
 Kovács Attila: az üzleti logika fejlesztése
+
+Ütemterv:
+2019.11.10 - A dokumentáció és prototípus befejezése.
+2019.11.11 - A fejlesztés megkezdése. Grafikus felület kialakítása. Egyszerúbb 
+funkciók kifejlesztése.
+2019.11.18 - Az összetettebb funkciók fejlesztése.
+2019.12.02 - Tesztelés megkezdése, az esetleges hibák javítása.
+2019.12.08 - A projekt véglegesítésének céldátuma.
+
+
