@@ -62,3 +62,14 @@ használjuk. Ezt az adatbázist használjuk arra, hogy a játékosok eredményei
 lementsük és arra is, hogy a ranglistát és más eredményeket megjelenítsünk. A 
 játszma végén mindig mentésre kerül a játékos ideje és pontszáma egy táblába és 
 megjelenítéskor ugyan ebből a táblából kérdezzük vissza.
+
+A rendszer célja
+    A rendszer célja a vállalat partnereinek az igényeinek a felmérése illetve 
+gondolkodásmódjuk feltérképezése. Ebben segít ez a rendszer, ami nem mást mint 
+egy stratégiai játék. Ezzel a stratégiai játékkal szeretnénk felmérni az emberek 
+döntéshozó képersségét, illetve stratégiai technikáját, gondolkodásmódját. Az így
+megszerzett adatok segítségével a felhaszálókhoz a rájuk ható legjobb hírdetéséket
+lehet eljuttatni.
+
+Projekt terv
+Projektszerepkörök és felelősségek:
