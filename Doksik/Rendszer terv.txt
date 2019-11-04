@@ -91,4 +91,14 @@ funkciók kifejlesztése.
 2019.12.02 - Tesztelés megkezdése, az esetleges hibák javítása.
 2019.12.08 - A projekt véglegesítésének céldátuma.
 
+Mérföldkövek: 
+A dokumentáció véglegesítése.
+A prototípus elkészítése.
+A fejlesztés megkezdése.
+A grafikus felület kialakítása.
+Az egyszerűbb funkciók kifejlesztése.
+A bonyolultabb funkciól kifejlesztése.
+Tesztelés, illetve a felfedezett hibák kijavítása.
+A projekt véglegesítése.
+
 
