@@ -131,10 +131,15 @@ az egyenlegből.
     Rangsor felállítása - A rangsor felállítása a játék végére elért egyenleg alapján.
 
 Követelmények
-Funkcionális követelmények: 
-    
-
-Nemfunkcionális követelmények:
+Funkcionális és nemfunkcionális követelmények: 
+    A menüelemek a megfelelő oldalra irányítsanak.
+    Ha a játék a háttérbe kerül, akkor a játék állása kerüljön megntésre, hogy 
+amikor újból a játék kerül előtérbe, lehessen folytatni a játékot.
+    Tökéletes szinkronban kell lennie a játékosoknak.
+    A játékos számára csak azon funkciók legyenek elérhetőek, melyek a játék jelenlegi
+szakaszában elérhetőek.
+    Ha a játékosnak nincs nem elég az egyenlege a vásárláshoz, akkor ne tudjon 
+vásárolni.
     Több játékmódnak kell lennie, hogy mindenki megtalálja a neki megfelelőt. Illetve 
 egy egyedi játékmód beállítás is legyen, ha valaki szeretne saját beállításokkal 
 játszani.
