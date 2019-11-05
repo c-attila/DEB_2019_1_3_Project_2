@@ -132,6 +132,9 @@ az egyenlegből.
 
 Követelmények
 Funkcionális követelmények: 
+    
+
+Nemfunkcionális követelmények:
     Több játékmódnak kell lennie, hogy mindenki megtalálja a neki megfelelőt. Illetve 
 egy egyedi játékmód beállítás is legyen, ha valaki szeretne saját beállításokkal 
 játszani.
@@ -147,7 +150,7 @@ rögtön levonásra kell kerüljön a vásárlás költsége.
     A játék végének meghatározása igazságos kell legyen. Meg kell találni az igazságos
 nyerési szabályt. Pl. akkor nyer valaki, ha az ellenfelénél x-szer nagyobb egyenlege 
 van. Vagy akkor nyer, ha lejárt az idő.
-
+    A ranglista felállítása játékmódonként kell történjek, hogy igazságos legyen.
 
 
 
