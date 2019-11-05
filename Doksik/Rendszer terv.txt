@@ -121,5 +121,24 @@ az egyenlegből.
     A játék végének a megállapítása - A játék végének meghatározása játékmódtól függően.
     Rangsor felállítása - A rangsor felállítása a játék végére elért egyenleg alapján.
 
+Követelmények
+Funkcionális követelmények: 
+    Több játékmódnak kell lennie, hogy mindenki megtalálja a neki megfelelőt. Illetve 
+egy egyedi játékmód beállítás is legyen, ha valaki szeretne saját beállításokkal 
+játszani.
+    A lépések számának meghatározása a pálya méretéhez képest reális kell legyen.
+    A lépés funkciónál a visszalépés lehetősége beállítható legyen. Pl. csak az
+előzőre ne lehessen visszalépni, vagy egyik bejárt mezőre se lehessen lépni.
+    A vásárlás lehetősége eldönthető kell legyen. Illetve ha a játékos olyan mezőre
+lép, amely valamilyen büntetést, negatív dolgot takar, akkor automatikus végrehajtás
+kell érvénybe lépjen.
+    Az egyenleg újraszámolás pontos kell legyen. Minden játékos egyenlege az aktuális
+profitjával kell növekedjen minden kör elején. Illetve vásárláskor az egyenlegből
+rögtön levonásra kell kerüljön a vásárlás költsége.
+    A játék végének meghatározása igazságos kell legyen. Meg kell találni az igazságos
+nyerési szabályt. Pl. akkor nyer valaki, ha az ellenfelénél x-szer nagyobb egyenlege 
+van. Vagy akkor nyer, ha lejárt az idő.
+
+
 
 
