@@ -64,18 +64,18 @@ játszma végén mindig mentésre kerül a játékos ideje és pontszáma egy t�
 megjelenítéskor ugyan ebből a táblából kérdezzük vissza.
 
 A rendszer célja
-    A rendszer célja a vállalat partnereinek az igényeinek a felmérése illetve 
+A rendszer célja a vállalat partnereinek az igényeinek a felmérése illetve 
 gondolkodásmódjuk feltérképezése. Ebben segít ez a rendszer, ami nem mást mint 
 egy stratégiai játék. Ezzel a stratégiai játékkal szeretnénk felmérni az emberek 
-döntéshozó képersségét, illetve stratégiai technikáját, gondolkodásmódját. Az így
+döntéshozó képességét, illetve stratégiai technikáját, gondolkodásmódját. Az így
 megszerzett adatok segítségével a felhaszálókhoz a rájuk ható legjobb hírdetéséket
 lehet eljuttatni.
 
 Projekt terv
 Projektszerepkörök és felelősségek:
 Front-end fejlesztő: Felelőssége a játék vizuális megjelenítésének a fejlesztése
-Back-end fejlesztő: Felelőssége a játék funkcióinak, logikájának a fejlesztése.
-Az adatbázis kezelése.
+Back-end fejlesztő: Felelőssége a játék funkcióinak, logikájának a fejlesztése,
+az adatbázis kezelése.
 
 Projektmunkások és felelősségeik:
 Mándrik Alex András: az üzleti logika fejlesztése, illetve a vizuális megjelenítés.
@@ -97,8 +97,29 @@ A prototípus elkészítése.
 A fejlesztés megkezdése.
 A grafikus felület kialakítása.
 Az egyszerűbb funkciók kifejlesztése.
-A bonyolultabb funkciól kifejlesztése.
+A bonyolultabb funkciók kifejlesztése.
 Tesztelés, illetve a felfedezett hibák kijavítása.
 A projekt véglegesítése.
+
+Üzleti folyamatok modellje
+Üzleti szereplők: játékosok.
+
+Üzleti folyamatok:
+    Játékmód beállítása, kiválasztása - Több játékmód áll rendelkezésre, hogy mindenki
+megtalálja a számára megfelelőt. Ezek a játékmódok különböző hosszúságúak és nehézségűek.
+Egyedi játékmód is beállítható.
+    Lépésszám meghatározása - A lépések számának meghatározása valamilyen módszerrel 
+(pl. dobókockával).
+    Lépés - Lépésszámnyi lépés megtétele a mezőkön.
+    Mező megvásárlása vagy hanyagolása - Annak eldöntése, hogy a játékos meg akarja-e
+vásárolni a mezőt, vagy sem.
+    Egyenleg újraszámolása körönként - Minden kör elején az egyenleg újraszámolásra
+kerül, ugyanis minden játékosnak van egy körönkénti profitja, ami minden körben
+hozzá kell adódjon az egyenleghez.
+    Egyenleg újraszámolása vásárláskor - Vásárláskor a vásárlás költségét ki kell vonni 
+az egyenlegből.
+    A játék végének a megállapítása - A játék végének meghatározása játékmódtól függően.
+    Rangsor felállítása - A rangsor felállítása a játék végére elért egyenleg alapján.
+
 
 
