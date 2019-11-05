@@ -1,13 +1,27 @@
-1. Használt eszközök
+1. A rendszer
+    A program egy olyan stratégiai játék, amelynek segítségével a megrendelő fel 
+tudja mérni a partnereinek döntéshozatali és stratégiai készségeit.
+
+2. A rendszer célja
+    A rendszer célja a vállalat partnereinek az igényeinek a felmérése illetve 
+gondolkodásmódjuk feltérképezése. Ebben segít ez a rendszer, ami nem mást mint 
+egy stratégiai játék. Ezzel a stratégiai játékkal szeretnénk felmérni az emberek 
+döntéshozó képersségét, illetve stratégiai technikáját, gondolkodásmódját. Az így
+megszerzett adatok segítségével a felhaszálókhoz a rájuk ható legjobb hírdetéséket
+lehet eljuttatni.
+
+3. Hogyan: a rendszer terve
+
+3.1. Használt eszközök
 Programozási nyelv: Java
 Platform: Android
 Megjelenítés: XML
 Adatbázis: MySQL, Java Persistence API, SQLite
 
-2. A program részletes működése
+3.2. A program részletes működése
 
-2.1. Menük
-A játék főmenüjében navigálhatunk a játék egyes funckiói között. Egyik menüben 
+3.2.1. Menük
+    A játék főmenüjében navigálhatunk a játék egyes funckiói között. Egyik menüben 
 megnézhetjük a már elért eredményeinket, illetve a különböző ranglistákat. Egy 
 másik menüben kiválaszthatjuk, hogy milyen játékmódban szeretnénk játszani. Ezek 
 lehetnek a következők: pontra menő és időre menő játékmódok. Ezen kívül ugyan itt
@@ -20,8 +34,8 @@ valamint a lokális SQLite adatbázist is segítségül fogjuk hívni.
 A játékmódot kiválasztó menüben a bekért paraméterek alapján fog a játék üzleti 
 logikája futni.
 
-2.2. Játékmódok
-A játék alapvetően két játékmódot tartalmaz. Az egyik a pontra menő, a másik 
+3.2.2. Játékmódok
+    A játék alapvetően két játékmódot tartalmaz. Az egyik a pontra menő, a másik 
 pedig időre menő játékmód. A pontra menő játékmód akkor ér véget, ha az egyik 
 játékosnak bizonyos mennyiséggel több pontja van az ellenfelénél. Ez lehet 
 bizonyos ponttal több, vagy valamennyivel többszöröse is. Az alapértelmezett érték 
@@ -33,8 +47,8 @@ módnak megfelelően fut le a program üzleti logikája. A mezőkbe bekért ért
 az üzleti logika átveszi és annak megfelelően használja fel, hogy a játékos 
 milyen játékmódot választott ki a menüben.
 
-2.3. Játékmenet
-A játékmódok kiválasztása után elkezdődik a tényleges játék. Ekkor leképeződik 
+3.2.3. Játékmenet
+    A játékmódok kiválasztása után elkezdődik a tényleges játék. Ekkor leképeződik 
 az n-szer m-es tábla, aminek a paramétereit a játékosok választották ki. A 
 mezőkön lévő megvásárolható javak és azoknak értékei (áraik, körönkénti 
 profitjaik) random generálódnak le, így izgalmasabbá és változatosabbá téve a 
@@ -55,23 +69,15 @@ megveszi-e azt a mezőt, vagy sem. Ha az ellenfél birtokolja, kötelezően ki k
 fizesse az arra a mezőre vonatkozó körönkénti profitot. Ha ezt nem tudja, 
 csődbe megy és az ellenfél nyert.
 
-3. Adatbázis használata
-Az eredmények tárolására egy adatbázist használunk, amihez a remotemysql.com 
+3.3. Adatbázis használata
+    Az eredmények tárolására egy adatbázist használunk, amihez a remotemysql.com 
 szolgáltatását fogjuk igénybe venni. Továbbá az adatok tárolásához az OrmLite-ot 
 használjuk. Ezt az adatbázist használjuk arra, hogy a játékosok eredményeit 
 lementsük és arra is, hogy a ranglistát és más eredményeket megjelenítsünk. A 
 játszma végén mindig mentésre kerül a játékos ideje és pontszáma egy táblába és 
 megjelenítéskor ugyan ebből a táblából kérdezzük vissza.
 
-A rendszer célja
-    A rendszer célja a vállalat partnereinek az igényeinek a felmérése illetve 
-gondolkodásmódjuk feltérképezése. Ebben segít ez a rendszer, ami nem mást mint 
-egy stratégiai játék. Ezzel a stratégiai játékkal szeretnénk felmérni az emberek 
-döntéshozó képersségét, illetve stratégiai technikáját, gondolkodásmódját. Az így
-megszerzett adatok segítségével a felhaszálókhoz a rájuk ható legjobb hírdetéséket
-lehet eljuttatni.
-
-Projekt terv
+3.4. Projekt terv
 Projektszerepkörök és felelősségek:
 Front-end fejlesztő: Felelőssége a játék vizuális megjelenítésének a fejlesztése
 Back-end fejlesztő: Felelőssége a játék funkcióinak, logikájának a fejlesztése.
@@ -83,7 +89,7 @@ Cornea Attila: az adatbázis kezelése, illetve az üzleti logika fejlesztése.
 Murvai András: az üzleti logika fejlesztése
 Kovács Attila: az üzleti logika fejlesztése
 
-Ütemterv:
+4. Ütemterv:
 2019.11.10 - A dokumentáció és prototípus befejezése.
 2019.11.11 - A fejlesztés megkezdése. Grafikus felület kialakítása. Egyszerúbb 
 funkciók kifejlesztése.
@@ -101,4 +107,7 @@ A bonyolultabb funkciól kifejlesztése.
 Tesztelés, illetve a felfedezett hibák kijavítása.
 A projekt véglegesítése.
 
-
+5. Erőforrások
+    A projektre olyan erőforrásokat fogunk alokálni, amiket a megrendelőtől 
+kapunk a program elkészítése céljából előlegként, illetve amiket a cégünk külön 
+erre a célra tart fenn.
