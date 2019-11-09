@@ -6,5 +6,5 @@
     <color name="title_text_color">#000000</color>
     <color name="background_color">#929292</color>
     <color name="table_cell_background_color">#D1D1D1</color>
-    <color name="player_cell_background_color">#FF0000</color>
+    <color name="player_cell_background_color">#1AFF00</color>
 </resources>
