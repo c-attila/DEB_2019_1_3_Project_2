@@ -18,6 +18,7 @@ class GameFragment : Fragment(){
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         binding = DataBindingUtil.inflate(inflater, R.layout.game_fragment,container,false)
 
         return binding.root
