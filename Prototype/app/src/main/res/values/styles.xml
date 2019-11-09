@@ -31,12 +31,22 @@
         <item name="android:textSize">25sp</item>
     </style>
 
-    <style name="table_cell_text">
+    <style name="table_cell_style">
         <item name="android:textAlignment">center</item>
         <item name="android:layout_height">@dimen/cell_size</item>
         <item name="android:layout_width">@dimen/cell_size</item>
         <item name="android:background">@color/table_cell_background_color</item>
         <item name="android:layout_margin">2dp</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="player_cell_style">
+        <item name="android:textAlignment">center</item>
+        <item name="android:layout_height">@dimen/cell_size</item>
+        <item name="android:layout_width">@dimen/cell_size</item>
+        <item name="android:background">@color/player_cell_background_color</item>
+        <item name="android:layout_margin">2dp</item>
+        <item name="android:textSize">12sp</item>
     </style>
 
 </resources>
