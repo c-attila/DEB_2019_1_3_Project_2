@@ -13,8 +13,8 @@
         <TextView
             android:id="@+id/play_text"
             style="@style/title_text"
-            android:layout_marginTop="50dp"
-            android:layout_marginBottom="50dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginBottom="10dp"
             android:text="@string/play_title_text"
             app:layout_constraintBottom_toTopOf="@+id/scrollView2"
             app:layout_constraintEnd_toEndOf="parent"
@@ -24,7 +24,7 @@
         <ScrollView
             android:id="@+id/scrollView2"
             android:layout_width="wrap_content"
-            android:layout_height="500dp"
+            android:layout_height="200dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
