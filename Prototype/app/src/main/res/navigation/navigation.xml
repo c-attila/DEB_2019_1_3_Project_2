@@ -8,5 +8,14 @@
         android:id="@+id/title_destination"
         android:name="hu.mndalex.prototype.screens.title.TitleFragment"
         android:label="title_fragment"
-        tools:layout="@layout/title_fragment"/>
+        tools:layout="@layout/title_fragment">
+        <action
+            android:id="@+id/action_title_destination_to_play_destination"
+            app:destination="@id/play_destination" />
+    </fragment>
+    <fragment
+        android:id="@+id/play_destination"
+        android:name="hu.mndalex.prototype.screens.play.PlayFragment"
+        android:label="play_fragment"
+        tools:layout="@layout/play_fragment" />
 </navigation>

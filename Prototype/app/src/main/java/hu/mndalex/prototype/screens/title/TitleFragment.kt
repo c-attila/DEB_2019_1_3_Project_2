@@ -12,15 +12,17 @@ import hu.mndalex.prototype.databinding.TitleFragmentBinding
 
 class TitleFragment : Fragment(){
 
+    lateinit var binding: TitleFragmentBinding
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
         // Inflate the layout for this fragment
-        val binding: TitleFragmentBinding = DataBindingUtil.inflate(
+        binding = DataBindingUtil.inflate(
             inflater, R.layout.title_fragment, container, false)
 
-//        binding.playGameButton.setOnClickListener {
-//            findNavController().navigate(TitleFragmentDirections.actionTitleToGame())
-//        }
+        binding.button.setOnClickListener {
+            findNavController().navigate(TitleFragmentDirections.actionTitleDestinationToPlayDestination())
+        }
         return binding.root
     }
 
