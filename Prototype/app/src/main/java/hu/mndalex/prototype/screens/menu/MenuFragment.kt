@@ -1,4 +1,4 @@
-package hu.mndalex.prototype.screens.title
+package hu.mndalex.prototype.screens.menu
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,20 +8,20 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import hu.mndalex.prototype.R
-import hu.mndalex.prototype.databinding.TitleFragmentBinding
+import hu.mndalex.prototype.databinding.MenuFragmentBinding
 
-class TitleFragment : Fragment(){
+class MenuFragment : Fragment(){
 
-    lateinit var binding: TitleFragmentBinding
+    lateinit var binding: MenuFragmentBinding
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(
-            inflater, R.layout.title_fragment, container, false)
+            inflater, R.layout.menu_fragment, container, false)
 
-        binding.button.setOnClickListener {
-            findNavController().navigate(TitleFragmentDirections.actionTitleDestinationToPlayDestination())
+        binding.menuButton1.setOnClickListener {
+            findNavController().navigate(MenuFragmentDirections.actionTitleDestinationToPlayDestination())
         }
         return binding.root
     }
