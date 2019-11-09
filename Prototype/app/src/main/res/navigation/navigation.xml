@@ -17,5 +17,14 @@
         android:id="@+id/play_destination"
         android:name="hu.mndalex.prototype.screens.play.PlayFragment"
         android:label="play_fragment"
-        tools:layout="@layout/play_fragment" />
+        tools:layout="@layout/play_fragment" >
+        <action
+            android:id="@+id/action_play_destination_to_game_destination"
+            app:destination="@id/game_destination" />
+    </fragment>
+    <fragment
+        android:id="@+id/game_destination"
+        android:name="hu.mndalex.prototype.screens.game.GameFragment"
+        android:label="game_fragment"
+        tools:layout="@layout/game_fragment" />
 </navigation>
