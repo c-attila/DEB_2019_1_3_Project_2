@@ -207,3 +207,18 @@ ingatlanokat vásárolni, jobban gazdálkodni az adott összeggel.
 előtt. Itt különböző opciókat kínál az alkalmazás, mint a Játék és a Beállítások. 
 
     - Képernyőtervek: Megtekinthető a Github repóban. 
+    
+10. Fizikai környezet
+
+    - A felhasználók környezete: Úgy fejlesztjük az applikációt, hogy a felhasználó 
+    Androidot használó mobiltelefonon használhatja az alkalmazást. 
+    
+    Az alkalmazást a felhasználó tölti le az internetről. 
+    
+    - Fejlesztői környezet: Az alkalmazás, mivel Androidra lesz fejlesztve, ezért 
+Kotlin nyelven lesz megírva, mivel a modern követelmények így kívánják.
+
+    A projekt fájljainak tárolásához és verziókezeléséhez Githubot használunk(a 
+    repónk: https://github.com/mndalex/DEB_2019_1_3_Project_2). 
+    A lefejlesztéshez Android Studiot használunk. 
+    Az adatok helyileg tárolódnak el 
