@@ -177,3 +177,33 @@ meg, ezért ez nem jelent gondot. Onnantól kezdve az áruházból egyetlen katt
 lehet letölteni az alkalmazás, és magától telepítődik is. Követelmény szempontjából 
 a minimum az Androis 4.4-es verziója, ennél magasabb verziószámok esetén is gond 
 nélkül futtatható az alkalmazás. 
+
+9. Funkcionális terv
+
+    - Rendszerszereplők: Az applikáció, ami egy játék az internetről lesz letölthető, 
+tehát elsősorban az ilyen stratégiai játék szeretők a célközönség. 
+    
+    - Rendszerhasználati esetek és lefutásaik: Ha megnyitjuk az alkalmazást akkor a 
+kezdőképernyő fogadja a felhasználót. Innentől kezdve választhatunk a különbötő 
+menüpontok közül, amik a Játék és a Beállítások. Később különböző játékmódok közül 
+tudunk majd választani. Ha kiválasztnuk egy manüpontot, akkor az alkalmazás arra a 
+fragmensre vált. 
+
+    Ha a Játék gombra kattintunk, akkor tudjuk a játékmódokat kiválasztani. Ezekből
+lesznek előre beépített játékmódok is, és lehet majd sajátot is beállítani. Ha 
+kiválasztjuk valamelyiket, akkor indul a játék. 
+    A Beállítások gombra kattintva különbőző, az ilyen telefonos játékoknál megszokott
+beállításokat módosíthatjuk kedvünkre. 
+
+    A játék lényege az abban áll, hogy a karakterünkkel különböző mezőkre léphetünk, 
+amik egy név-ár szövegpárral rendelkeznek. Ilyenkor ekkor eldönthetjük, hogy 
+megvesszük-e az mező tartalmát(pl. benzinkút, étterem stb.). 
+    Egy bizonyos összeggel indítunk, és ha ez elfogy, akkor veszítünk. 
+    A különböző "ingatlanok" profitot is termelnek a játékban, körönként kiosztva 
+ezzel az összeget a tulajdonosának. A játék logikája ezáltal ebben rejlik: jobb
+ingatlanokat vásárolni, jobban gazdálkodni az adott összeggel. 
+
+    - Menü hierarchiák: Az applikáció indításakor a főmenü jelenik meg a felhasználó
+előtt. Itt különböző opciókat kínál az alkalmazás, mint a Játék és a Beállítások. 
+
+    - Képernyőtervek: Megtekinthető a Github repóban. 
