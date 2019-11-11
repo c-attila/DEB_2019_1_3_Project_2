@@ -168,3 +168,12 @@ szükségesek.
 7.3. Fizikai adatmodellt legeneráló SQL szkript
     A fizikai adatmodellt egy pár soros SQL szkripttel fogjuk legenerálni egy 
 remotemysql.com-os adatbázisra. Erre remélhetőleg csak egyszer lesz szükség.
+
+8. Telepítési terv
+
+    A program esetében a letöltés a Google Playről lesz megoldható. Mivel az egyik 
+csapattagunknak van Google Developer Accountja, amit néhány évvel ezelőtt vásárolt 
+meg, ezért ez nem jelent gondot. Onnantól kezdve az áruházból egyetlen kattintással 
+lehet letölteni az alkalmazás, és magától telepítődik is. Követelmény szempontjából 
+a minimum az Androis 4.4-es verziója, ennél magasabb verziószámok esetén is gond 
+nélkül futtatható az alkalmazás. 
