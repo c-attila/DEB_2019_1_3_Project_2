@@ -1,13 +1,11 @@
 package hu.mndalex.prototype.screens.game
 
 import android.os.Bundle
-import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TableRow
 import android.widget.TextView
-import androidx.core.view.children
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import hu.mndalex.prototype.R
@@ -28,6 +26,8 @@ class GameMode1Fragment : Fragment() {
     private val cellTextList =
         listOf("Hotel", "Gas Station", "Restaurant", "Shop", "Casino", "Bakery")
 
+    private var playerPosX: Int = 0
+    private var playerPosY: Int = 0
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -37,11 +37,56 @@ class GameMode1Fragment : Fragment() {
 
         binding = DataBindingUtil.inflate(inflater, R.layout.game_mode_1_fragment, container, false)
 
-//        generateCells()
         setStartPos()
+
+        binding.buttonRight.setOnClickListener({ movePlayerHorizontally(1) })
+        binding.buttonLeft.setOnClickListener({ movePlayerHorizontally(-1) })
+        binding.buttonUp.setOnClickListener({ movePlayerVertically(-1) })
+        binding.buttonDown.setOnClickListener({ movePlayerVertically(1) })
 
         return binding.root
     }
+
+    private fun movePlayerHorizontally(x: Int) {
+        if ((x == 1 && playerPosX < TABLE_WIDTH - 1) || (x == -1 && playerPosX > 0)) {
+            setCellBackgroundColor(
+                playerPosX,
+                playerPosY,
+                resources.getColor(R.color.table_cell_background_color)
+            )
+
+            playerPosX += x
+
+            setCellBackgroundColor(
+                playerPosX,
+                playerPosY,
+                resources.getColor(R.color.player_cell_background_color)
+            )
+
+            generateCells(playerPosX, playerPosY)
+        }
+    }
+
+    private fun movePlayerVertically(y: Int) {
+        if ((y == 1 && playerPosY < TABLE_HEIGHT - 1) || (y == -1 && playerPosY > 0)) {
+            setCellBackgroundColor(
+                playerPosX,
+                playerPosY,
+                resources.getColor(R.color.table_cell_background_color)
+            )
+
+            playerPosY += y
+
+            setCellBackgroundColor(
+                playerPosX,
+                playerPosY,
+                resources.getColor(R.color.player_cell_background_color)
+            )
+
+            generateCells(playerPosX, playerPosY)
+        }
+    }
+
 
     private fun generateCells(posX: Int, posY: Int) {
 
@@ -76,15 +121,21 @@ class GameMode1Fragment : Fragment() {
 
     private fun setStartPos() {
 
-        val posX = (0 until TABLE_WIDTH).random()
-        val posY = (0 until TABLE_HEIGHT).random()
+        playerPosX = (0 until TABLE_WIDTH).random()
+        playerPosY = (0 until TABLE_HEIGHT).random()
 
-        val row = binding.tableLayout.getChildAt(posY) as TableRow
-        val cell = row.getChildAt(posX) as TextView
+        val row = binding.tableLayout.getChildAt(playerPosY) as TableRow
+        val cell = row.getChildAt(playerPosX) as TextView
         cell.text = START_CELL_TEXT
         cell.setBackgroundColor(resources.getColor(R.color.player_cell_background_color))
 
-        generateCells(posX, posY)
+        generateCells(playerPosX, playerPosY)
+    }
+
+    private fun setCellBackgroundColor(x: Int, y: Int, color: Int) {
+        val row = binding.tableLayout.getChildAt(y) as TableRow
+        val cell = row.getChildAt(x) as TextView
+        cell.setBackgroundColor(color)
     }
 
 
