@@ -37,7 +37,8 @@
         <item name="android:layout_width">@dimen/cell_size</item>
         <item name="android:background">@color/table_cell_background_color</item>
         <item name="android:layout_margin">2dp</item>
-        <item name="android:textSize">12sp</item>
+        <item name="android:textSize">@dimen/cell_text_size</item>
+<!--        <item name="android:gravity">center</item>-->
     </style>
 
     <style name="player_cell_style">
@@ -46,7 +47,7 @@
         <item name="android:layout_width">@dimen/cell_size</item>
         <item name="android:background">@color/player_cell_background_color</item>
         <item name="android:layout_margin">2dp</item>
-        <item name="android:textSize">12sp</item>
+        <item name="android:textSize">@dimen/cell_text_size</item>
     </style>
 
 </resources>
