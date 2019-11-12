@@ -49,18 +49,15 @@
 
                 <TextView
                     android:id="@+id/cell_text"
-                    style="@style/table_cell_style"
-                    android:text="Start" />
+                    style="@style/table_cell_style" />
 
                 <TextView
                     android:id="@+id/cell_text1"
-                    style="@style/table_cell_style"
-                    android:text="Kocsma\n100 \n+10" />
+                    style="@style/table_cell_style" />
 
                 <TextView
                     android:id="@+id/cell_text2"
-                    style="@style/table_cell_style"
-                    android:text="Hotel\n500\n+50" />
+                    style="@style/table_cell_style" />
 
                 <TextView
                     android:id="@+id/cell_text3"
@@ -89,13 +86,11 @@
 
                 <TextView
                     android:id="@+id/cell_text7"
-                    style="@style/table_cell_style"
-                    android:text="Benzinkút\n150\n+20" />
+                    style="@style/table_cell_style" />
 
                 <TextView
                     android:id="@+id/cell_text8"
-                    style="@style/table_cell_style"
-                    android:text="Parkoló\n110\n+20" />
+                    style="@style/table_cell_style" />
 
                 <TextView
                     android:id="@+id/cell_text9"
@@ -129,8 +124,7 @@
 
                 <TextView
                     android:id="@+id/cell_text14"
-                    style="@style/table_cell_style"
-                    android:text="Pizzéria\n165\n+10" />
+                    style="@style/table_cell_style" />
 
                 <TextView
                     android:id="@+id/cell_text15"
