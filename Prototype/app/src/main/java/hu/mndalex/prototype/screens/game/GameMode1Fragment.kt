@@ -1,5 +1,6 @@
 package hu.mndalex.prototype.screens.game
 
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,6 +9,7 @@ import android.widget.TableRow
 import android.widget.TextView
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import hu.mndalex.prototype.Player
 import hu.mndalex.prototype.R
 import hu.mndalex.prototype.databinding.GameMode1FragmentBinding
 
@@ -26,8 +28,9 @@ class GameMode1Fragment : Fragment() {
     private val cellTextList =
         listOf("Hotel", "Gas Station", "Restaurant", "Shop", "Casino", "Bakery")
 
-    private var playerPosX: Int = 0
-    private var playerPosY: Int = 0
+    private var actualPlayerId = 0
+
+    private var listOfPlayers = mutableListOf<Player>()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -37,7 +40,10 @@ class GameMode1Fragment : Fragment() {
 
         binding = DataBindingUtil.inflate(inflater, R.layout.game_mode_1_fragment, container, false)
 
-        setStartPos()
+        setPlayer(0, Color.CYAN)
+        setPlayer(1, Color.GREEN)
+
+        binding.moneyTextView.setBackgroundColor(listOfPlayers[actualPlayerId].color)
 
         binding.buttonRight.setOnClickListener({ movePlayerHorizontally(1) })
         binding.buttonLeft.setOnClickListener({ movePlayerHorizontally(-1) })
@@ -48,45 +54,68 @@ class GameMode1Fragment : Fragment() {
     }
 
     private fun movePlayerHorizontally(x: Int) {
-        if ((x == 1 && playerPosX < TABLE_WIDTH - 1) || (x == -1 && playerPosX > 0)) {
+        var actualPlayerPosX = listOfPlayers[actualPlayerId].posX
+        var actualPlayerPosY = listOfPlayers[actualPlayerId].posY
+
+        if ((x == 1 && actualPlayerPosX < TABLE_WIDTH - 1) || (x == -1 && actualPlayerPosX > 0)) {
             setCellBackgroundColor(
-                playerPosX,
-                playerPosY,
+                actualPlayerPosX,
+                actualPlayerPosY,
                 resources.getColor(R.color.table_cell_background_color)
             )
 
-            playerPosX += x
+            actualPlayerPosX += x
 
             setCellBackgroundColor(
-                playerPosX,
-                playerPosY,
-                resources.getColor(R.color.player_cell_background_color)
+                actualPlayerPosX,
+                actualPlayerPosY,
+                listOfPlayers[actualPlayerId].color
             )
 
-            generateCells(playerPosX, playerPosY)
+            generateCells(actualPlayerPosX, actualPlayerPosY)
+
+            listOfPlayers[actualPlayerId].posX = actualPlayerPosX
+            listOfPlayers[actualPlayerId].posY = actualPlayerPosY
+
+            actualPlayerId += 1;
+            if (actualPlayerId > listOfPlayers.size - 1)
+                actualPlayerId = 0
+
+            binding.moneyTextView.setBackgroundColor(listOfPlayers[actualPlayerId].color)
         }
     }
 
     private fun movePlayerVertically(y: Int) {
-        if ((y == 1 && playerPosY < TABLE_HEIGHT - 1) || (y == -1 && playerPosY > 0)) {
+        var actualPlayerPosX = listOfPlayers[actualPlayerId].posX
+        var actualPlayerPosY = listOfPlayers[actualPlayerId].posY
+
+        if ((y == 1 && actualPlayerPosY < TABLE_HEIGHT - 1) || (y == -1 && actualPlayerPosY > 0)) {
             setCellBackgroundColor(
-                playerPosX,
-                playerPosY,
+                actualPlayerPosX,
+                actualPlayerPosY,
                 resources.getColor(R.color.table_cell_background_color)
             )
 
-            playerPosY += y
+            actualPlayerPosY += y
 
             setCellBackgroundColor(
-                playerPosX,
-                playerPosY,
-                resources.getColor(R.color.player_cell_background_color)
+                actualPlayerPosX,
+                actualPlayerPosY,
+                listOfPlayers[actualPlayerId].color
             )
 
-            generateCells(playerPosX, playerPosY)
+            generateCells(actualPlayerPosX, actualPlayerPosY)
+
+            listOfPlayers[actualPlayerId].posX = actualPlayerPosX
+            listOfPlayers[actualPlayerId].posY = actualPlayerPosY
+
+            actualPlayerId += 1;
+            if (actualPlayerId > listOfPlayers.size - 1)
+                actualPlayerId = 0
+
+            binding.moneyTextView.setBackgroundColor(listOfPlayers[actualPlayerId].color)
         }
     }
-
 
     private fun generateCells(posX: Int, posY: Int) {
 
@@ -119,17 +148,19 @@ class GameMode1Fragment : Fragment() {
 
     }
 
-    private fun setStartPos() {
+    private fun setPlayer(playerId: Int, color: Int) {
 
-        playerPosX = (0 until TABLE_WIDTH).random()
-        playerPosY = (0 until TABLE_HEIGHT).random()
+        val actualPlayerPosX = (0 until TABLE_WIDTH).random()
+        val actualPlayerPosY = (0 until TABLE_HEIGHT).random()
 
-        val row = binding.tableLayout.getChildAt(playerPosY) as TableRow
-        val cell = row.getChildAt(playerPosX) as TextView
-        cell.text = START_CELL_TEXT
-        cell.setBackgroundColor(resources.getColor(R.color.player_cell_background_color))
+        listOfPlayers.add(Player(playerId, actualPlayerPosX, actualPlayerPosY, color))
 
-        generateCells(playerPosX, playerPosY)
+        val row = binding.tableLayout.getChildAt(actualPlayerPosY) as TableRow
+        val cell = row.getChildAt(actualPlayerPosX) as TextView
+        cell.text = cellTextList.shuffled().take(1)[0]
+        cell.setBackgroundColor(color)
+
+        generateCells(actualPlayerPosX, actualPlayerPosY)
     }
 
     private fun setCellBackgroundColor(x: Int, y: Int, color: Int) {
