@@ -9,6 +9,7 @@ import android.widget.TableRow
 import android.widget.TextView
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import hu.mndalex.prototype.Building
 import hu.mndalex.prototype.Player
 import hu.mndalex.prototype.R
 import hu.mndalex.prototype.databinding.GameMode1FragmentBinding
@@ -20,13 +21,12 @@ class GameMode1Fragment : Fragment() {
     private val TABLE_WIDTH = 7
     private val TABLE_HEIGHT = 8
 
-    private val INVISIBLE_CELL_TEXT_SIZE = 0F
-    private val VISIBLE_CELL_TEXT_SIZE = 12F
-
-    private val START_CELL_TEXT = "Start"
-
-    private val cellTextList =
-        listOf("Hotel", "Gas Station", "Restaurant", "Shop", "Casino", "Bakery")
+    private val listOfBuildings =
+        listOf(Building("Hotel",1000,300),
+            Building("Gas Station",300,60),
+            Building("Restaurant",700,200),
+            Building("Bakery",100,10),
+            Building("Shop",300,100))
 
     private var actualPlayerId = 0
 
@@ -40,8 +40,9 @@ class GameMode1Fragment : Fragment() {
 
         binding = DataBindingUtil.inflate(inflater, R.layout.game_mode_1_fragment, container, false)
 
-        setPlayer(0, Color.CYAN)
-        setPlayer(1, Color.GREEN)
+        setPlayer(Color.CYAN)
+        setPlayer(Color.GREEN)
+//        setPlayer(Color.RED)
 
         binding.moneyTextView.setBackgroundColor(listOfPlayers[actualPlayerId].color)
 
@@ -124,40 +125,40 @@ class GameMode1Fragment : Fragment() {
         if (posX < TABLE_WIDTH - 1) {
             cell = row.getChildAt(posX + 1) as TextView
             if (cell.text.isEmpty())
-                cell.text = cellTextList.shuffled().take(1)[0]
+                cell.text = listOfBuildings.shuffled().take(1)[0].toString()
         }
         if (posX > 0) {
             cell = row.getChildAt(posX - 1) as TextView
             if (cell.text.isEmpty())
-                cell.text = cellTextList.shuffled().take(1)[0]
+                cell.text = listOfBuildings.shuffled().take(1)[0].toString()
         }
 
         if (posY > 0) {
             row = binding.tableLayout.getChildAt(posY - 1) as TableRow
             cell = row.getChildAt(posX) as TextView
             if (cell.text.isEmpty())
-                cell.text = cellTextList.shuffled().take(1)[0]
+                cell.text = listOfBuildings.shuffled().take(1)[0].toString()
         }
 
         if (posY < TABLE_HEIGHT - 1) {
             row = binding.tableLayout.getChildAt(posY + 1) as TableRow
             cell = row.getChildAt(posX) as TextView
             if (cell.text.isEmpty())
-                cell.text = cellTextList.shuffled().take(1)[0]
+                cell.text = listOfBuildings.shuffled().take(1)[0].toString()
         }
 
     }
 
-    private fun setPlayer(playerId: Int, color: Int) {
+    private fun setPlayer(color: Int) {
 
         val actualPlayerPosX = (0 until TABLE_WIDTH).random()
         val actualPlayerPosY = (0 until TABLE_HEIGHT).random()
 
-        listOfPlayers.add(Player(playerId, actualPlayerPosX, actualPlayerPosY, color))
+        listOfPlayers.add(Player(actualPlayerPosX, actualPlayerPosY, color))
 
         val row = binding.tableLayout.getChildAt(actualPlayerPosY) as TableRow
         val cell = row.getChildAt(actualPlayerPosX) as TextView
-        cell.text = cellTextList.shuffled().take(1)[0]
+        cell.text = listOfBuildings.shuffled().take(1)[0].toString()
         cell.setBackgroundColor(color)
 
         generateCells(actualPlayerPosX, actualPlayerPosY)
@@ -167,6 +168,12 @@ class GameMode1Fragment : Fragment() {
         val row = binding.tableLayout.getChildAt(y) as TableRow
         val cell = row.getChildAt(x) as TextView
         cell.setBackgroundColor(color)
+    }
+
+    private fun setCellText(x: Int, y: Int, text: String) {
+        val row = binding.tableLayout.getChildAt(y) as TableRow
+        val cell = row.getChildAt(x) as TextView
+        cell.text = text
     }
 
 
