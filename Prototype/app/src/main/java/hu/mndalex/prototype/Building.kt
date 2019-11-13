@@ -2,11 +2,13 @@ package hu.mndalex.prototype
 
 class Building {
 
+    var id: Int = 0
     var name: String = ""
     var cost: Int = 0
     var profit: Int = 0
 
-    constructor(name: String, cost: Int, profit: Int) {
+    constructor(id: Int, name: String, cost: Int, profit: Int) {
+        this.id = id
         this.name = name
         this.cost = cost
         this.profit = profit

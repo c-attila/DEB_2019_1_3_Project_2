@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".screens.play.PlayFragment"
+        android:id="@+id/game_layout"
+        android:background="@color/background_color">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/game_info_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/table_layout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/building_cost"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                app:layout_constraintBottom_toTopOf="@+id/building_profit"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/money_text_view"
+                app:layout_constraintTop_toBottomOf="@id/building_name" />
+
+            <TextView
+                android:id="@+id/building_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                app:layout_constraintBottom_toTopOf="@id/building_cost"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/money_text_view"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/building_profit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.502"
+                app:layout_constraintStart_toEndOf="@+id/money_text_view"
+                app:layout_constraintTop_toBottomOf="@+id/building_cost" />
+
+            <TextView
+                android:id="@+id/money_text_view"
+                style="@style/game_info_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="36dp"
+                android:layout_marginEnd="230dp"
+                android:text="Money: 1000"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TableLayout
+            android:id="@+id/table_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/game_button_layout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/game_info_layout">
+
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    style="@style/table_cell_style" />
+
+                <TextView
+                    style="@style/table_cell_style" />
+
+                <TextView
+                    style="@style/table_cell_style" />
+
+                <TextView
+                    style="@style/table_cell_style" />
+
+                <TextView
+                    style="@style/table_cell_style" />
+
+                <TextView
+                    style="@style/table_cell_style" />
+
+                <TextView
+                    style="@style/table_cell_style" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    style="@style/table_cell_style" />
+
+                <TextView
+                    style="@style/table_cell_style" />
+
+                <TextView
+                    style="@style/table_cell_style" />
+
+                <TextView
+                    style="@style/table_cell_style" />
+
+                <TextView
+                    style="@style/table_cell_style" />
+
+                <TextView
+                    style="@style/table_cell_style" />
+
+                <TextView
+                    style="@style/table_cell_style" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    style="@style/table_cell_style" />
+
+                <TextView
+                    style="@style/table_cell_style" />
+
+                <TextView
+                    style="@style/table_cell_style" />
+
+                <TextView
+                    style="@style/table_cell_style" />
+
+                <TextView
+                    style="@style/table_cell_style" />
+
+                <TextView
+                    style="@style/table_cell_style" />
+
+                <TextView
+                    style="@style/table_cell_style" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    style="@style/table_cell_style" />
+
+                <TextView
+                    style="@style/table_cell_style" />
+
+                <TextView
+                    style="@style/table_cell_style" />
+
+                <TextView
+                    style="@style/table_cell_style" />
+
+                <TextView
+                    style="@style/table_cell_style" />
+
+                <TextView
+                    style="@style/table_cell_style" />
+
+                <TextView
+                    style="@style/table_cell_style" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    style="@style/table_cell_style" />
+
+                <TextView
+                    style="@style/table_cell_style" />
+
+                <TextView
+                    style="@style/table_cell_style" />
+
+                <TextView
+                    style="@style/table_cell_style" />
+
+                <TextView
+                    style="@style/table_cell_style" />
+
+                <TextView
+                    style="@style/table_cell_style" />
+
+                <TextView
+                    style="@style/table_cell_style" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    style="@style/table_cell_style" />
+
+                <TextView
+                    style="@style/table_cell_style" />
+
+                <TextView
+                    style="@style/table_cell_style" />
+
+                <TextView
+                    style="@style/table_cell_style" />
+
+                <TextView
+                    style="@style/table_cell_style" />
+
+                <TextView
+                    style="@style/table_cell_style" />
+
+                <TextView
+                    style="@style/table_cell_style" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    style="@style/table_cell_style" />
+
+                <TextView
+                    style="@style/table_cell_style" />
+
+                <TextView
+                    style="@style/table_cell_style" />
+
+                <TextView
+                    style="@style/table_cell_style" />
+
+                <TextView
+                    style="@style/table_cell_style" />
+
+                <TextView
+                    style="@style/table_cell_style" />
+
+                <TextView
+                    style="@style/table_cell_style" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    style="@style/table_cell_style" />
+
+                <TextView
+                    style="@style/table_cell_style" />
+
+                <TextView
+                    style="@style/table_cell_style" />
+
+                <TextView
+                    style="@style/table_cell_style" />
+
+                <TextView
+                    style="@style/table_cell_style" />
+
+                <TextView
+                    style="@style/table_cell_style" />
+
+                <TextView
+                    style="@style/table_cell_style" />
+            </TableRow>
+
+
+        </TableLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/game_button_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/table_layout">
+
+            <Button
+                android:id="@+id/button_up"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Up"
+                app:layout_constraintStart_toEndOf="@+id/button_left"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/button_down"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Down"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/button_left"
+                app:layout_constraintTop_toBottomOf="@+id/button_up" />
+
+            <Button
+                android:id="@+id/button_left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Left"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/button_right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Right"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/button_up"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
