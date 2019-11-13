@@ -169,7 +169,13 @@ szükségesek.
     A fizikai adatmodellt egy pár soros SQL szkripttel fogjuk legenerálni egy 
 remotemysql.com-os adatbázisra. Erre remélhetőleg csak egyszer lesz szükség.
 
-8. Telepítési terv
+8. Tesztterv
+    A program kisebb metódusait, funkcióit unit test-ekkel fogjuk tesztelni, 
+az alkalmazás nagyobb funkcióit pedig kézzel. Így, azt is kiszurjuk, ha 
+valamilyen szemantikai, matematikai hiba van a programban, de azt is, ha emberi 
+vagy tervezési hiba.
+
+9. Telepítési terv
 
     A program esetében a letöltés a Google Playről lesz megoldható. Mivel az egyik 
 csapattagunknak van Google Developer Accountja, amit néhány évvel ezelőtt vásárolt 
@@ -178,7 +184,7 @@ lehet letölteni az alkalmazás, és magától telepítődik is. Követelmény s
 a minimum az Androis 4.4-es verziója, ennél magasabb verziószámok esetén is gond 
 nélkül futtatható az alkalmazás. 
 
-9. Funkcionális terv
+10. Funkcionális terv
 
     - Rendszerszereplők: Az applikáció, ami egy játék az internetről lesz letölthető, 
 tehát elsősorban az ilyen stratégiai játék szeretők a célközönség. 
@@ -208,7 +214,7 @@ előtt. Itt különböző opciókat kínál az alkalmazás, mint a Játék és a
 
     - Képernyőtervek: Megtekinthető a Github repóban. 
     
-10. Fizikai környezet
+11. Fizikai környezet
 
     - A felhasználók környezete: Úgy fejlesztjük az applikációt, hogy a felhasználó 
     Androidot használó mobiltelefonon használhatja az alkalmazást. 
