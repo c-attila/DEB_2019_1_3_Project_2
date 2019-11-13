@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Prototype</string>
+    <string name="app_name">Project2_Prototype</string>
     <string name="menu_title_text">Menu</string>
     <string name="menu_button1_text">Play</string>
     <string name="menu_button2_text">Options</string>
@@ -10,7 +10,4 @@
     <string name="play_button4">Game Mode 4</string>
     <string name="play_button5">Game Mode 5</string>
     <string name="play_button6">Custom Game Mode</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
