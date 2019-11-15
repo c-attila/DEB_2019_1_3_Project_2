@@ -41,7 +41,7 @@
                 app:layout_constraintBottom_toTopOf="@id/building_cost"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/money_text_view"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toBottomOf="parent" />
 
             <TextView
                 android:id="@+id/building_profit"
@@ -50,11 +50,22 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
                 android:text="Profit:"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/building_owner"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.502"
                 app:layout_constraintStart_toEndOf="@+id/money_text_view"
                 app:layout_constraintTop_toBottomOf="@+id/building_cost" />
+
+            <TextView
+                android:id="@+id/building_owner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:text="Owner: None"
+                app:layout_constraintBottom_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/money_text_view"
+                app:layout_constraintTop_toBottomOf="@+id/building_profit" />
 
             <TextView
                 android:id="@+id/money_text_view"
@@ -86,6 +97,8 @@
             android:id="@+id/table_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="2dp"
             app:layout_constraintBottom_toTopOf="@+id/game_button_layout"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -96,208 +109,152 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
             </TableRow>
 
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
             </TableRow>
 
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
             </TableRow>
 
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
             </TableRow>
 
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
             </TableRow>
 
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
             </TableRow>
 
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
             </TableRow>
 
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
             </TableRow>
 
 
