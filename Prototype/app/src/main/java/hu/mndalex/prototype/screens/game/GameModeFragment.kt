@@ -9,8 +9,8 @@ import android.widget.TableRow
 import android.widget.TextView
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import hu.mndalex.prototype.Building
-import hu.mndalex.prototype.Player
+import hu.mndalex.prototype.DAO.Building
+import hu.mndalex.prototype.DAO.Player
 import hu.mndalex.prototype.R
 import hu.mndalex.prototype.databinding.GameModeFragmentBinding
 
@@ -52,6 +52,8 @@ class GameModeFragment : Fragment() {
         binding.buttonLeft.setOnClickListener({ movePlayerHorizontally(-1) })
         binding.buttonUp.setOnClickListener({ movePlayerVertically(-1) })
         binding.buttonDown.setOnClickListener({ movePlayerVertically(1) })
+
+        binding.buttonBuy.setOnClickListener({ onBuy() })
 
         return binding.root
     }
@@ -99,7 +101,19 @@ class GameModeFragment : Fragment() {
         val actualPlayerPosX = (0 until TABLE_WIDTH).random()
         val actualPlayerPosY = (0 until TABLE_HEIGHT).random()
 
-        listOfPlayers.add(Player(actualPlayerPosX, actualPlayerPosY, color))
+        for (player in listOfPlayers)
+            if (actualPlayerPosX == player.posX && actualPlayerPosY == player.posY)
+                setPlayer(color)
+
+        listOfPlayers.add(
+            Player(
+                actualPlayerPosX,
+                actualPlayerPosY,
+                color,
+                1000,
+                0
+            )
+        )
 
         val row = binding.tableLayout.getChildAt(actualPlayerPosY) as TableRow
         val cell = row.getChildAt(actualPlayerPosX) as TextView
@@ -122,7 +136,7 @@ class GameModeFragment : Fragment() {
     }
 
     //Only work with 1 or -1 parameter
-    private fun movePlayerHorizontally(x: Int) {
+    fun movePlayerHorizontally(x: Int) {
         var actualPlayerPosX = listOfPlayers[actualPlayerId].posX
         var actualPlayerPosY = listOfPlayers[actualPlayerId].posY
 
@@ -151,7 +165,9 @@ class GameModeFragment : Fragment() {
             listOfPlayers[actualPlayerId].posX = actualPlayerPosX
             listOfPlayers[actualPlayerId].posY = actualPlayerPosY
 
-            actualPlayerId += 1;
+            listOfPlayers[actualPlayerId].money += listOfPlayers[actualPlayerId].profit
+            
+            actualPlayerId += 1
             if (actualPlayerId > listOfPlayers.size - 1)
                 actualPlayerId = 0
 
@@ -159,11 +175,14 @@ class GameModeFragment : Fragment() {
                 listOfPlayers[actualPlayerId].posX,
                 listOfPlayers[actualPlayerId].posY
             )
+
+            if (actualPlayerId == 0)
+                setRound()
         }
     }
 
     //Only work with 1 or -1 parameter
-    private fun movePlayerVertically(y: Int) {
+    fun movePlayerVertically(y: Int) {
         var actualPlayerPosX = listOfPlayers[actualPlayerId].posX
         var actualPlayerPosY = listOfPlayers[actualPlayerId].posY
 
@@ -192,7 +211,9 @@ class GameModeFragment : Fragment() {
             listOfPlayers[actualPlayerId].posX = actualPlayerPosX
             listOfPlayers[actualPlayerId].posY = actualPlayerPosY
 
-            actualPlayerId += 1;
+            listOfPlayers[actualPlayerId].money += listOfPlayers[actualPlayerId].profit
+
+            actualPlayerId += 1
             if (actualPlayerId > listOfPlayers.size - 1)
                 actualPlayerId = 0
 
@@ -200,6 +221,9 @@ class GameModeFragment : Fragment() {
                 listOfPlayers[actualPlayerId].posX,
                 listOfPlayers[actualPlayerId].posY
             )
+
+            if (actualPlayerId == 0)
+                setRound()
         }
     }
 
@@ -215,6 +239,17 @@ class GameModeFragment : Fragment() {
         binding.buildingCost.text = "Cost: " + listOfBuildings[actualCellBuildingId].cost
         binding.buildingProfit.text = "Profit: " + listOfBuildings[actualCellBuildingId].profit
         binding.buildingName.text = "Name: " + listOfBuildings[actualCellBuildingId].name
+
+        binding.moneyTextView.text = "Money: " + listOfPlayers[actualPlayerId].money
+        binding.playerProfit.text = "Profit: " + listOfPlayers[actualPlayerId].profit
+    }
+
+    private fun setRound() {
+    }
+
+    fun onBuy() {
+        listOfPlayers[actualPlayerId].profit += 10
+        setGameInfoLayout(listOfPlayers[actualPlayerId].posX, listOfPlayers[actualPlayerId].posY)
     }
 
 }
