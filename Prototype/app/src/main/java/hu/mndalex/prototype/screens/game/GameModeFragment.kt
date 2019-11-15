@@ -44,7 +44,6 @@ class GameModeFragment : Fragment() {
 
         setPlayer(Color.CYAN)
         setPlayer(Color.GREEN)
-//        setPlayer(Color.RED)
 
         setGameInfoLayout(listOfPlayers[actualPlayerId].posX, listOfPlayers[actualPlayerId].posY)
 
@@ -103,7 +102,7 @@ class GameModeFragment : Fragment() {
 
         for (player in listOfPlayers)
             if (actualPlayerPosX == player.posX && actualPlayerPosY == player.posY)
-                setPlayer(color)
+                return setPlayer(color)
 
         listOfPlayers.add(
             Player(
@@ -166,7 +165,7 @@ class GameModeFragment : Fragment() {
             listOfPlayers[actualPlayerId].posY = actualPlayerPosY
 
             listOfPlayers[actualPlayerId].money += listOfPlayers[actualPlayerId].profit
-            
+
             actualPlayerId += 1
             if (actualPlayerId > listOfPlayers.size - 1)
                 actualPlayerId = 0
