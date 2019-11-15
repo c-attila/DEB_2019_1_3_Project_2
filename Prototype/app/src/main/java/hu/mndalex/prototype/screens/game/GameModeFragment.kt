@@ -22,11 +22,13 @@ class GameModeFragment : Fragment() {
     private val TABLE_HEIGHT = 8
 
     private val listOfBuildings =
-        listOf(Building(0,"Hotel",1000,300),
-            Building(1,"Gas Station",300,60),
-            Building(2,"Restaurant",700,200),
-            Building(3,"Bakery",100,10),
-            Building(4,"Shop",300,100))
+        listOf(
+            Building(0, "Hotel", 1000, 300),
+            Building(1, "Gas Station", 300, 60),
+            Building(2, "Restaurant", 700, 200),
+            Building(3, "Bakery", 100, 10),
+            Building(4, "Shop", 300, 100)
+        )
 
     var actualPlayerId = 0
 
@@ -44,7 +46,7 @@ class GameModeFragment : Fragment() {
         setPlayer(Color.GREEN)
 //        setPlayer(Color.RED)
 
-        setGameInfoLayout(listOfPlayers[actualPlayerId].posX,listOfPlayers[actualPlayerId].posY)
+        setGameInfoLayout(listOfPlayers[actualPlayerId].posX, listOfPlayers[actualPlayerId].posY)
 
         binding.buttonRight.setOnClickListener({ movePlayerHorizontally(1) })
         binding.buttonLeft.setOnClickListener({ movePlayerHorizontally(-1) })
@@ -85,7 +87,7 @@ class GameModeFragment : Fragment() {
 
     }
 
-    private fun setCell(cell: TextView){
+    private fun setCell(cell: TextView) {
         val building = listOfBuildings.shuffled().take(1)[0]
         cell.text = building.name
         cell.id = building.id
@@ -119,11 +121,17 @@ class GameModeFragment : Fragment() {
         cell.text = text
     }
 
+    //Only work with 1 or -1 parameter
     private fun movePlayerHorizontally(x: Int) {
         var actualPlayerPosX = listOfPlayers[actualPlayerId].posX
         var actualPlayerPosY = listOfPlayers[actualPlayerId].posY
 
-        if ((x == 1 && actualPlayerPosX < TABLE_WIDTH - 1) || (x == -1 && actualPlayerPosX > 0)) {
+        for (player in listOfPlayers)
+            if (player != listOfPlayers[actualPlayerId])
+                if (actualPlayerPosX + x == player.posX && actualPlayerPosY == player.posY)
+                    return
+
+        if ((x > 0 && actualPlayerPosX + x < TABLE_WIDTH) || (x < 0 && actualPlayerPosX + x > -1)) {
             setCellBackgroundColor(
                 actualPlayerPosX,
                 actualPlayerPosY,
@@ -147,15 +155,24 @@ class GameModeFragment : Fragment() {
             if (actualPlayerId > listOfPlayers.size - 1)
                 actualPlayerId = 0
 
-            setGameInfoLayout(listOfPlayers[actualPlayerId].posX,listOfPlayers[actualPlayerId].posY)
+            setGameInfoLayout(
+                listOfPlayers[actualPlayerId].posX,
+                listOfPlayers[actualPlayerId].posY
+            )
         }
     }
 
+    //Only work with 1 or -1 parameter
     private fun movePlayerVertically(y: Int) {
         var actualPlayerPosX = listOfPlayers[actualPlayerId].posX
         var actualPlayerPosY = listOfPlayers[actualPlayerId].posY
 
-        if ((y == 1 && actualPlayerPosY < TABLE_HEIGHT - 1) || (y == -1 && actualPlayerPosY > 0)) {
+        for (player in listOfPlayers)
+            if (player != listOfPlayers[actualPlayerId])
+                if (actualPlayerPosX == player.posX && actualPlayerPosY + y == player.posY)
+                    return
+
+        if ((y > 0 && actualPlayerPosY + y < TABLE_HEIGHT) || (y < 0 && actualPlayerPosY + y > -1)) {
             setCellBackgroundColor(
                 actualPlayerPosX,
                 actualPlayerPosY,
@@ -179,19 +196,22 @@ class GameModeFragment : Fragment() {
             if (actualPlayerId > listOfPlayers.size - 1)
                 actualPlayerId = 0
 
-            setGameInfoLayout(listOfPlayers[actualPlayerId].posX,listOfPlayers[actualPlayerId].posY)
+            setGameInfoLayout(
+                listOfPlayers[actualPlayerId].posX,
+                listOfPlayers[actualPlayerId].posY
+            )
         }
     }
 
-    private fun getCell(x:Int, y:Int):TextView{
+    private fun getCell(x: Int, y: Int): TextView {
         val row = binding.tableLayout.getChildAt(y) as TableRow
         return row.getChildAt(x) as TextView
     }
 
-    private fun setGameInfoLayout(actualPlayerPosX: Int, actualPlayerPosY: Int){
+    private fun setGameInfoLayout(actualPlayerPosX: Int, actualPlayerPosY: Int) {
         binding.gameInfoLayout.setBackgroundColor(listOfPlayers[actualPlayerId].color)
 
-        val actualCellBuildingId = getCell(actualPlayerPosX,actualPlayerPosY).id
+        val actualCellBuildingId = getCell(actualPlayerPosX, actualPlayerPosY).id
         binding.buildingCost.text = "Cost: " + listOfBuildings[actualCellBuildingId].cost
         binding.buildingProfit.text = "Profit: " + listOfBuildings[actualCellBuildingId].profit
         binding.buildingName.text = "Name: " + listOfBuildings[actualCellBuildingId].name
