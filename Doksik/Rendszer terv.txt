@@ -69,16 +69,43 @@ megveszi-e azt a mezőt, vagy sem. Ha az ellenfél birtokolja, kötelezően ki k
 fizesse az arra a mezőre vonatkozó körönkénti profitot. Ha ezt nem tudja, 
 csődbe megy és az ellenfél nyert.
 
-Projektszerepkörök és felelősségek:
-Front-end fejlesztő: Felelőssége a játék vizuális megjelenítésének a fejlesztése
-Back-end fejlesztő: Felelőssége a játék funkcióinak, logikájának a fejlesztése,
-az adatbázis kezelése.
+3.3. Architekturális terv
 
-Projektmunkások és felelősségeik:
-Mándrik Alex András: az üzleti logika fejlesztése, illetve a vizuális megjelenítés.
-Cornea Attila: az adatbázis kezelése, illetve az üzleti logika fejlesztése.
-Murvai András: az üzleti logika fejlesztése
-Kovács Attila: az üzleti logika fejlesztése
+3.3.1. Az alkalmazás rétegei, fő komponensei, ezek kapcsolatai
+    Az alkalmazás három rétegből áll: adatbázis-réteg, üzleti logikai réteg és 
+grafikus felület. Ezeket az MVC tervezési minta alapján kapcsoljuk össze, bár 
+ezt egy Androidos környezeten implementálva. A grafikus felület segítségével 
+vehetjük igénybe az üzleti logika egyes funkcióit. Ez kezeli az adatbázis-
+réteget is.
+
+3.3.2. Változások kezelése
+    A program egyes részeit úgy írjuk meg, hogy azok paramétereit és 
+függvényeit könnyen és gyorsan meg tudjuk változtatni, ha szükséges. Így a 
+megrendelő is rugalmasan beleszólhat az alkalmazás fejlesztésébe.
+
+3.3.3. A rendszer bővíthetősége
+    A rendszert úgy építjük fel, hogy könnyen bővíthetőek legyen a funkciói és, 
+hogy akár teljesen új funkciókat is hozzá lehessen adni. Ezeket a szempontokat 
+figyelembe véve valósítjuk meg a rendszer mind a három rétegét.
+
+3.3.4. Biztonsági funkciók
+    A program alapvető biztonsági funkciókkal rendelkezik, tehát nem írhatjuk 
+felül más eredményeit, nem szemetelhetjük (spamelhetjük) tele az adatbázist 
+és nem csalhatunk a játékmenetben sem (nincsenek exploitok, buggok).
+
+3.4. Implementációs terv
+
+3.4.1. Perzisztencia-osztályok
+    A perzisztencia-kezeléshez használt osztályok olyan osztályok lesznek, 
+melyek a játékosok eredményeit és a ranglistákat reprezentálják.
+
+3.4.2. Üzleti logika osztályai
+    Az üzleti logikának olyan osztályai lesznek, amelyek reprezentálják a 
+játékost, a mezőt és az egyéb megjelenő objektumokat.
+
+3.5. Karbantartási terv
+    A program karbantartása a tervezésből kifolyólag egyszerű lesz és a 
+fejlesztőcsapat 5 évig vállalja ennek kivitelezését.
 
 4. Ütemterv:
 2019.11.10 - A dokumentáció és prototípus befejezése.
@@ -98,9 +125,20 @@ A bonyolultabb funkciók kifejlesztése.
 Tesztelés, illetve a felfedezett hibák kijavítása.
 A projekt véglegesítése.
 
+Projektszerepkörök és felelősségek:
+Front-end fejlesztő: Felelőssége a játék vizuális megjelenítésének a fejlesztése
+Back-end fejlesztő: Felelőssége a játék funkcióinak, logikájának a fejlesztése,
+az adatbázis kezelése.
+
+Projektmunkások és felelősségeik:
+Mándrik Alex András: az üzleti logika fejlesztése, illetve a vizuális megjelenítés.
+Cornea Attila: az adatbázis kezelése, illetve az üzleti logika fejlesztése.
+Murvai András: az üzleti logika fejlesztése
+Kovács Attila: az üzleti logika fejlesztése
+
 5. Források
     A projektre olyan forrásokat fogunk alokálni, amiket a megrendelőtől kaptunk 
-a program elkészítésére előlegként, illetve amiket a cég erre a célra tart fenn.
+a program elkészítésére előlegként, illetve amiketünk a cég erre a célra tart fenn.
 
 6. Üzleti folyamatok modellje
 Üzleti szereplők: játékosok.
