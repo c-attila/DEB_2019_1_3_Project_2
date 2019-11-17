@@ -1,4 +1,4 @@
-package hu.mndalex.prototype
+package hu.mndalex.prototype.POJO
 
 class Building {
 

@@ -25,6 +25,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
+                android:text="Cost:"
                 app:layout_constraintBottom_toTopOf="@+id/building_profit"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/money_text_view"
@@ -36,10 +37,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
+                android:text="Name:"
                 app:layout_constraintBottom_toTopOf="@id/building_cost"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/money_text_view"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toBottomOf="parent" />
 
             <TextView
                 android:id="@+id/building_profit"
@@ -47,30 +49,56 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:text="Profit:"
+                app:layout_constraintBottom_toTopOf="@id/building_owner"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.502"
                 app:layout_constraintStart_toEndOf="@+id/money_text_view"
                 app:layout_constraintTop_toBottomOf="@+id/building_cost" />
+
+            <TextView
+                android:id="@+id/building_owner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:text="Owner: None"
+                app:layout_constraintBottom_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/money_text_view"
+                app:layout_constraintTop_toBottomOf="@+id/building_profit" />
 
             <TextView
                 android:id="@+id/money_text_view"
                 style="@style/game_info_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="36dp"
-                android:layout_marginEnd="230dp"
-                android:text="Money: 1000"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginBottom="5dp"
+                android:text="Money: "
+                app:layout_constraintBottom_toTopOf="@+id/player_profit"
+                app:layout_constraintEnd_toStartOf="@+id/building_cost"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/player_profit"
+                style="@style/game_info_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="Profit:"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/building_cost"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/money_text_view" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <TableLayout
             android:id="@+id/table_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="2dp"
             app:layout_constraintBottom_toTopOf="@+id/game_button_layout"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -81,208 +109,152 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
             </TableRow>
 
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
             </TableRow>
 
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
             </TableRow>
 
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
             </TableRow>
 
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
             </TableRow>
 
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
             </TableRow>
 
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
             </TableRow>
 
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
 
-                <TextView
-                    style="@style/table_cell_style" />
+                <TextView style="@style/table_cell_style" />
             </TableRow>
 
 
@@ -331,8 +303,25 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/button_up"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/button_buy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="-1dp"
+                android:text="Buy"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/button_right"
+                app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+    
+    <data>
+        <variable
+            name="gameModeFragment"
+            type="hu.mndalex.prototype.screens.game.GameModeFragment" />
+    </data>
 
 </layout>
