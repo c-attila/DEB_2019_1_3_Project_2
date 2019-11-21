@@ -15,7 +15,7 @@ class Building {
     }
 
     override fun toString(): String {
-        return name + " " + cost + " +" + profit
+        return "$name $cost +$profit"
     }
 
 
