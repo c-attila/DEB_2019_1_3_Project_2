@@ -155,7 +155,6 @@ class GameModeFragment : Fragment() {
         }
     }
 
-
     private fun setCell(cell: TextView, x: Int, y: Int) {
         val building = listOfBuildings.shuffled().take(1)[0]
         cell.text = building.name

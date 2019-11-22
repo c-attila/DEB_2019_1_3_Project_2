@@ -6,6 +6,4 @@ class Player(
     var color: Int,
     var money: Int,
     var profit: Int,
-    var name: String) {
-
-}
+    var name: String)
