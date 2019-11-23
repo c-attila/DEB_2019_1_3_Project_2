@@ -20,15 +20,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            style="@style/MyTextInputEditText"
-            android:id="@+id/chooser_field"
-            android:layout_width="412dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="131dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            tools:ignore="MissingConstraints" />
-
         <Button
             android:id="@+id/play_button1"
             style="@style/navigation_button"
@@ -36,6 +27,15 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="131dp"
             android:text="@string/play"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:ignore="MissingConstraints" />
+
+        <EditText
+            style="@style/MyTextInputEditText"
+            android:id="@+id/numofplayers"
+            android:layout_width="412dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="131dp"
             app:layout_constraintBottom_toBottomOf="parent"
             tools:ignore="MissingConstraints" />
 
