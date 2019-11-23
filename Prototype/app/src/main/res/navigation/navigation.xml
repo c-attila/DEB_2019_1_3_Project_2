@@ -19,12 +19,21 @@
         android:label="play_fragment"
         tools:layout="@layout/play_fragment" >
         <action
-            android:id="@+id/action_play_destination_to_game_destination"
-            app:destination="@id/game_destination" />
+            android:id="@+id/action_play_destination_to_chooseFragment"
+            app:destination="@id/chooseFragment" />
     </fragment>
     <fragment
         android:id="@+id/game_destination"
         android:name="hu.mndalex.prototype.screens.game.GameModeFragment"
         android:label="game_fragment"
         tools:layout="@layout/game_mode_fragment" />
+    <fragment
+        android:id="@+id/chooseFragment"
+        android:name="hu.mndalex.prototype.screens.choose.ChooseFragment"
+        android:label="choose_fragment"
+        tools:layout="@layout/choose_fragment" >
+        <action
+            android:id="@+id/action_chooseFragment_to_game_destination"
+            app:destination="@id/game_destination" />
+    </fragment>
 </navigation>
