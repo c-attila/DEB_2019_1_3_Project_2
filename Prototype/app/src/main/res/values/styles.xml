@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
@@ -6,6 +6,16 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="MyTextInputEditText" parent="ThemeOverlay.MaterialComponents.TextInputEditText">
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:colorBackground">@android:color/black</item>
+        <item name="android:colorControlActivated" tools:targetApi="lollipop">@android:color/black</item>
+        <item name="android:colorControlNormal" tools:targetApi="lollipop">@android:color/black</item>
+        <item name="android:colorControlHighlight" tools:targetApi="lollipop">@android:color/black</item>
+        <item name="android:backgroundTint" tools:targetApi="lollipop">@android:color/black</item>
+        <item name="android:colorAccent" tools:targetApi="lollipop">@android:color/black</item>
     </style>
 
     <style name="title_text">
