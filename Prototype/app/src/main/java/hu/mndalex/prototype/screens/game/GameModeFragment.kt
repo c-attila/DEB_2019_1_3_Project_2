@@ -32,7 +32,6 @@ class GameModeFragment : Fragment() {
         )
 
     private var actualPlayerId = 0
-
     private var listOfPlayers = mutableListOf<Player>()
     private var listOfCells = mutableListOf<Cell>()
 
