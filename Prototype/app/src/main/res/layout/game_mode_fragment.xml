@@ -4,11 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/game_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".screens.play.PlayFragment"
-        android:id="@+id/game_layout"
-        android:background="@color/background_color">
+        android:background="@color/background_color"
+        tools:context=".screens.play.PlayFragment">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/game_info_layout"
@@ -317,8 +317,9 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-    
+
     <data>
+
         <variable
             name="gameModeFragment"
             type="hu.mndalex.prototype.screens.game.GameModeFragment" />
