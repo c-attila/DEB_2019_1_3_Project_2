@@ -2,6 +2,7 @@ package hu.mndalex.prototype.screens.game
 
 import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -44,6 +45,10 @@ class GameModeFragment : Fragment() {
     ): View? {
 
         binding = DataBindingUtil.inflate(inflater, R.layout.game_mode_fragment, container, false)
+
+        val args = GameModeFragmentArgs.fromBundle(arguments!!)
+
+        Log.i("GameMode: ", args.gameMode)
 
         initTableSize()
 

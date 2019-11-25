@@ -22,7 +22,13 @@ class PlayFragment : Fragment (){
         binding = DataBindingUtil.inflate(inflater, R.layout.play_fragment,container,false)
 
         binding.playButton1.setOnClickListener{findNavController()
-            .navigate(PlayFragmentDirections.actionPlayDestinationToChooseFragment())}
+            .navigate(PlayFragmentDirections.actionPlayDestinationToChooseFragment("gameMode1"))}
+
+        binding.playButton2.setOnClickListener{findNavController()
+            .navigate(PlayFragmentDirections.actionPlayDestinationToChooseFragment("gameMode2"))}
+
+        binding.playButton3.setOnClickListener{findNavController()
+            .navigate(PlayFragmentDirections.actionPlayDestinationToChooseFragment("gameMode3"))}
 
         return binding.root
     }

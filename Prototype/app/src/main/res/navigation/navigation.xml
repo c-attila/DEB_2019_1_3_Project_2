@@ -30,6 +30,9 @@
         <action
             android:id="@+id/action_game_destination_to_end_destination"
             app:destination="@+id/end_destination" />
+        <argument
+            android:name="gameMode"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/end_destination"
@@ -57,5 +60,8 @@
             android:id="@+id/action_chooseFragment_to_game_destination"
             app:destination="@id/game_destination" >
         </action>
+        <argument
+            android:name="gameMode"
+            app:argType="string" />
     </fragment>
 </navigation>
