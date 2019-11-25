@@ -21,6 +21,8 @@ class GameModeFragment : Fragment() {
 
     private lateinit var binding: GameModeFragmentBinding
 
+    val numOfPlayers = arguments?.getInt("numOfPlayers")
+
     private var tableWidth = 0
     private var tableHeight = 0
 

@@ -24,7 +24,8 @@ class ChooseFragment : Fragment (){
         val args = ChooseFragmentArgs.fromBundle(arguments!!)
 
         binding.playButton1.setOnClickListener{
-            findNavController().navigate(ChooseFragmentDirections.actionChooseFragmentToGameDestination(args.gameMode))
+            findNavController().navigate(ChooseFragmentDirections.actionChooseFragmentToGameDestination(args.gameMode,
+                binding.numOfPlayers.text.toString().toInt()))
         }
 
         return binding.root

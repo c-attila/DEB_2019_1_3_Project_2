@@ -33,6 +33,9 @@
         <argument
             android:name="gameMode"
             app:argType="string" />
+        <argument
+            android:name="numOfPlayers"
+            app:argType="integer" />
     </fragment>
     <fragment
         android:id="@+id/end_destination"
