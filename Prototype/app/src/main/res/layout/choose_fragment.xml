@@ -31,15 +31,16 @@
             tools:ignore="MissingConstraints" />
 
         <EditText
-            style="@style/MyTextInputEditText"
-            android:inputType="number"
             android:id="@+id/numOfPlayers"
-            android:ems="2"
-            android:maxLength="1"
-            android:layout_width="412dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="131dp"
+            android:ems="2"
+            android:inputType="number"
+            android:maxLength="1"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             tools:ignore="MissingConstraints" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
