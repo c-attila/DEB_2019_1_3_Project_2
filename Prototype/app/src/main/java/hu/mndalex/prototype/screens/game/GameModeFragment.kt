@@ -9,6 +9,7 @@ import android.widget.TableRow
 import android.widget.TextView
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import hu.mndalex.prototype.POJO.Building
 import hu.mndalex.prototype.POJO.Cell
 import hu.mndalex.prototype.POJO.Player
@@ -32,6 +33,7 @@ class GameModeFragment : Fragment() {
         )
 
     private var actualPlayerId = 0
+    private var nextPlayerId = 1
     private var listOfPlayers = mutableListOf<Player>()
     private var listOfCells = mutableListOf<Cell>()
 
@@ -297,10 +299,15 @@ class GameModeFragment : Fragment() {
 
     private fun endOfRound() {
         listOfPlayers[actualPlayerId].money += listOfPlayers[actualPlayerId].profit
+        if (listOfPlayers[actualPlayerId].money >= (listOfPlayers[nextPlayerId].money * 4)) {
+            findNavController().navigate(GameModeFragmentDirections.actionGameDestinationToEndDestination(
+                listOfPlayers[actualPlayerId].name, listOfPlayers[actualPlayerId].money, listOfPlayers[actualPlayerId].money - listOfPlayers[nextPlayerId].money))
+        }
 
-        actualPlayerId += 1
-        if (actualPlayerId > listOfPlayers.size - 1)
-            actualPlayerId = 0
+        actualPlayerId = nextPlayerId
+        nextPlayerId++
+        if (nextPlayerId > listOfPlayers.size - 1)
+            nextPlayerId = 0
 
         setGameInfoLayout(
             listOfPlayers[actualPlayerId]

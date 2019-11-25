@@ -26,7 +26,28 @@
         android:id="@+id/game_destination"
         android:name="hu.mndalex.prototype.screens.game.GameModeFragment"
         android:label="game_fragment"
-        tools:layout="@layout/game_mode_fragment" />
+        tools:layout="@layout/game_mode_fragment" >
+        <action
+            android:id="@+id/action_game_destination_to_end_destination"
+            app:destination="@+id/end_destination" />
+    </fragment>
+    <fragment
+        android:id="@+id/end_destination"
+        android:name="hu.mndalex.prototype.screens.end.EndFragment"
+        android:label="end_fragment">
+        <action
+            android:id="@+id/action_end_destination_to_menu_destination"
+            app:destination="@id/menu_destination" />
+        <argument
+            android:name="name"
+            app:argType="string" />
+        <argument
+            android:name="money"
+            app:argType="integer" />
+        <argument
+            android:name="moneyDifference"
+            app:argType="integer" />
+    </fragment>
     <fragment
         android:id="@+id/chooseFragment"
         android:name="hu.mndalex.prototype.screens.choose.ChooseFragment"
