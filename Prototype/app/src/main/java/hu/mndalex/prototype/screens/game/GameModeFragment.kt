@@ -21,8 +21,6 @@ class GameModeFragment : Fragment() {
 
     private lateinit var binding: GameModeFragmentBinding
 
-    val numOfPlayers = arguments?.getInt("numOfPlayers")
-
     private var tableWidth = 0
     private var tableHeight = 0
 
@@ -65,8 +63,12 @@ class GameModeFragment : Fragment() {
     }
 
     private fun initPlayers() {
-        setPlayer(Color.CYAN, "Player1")
-        setPlayer(Color.GREEN, "Player2")
+        for (i in 0 until arguments?.getInt("numOfPlayers")!!){
+            setPlayer(i * 100, "Player $i")
+        }
+
+        //setPlayer(Color.CYAN, "Player1")
+        //setPlayer(Color.GREEN, "Player2")
     }
 
     private fun setPlayer(color: Int, name: String) {
