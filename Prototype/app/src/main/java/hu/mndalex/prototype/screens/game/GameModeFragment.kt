@@ -21,6 +21,8 @@ class GameModeFragment : Fragment() {
 
     private lateinit var binding: GameModeFragmentBinding
 
+    val numOfPlayers = arguments?.getInt("numOfPlayers")
+
     private var tableWidth = 0
     private var tableHeight = 0
 
@@ -45,10 +47,6 @@ class GameModeFragment : Fragment() {
     ): View? {
 
         binding = DataBindingUtil.inflate(inflater, R.layout.game_mode_fragment, container, false)
-
-        val args = GameModeFragmentArgs.fromBundle(arguments!!)
-
-        Log.i("GameMode: ", args.gameMode)
 
         initTableSize()
 
