@@ -33,6 +33,19 @@ class GameModeFragment : Fragment() {
             Building(4, "Shop", 300, 100)
         )
 
+    private val listOfColors =
+        listOf(
+            Color.BLUE,
+            Color.CYAN,
+            Color.GRAY,
+            Color.GREEN,
+            Color.MAGENTA,
+            Color.RED,
+            Color.YELLOW,
+            Color.TRANSPARENT,
+            Color.DKGRAY
+        )
+
     private var actualPlayerId = 0
     private var nextPlayerId = 1
     private var listOfPlayers = mutableListOf<Player>()
@@ -64,11 +77,8 @@ class GameModeFragment : Fragment() {
 
     private fun initPlayers() {
         for (i in 0 until arguments?.getInt("numOfPlayers")!!){
-            setPlayer(i * 100, "Player $i")
+            setPlayer(listOfColors[i], "Player $i")
         }
-
-        //setPlayer(Color.CYAN, "Player1")
-        //setPlayer(Color.GREEN, "Player2")
     }
 
     private fun setPlayer(color: Int, name: String) {
