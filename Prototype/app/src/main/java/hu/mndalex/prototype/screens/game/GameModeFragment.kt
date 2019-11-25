@@ -128,11 +128,17 @@ class GameModeFragment : Fragment() {
         cell.setBackgroundColor(color)
     }
 
-    private fun generateSurroundingCells(posX: Int, posY: Int) {
-        generateCellAtRight(posX, posY)
-        generateCellAtLeft(posX, posY)
-        generateCellAtTop(posY, posX)
-        generateCellAtBottom(posY, posX)
+    private fun generateSurroundingCells(posX: Int, posY: Int, radius: Int = 1) {
+        for (x in posX-radius .. posX+radius) {
+            for (y in posY-radius .. posY+radius) {
+                if (x >= 0 && x <= tableWidth -1 && y >= 0 && y <= tableHeight -1) {
+                    val row = binding.tableLayout.getChildAt(y) as TableRow
+                    val cell = row.getChildAt(x) as TextView
+                    if (cell.text.isEmpty())
+                        setCell(cell, x, y)
+                }
+            }
+        }
     }
 
     private fun generateCellAtRight(posX: Int, posY: Int) {
