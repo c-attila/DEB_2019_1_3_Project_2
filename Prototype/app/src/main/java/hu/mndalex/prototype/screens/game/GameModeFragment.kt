@@ -46,10 +46,6 @@ class GameModeFragment : Fragment() {
 
         binding = DataBindingUtil.inflate(inflater, R.layout.game_mode_fragment, container, false)
 
-        val args = GameModeFragmentArgs.fromBundle(arguments!!)
-
-        Log.i("GameMode: ", args.gameMode)
-
         initTableSize()
 
         initPlayers()
@@ -305,8 +301,13 @@ class GameModeFragment : Fragment() {
     private fun endOfRound() {
         listOfPlayers[actualPlayerId].money += listOfPlayers[actualPlayerId].profit
         if (listOfPlayers[actualPlayerId].money >= (listOfPlayers[nextPlayerId].money * 4)) {
-            findNavController().navigate(GameModeFragmentDirections.actionGameDestinationToEndDestination(
-                listOfPlayers[actualPlayerId].name, listOfPlayers[actualPlayerId].money, listOfPlayers[actualPlayerId].money - listOfPlayers[nextPlayerId].money))
+            findNavController().navigate(
+                GameModeFragmentDirections.actionGameDestinationToEndDestination(
+                    listOfPlayers[actualPlayerId].name,
+                    listOfPlayers[actualPlayerId].money,
+                    listOfPlayers[actualPlayerId].money - listOfPlayers[nextPlayerId].money
+                )
+            )
         }
 
         actualPlayerId = nextPlayerId
@@ -326,7 +327,8 @@ class GameModeFragment : Fragment() {
         if (cell!!.ownerId == -1) {
             buyCell(cell, actualPlayer)
 
-            endOfRound()
+            if (arguments?.getString("gameMode") == "gameMode2")
+                endOfRound()
         }
     }
 
