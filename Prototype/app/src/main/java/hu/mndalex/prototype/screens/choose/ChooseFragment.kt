@@ -21,10 +21,9 @@ class ChooseFragment : Fragment (){
     ): View? {
         binding = DataBindingUtil.inflate(inflater, R.layout.choose_fragment,container,false)
 
-        val args = ChooseFragmentArgs.fromBundle(arguments!!)
-
-        binding.playButton1.setOnClickListener{
-            findNavController().navigate(ChooseFragmentDirections.actionChooseFragmentToGameDestination(args.gameMode,
+        binding.playButton.setOnClickListener{
+            findNavController().navigate(ChooseFragmentDirections.actionChooseFragmentToGameDestination(
+                arguments!!.getString("gameMode").toString(),
                 binding.numOfPlayers.text.toString().toInt()))
         }
 

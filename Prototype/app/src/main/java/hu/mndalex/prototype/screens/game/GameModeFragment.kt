@@ -26,24 +26,24 @@ class GameModeFragment : Fragment() {
 
     private val listOfBuildings =
         listOf(
-            Building(0, "Hotel", 1000, 300),
+            Building(0, "Hotel", 2000, 300),
             Building(1, "Gas Station", 300, 60),
-            Building(2, "Restaurant", 700, 200),
+            Building(2, "Restaurant", 1500, 200),
             Building(3, "Bakery", 100, 10),
-            Building(4, "Shop", 300, 100)
+            Building(4, "Shop", 1200, 100)
         )
 
     private val listOfColors =
         listOf(
-            Color.BLUE,
-            Color.CYAN,
-            Color.GRAY,
-            Color.GREEN,
-            Color.MAGENTA,
-            Color.RED,
-            Color.YELLOW,
-            Color.TRANSPARENT,
-            Color.DKGRAY
+            Color.rgb(236, 219, 83),
+            Color.rgb(0, 166, 140),
+            Color.rgb(227, 65, 50),
+            Color.rgb(108, 160, 220),
+            Color.rgb(235, 150, 135),
+            Color.rgb(147, 71, 66),
+            Color.rgb(235, 225, 223),
+            Color.rgb(219, 178, 209),
+            Color.rgb(191, 216, 51)
         )
 
     private var actualPlayerId = 0
@@ -76,8 +76,8 @@ class GameModeFragment : Fragment() {
     }
 
     private fun initPlayers() {
-        for (i in 0 until arguments?.getInt("numOfPlayers")!!){
-            setPlayer(listOfColors[i], "Player $i")
+        for (i in 0 until arguments?.getInt("numOfPlayers")!!) {
+            setPlayer(listOfColors[i], "Player" + (i + 1))
         }
     }
 
@@ -247,6 +247,9 @@ class GameModeFragment : Fragment() {
             listOfPlayers[actualPlayerId].color
         )
 
+        if (arguments!!.getString("gameMode") == "gameMode3")
+            payTax(posX1, posY)
+
         generateSurroundingCells(posX1, posY)
 
         listOfPlayers[actualPlayerId].posX = posX1
@@ -306,10 +309,25 @@ class GameModeFragment : Fragment() {
             listOfPlayers[actualPlayerId].color
         )
 
+        if (arguments!!.getString("gameMode") == "gameMode3")
+            payTax(posX, posY1)
+
         generateSurroundingCells(posX, posY1)
 
         listOfPlayers[actualPlayerId].posX = posX
         listOfPlayers[actualPlayerId].posY = posY1
+    }
+
+    private fun payTax(posX1: Int, posY: Int) {
+        val cell = getCellFromList(posX1, posY)
+
+        if (cell!!.ownerId != -1 && cell!!.ownerId != actualPlayerId) {
+            val profit = listOfBuildings[cell.buildingId].profit
+            listOfPlayers[actualPlayerId].money -= profit
+            listOfPlayers[cell.ownerId].money += profit
+        }
+
+        refreshMoneyProfitOwner(listOfPlayers[actualPlayerId])
     }
 
     private fun endOfRound() {
@@ -332,13 +350,17 @@ class GameModeFragment : Fragment() {
         setGameInfoLayout(
             listOfPlayers[actualPlayerId]
         )
+
+        for(player in listOfPlayers){
+            Log.i("Player: ", player.toString())
+        }
     }
 
     private fun onBuy() {
         val actualPlayer = listOfPlayers[actualPlayerId]
         val cell = getCellFromList(actualPlayer.posX, actualPlayer.posY)
 
-        if (cell!!.ownerId == -1) {
+        if (cell!!.ownerId == -1 && actualPlayer.money >= listOfBuildings[cell.buildingId].cost) {
             buyCell(cell, actualPlayer)
 
             if (arguments?.getString("gameMode") == "gameMode2")
@@ -354,8 +376,15 @@ class GameModeFragment : Fragment() {
         actualPlayer.money -= building.cost
         actualPlayer.profit += building.profit
         cell.ownerId = actualPlayerId
+        refreshMoneyProfitOwner(actualPlayer)
 
         getCellFromTableLayout(cell.x, cell.y).text = building.name + "\n" + actualPlayer.name
+    }
+
+    private fun refreshMoneyProfitOwner(actualPlayer: Player) {
+        binding.moneyTextView.text = "Money: " + actualPlayer.money
+        binding.playerProfit.text = "Profit: " + actualPlayer.profit
+        binding.buildingOwner.text = "Owner: " + actualPlayer.name
     }
 
     private fun setGameInfoLayout(actualPlayer: Player) {

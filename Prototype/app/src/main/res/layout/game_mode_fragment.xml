@@ -238,25 +238,6 @@
                 <TextView style="@style/table_cell_style" />
             </TableRow>
 
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <TextView style="@style/table_cell_style" />
-
-                <TextView style="@style/table_cell_style" />
-
-                <TextView style="@style/table_cell_style" />
-
-                <TextView style="@style/table_cell_style" />
-
-                <TextView style="@style/table_cell_style" />
-
-                <TextView style="@style/table_cell_style" />
-
-                <TextView style="@style/table_cell_style" />
-            </TableRow>
-
 
         </TableLayout>
 

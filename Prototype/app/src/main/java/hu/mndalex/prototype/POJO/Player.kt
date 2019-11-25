@@ -6,4 +6,8 @@ class Player(
     var color: Int,
     var money: Int,
     var profit: Int,
-    var name: String)
+    var name: String){
+    override fun toString(): String {
+        return "Player(posX=$posX, posY=$posY, color=$color, money=$money, profit=$profit, name='$name')"
+    }
+}
