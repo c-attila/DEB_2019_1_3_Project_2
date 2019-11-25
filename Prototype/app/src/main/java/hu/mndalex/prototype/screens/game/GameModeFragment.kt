@@ -351,7 +351,11 @@ class GameModeFragment : Fragment() {
             listOfPlayers[actualPlayerId]
         )
 
-        for(player in listOfPlayers){
+        logPlayers()
+    }
+
+    private fun logPlayers() {
+        for (player in listOfPlayers) {
             Log.i("Player: ", player.toString())
         }
     }
