@@ -8,6 +8,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import hu.mndalex.prototype.R
 import hu.mndalex.prototype.databinding.EndFragmentBinding
+import kotlinx.android.synthetic.main.end_fragment.*
 
 class EndFragment : Fragment(){
 
@@ -20,6 +21,9 @@ class EndFragment : Fragment(){
     ): View {
         binding = DataBindingUtil.inflate(
             inflater, R.layout.end_fragment, container, false)
+        binding.playerName.text = arguments?.getString("name")
+        binding.moneyValue.text = arguments?.getInt("money").toString()
+        binding.moneyDifferenceValue.text = EndFragmentArgs.fromBundle(arguments!!).moneyDifference.toString()
 
         return binding.root
     }
