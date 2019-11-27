@@ -7,9 +7,9 @@ import org.threeten.bp.LocalDate
 @Entity(tableName = "winner_table")
 data class WinnerEntity(
 
-    var name: String,
-    var money: Int,
-    var moneyDifference: Int,
+    var name: String?,
+    var money: Int?,
+    var moneyDifference: Int?,
     var time: LocalDate? = null
 ) {
     @PrimaryKey(autoGenerate = true)
