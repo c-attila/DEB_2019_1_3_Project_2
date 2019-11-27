@@ -30,9 +30,11 @@ class GameModeFragment : Fragment() {
         listOf(
             Building(0, "Hotel", 2000, 400),
             Building(1, "Gas Station", 300, 60),
-            Building(2, "Restaurant", 1500, 300),
-            Building(3, "Bakery", 100, 20),
-            Building(4, "Shop", 1000, 200)
+            Building(2, "Gas Station", 300, 60),
+            Building(3, "Restaurant", 1500, 300),
+            Building(4, "Bakery", 100, 20),
+            Building(5, "Bakery", 100, 20),
+            Building(6, "Shop", 1000, 200)
         )
 
     private val listOfColors =
@@ -72,9 +74,9 @@ class GameModeFragment : Fragment() {
         } else {
             for (i in 0 until 9) {
                 if (i >= 7) {
-                    getCellFromTableLayout(2, i-7).setBackgroundColor(listOfColors[i][0])
-                    getCellFromTableLayout(3, i-7).setBackgroundColor(listOfColors[i][1])
-                }else {
+                    getCellFromTableLayout(2, i - 7).setBackgroundColor(listOfColors[i][0])
+                    getCellFromTableLayout(3, i - 7).setBackgroundColor(listOfColors[i][1])
+                } else {
                     getCellFromTableLayout(0, i).setBackgroundColor(listOfColors[i][0])
                     getCellFromTableLayout(1, i).setBackgroundColor(listOfColors[i][1])
                 }
@@ -121,7 +123,10 @@ class GameModeFragment : Fragment() {
 
         generateStartCell(posY, posX, color)
 
-        generateSurroundingCells(posX, posY)
+        if (arguments?.getString("gameMode") == "gameMode4")
+            generateSurroundingCells(posX, posY, 2)
+        else
+            generateSurroundingCells(posX, posY)
     }
 
     private fun isPlayerExistWithThisCoordinates(
@@ -220,6 +225,7 @@ class GameModeFragment : Fragment() {
         binding.buttonUp.setOnClickListener { onMoveVertically(-1) }
         binding.buttonDown.setOnClickListener { onMoveVertically(1) }
         binding.buttonBuy.setOnClickListener { onBuy() }
+        binding.buttonSkip.setOnClickListener { endRound() }
     }
 
     /**
@@ -234,7 +240,8 @@ class GameModeFragment : Fragment() {
 
             moveHorizontally(posX, posY, x)
 
-            endOfRound()
+            if (arguments?.getString("gameMode") == "gameMode2")
+                endRound()
 
         }
     }
@@ -275,7 +282,10 @@ class GameModeFragment : Fragment() {
         if (arguments!!.getString("gameMode") == "gameMode3")
             payTax(posX1, posY)
 
-        generateSurroundingCells(posX1, posY)
+        if (arguments?.getString("gameMode") == "gameMode4")
+            generateSurroundingCells(posX1, posY, 2)
+        else
+            generateSurroundingCells(posX1, posY)
 
         listOfPlayers[actualPlayerId].posX = posX1
         listOfPlayers[actualPlayerId].posY = posY
@@ -293,7 +303,8 @@ class GameModeFragment : Fragment() {
 
             moveVertically(actualPlayerPosX, actualPlayerPosY, y)
 
-            endOfRound()
+            if (arguments?.getString("gameMode") == "gameMode2")
+                endRound()
         }
     }
 
@@ -338,7 +349,10 @@ class GameModeFragment : Fragment() {
         if (arguments!!.getString("gameMode") == "gameMode3")
             payTax(posX, posY1)
 
-        generateSurroundingCells(posX, posY1)
+        if (arguments?.getString("gameMode") == "gameMode4")
+            generateSurroundingCells(posX, posY1, 2)
+        else
+            generateSurroundingCells(posX, posY1)
 
         listOfPlayers[actualPlayerId].posX = posX
         listOfPlayers[actualPlayerId].posY = posY1
@@ -356,9 +370,10 @@ class GameModeFragment : Fragment() {
         refreshMoneyProfitOwner(listOfPlayers[actualPlayerId])
     }
 
-    private fun endOfRound() {
+    private fun endRound() {
         listOfPlayers[actualPlayerId].money += listOfPlayers[actualPlayerId].profit
-        if (listOfPlayers[actualPlayerId].money >= (listOfPlayers[nextPlayerId].money * 4)) {
+
+        if (listOfPlayers[actualPlayerId].profit >= (listOfPlayers[nextPlayerId].profit * 3)) {
             findNavController().navigate(
                 GameModeFragmentDirections.actionGameDestinationToEndDestination(
                     listOfPlayers[actualPlayerId].name,
@@ -393,8 +408,7 @@ class GameModeFragment : Fragment() {
         if (cell!!.ownerId == -1 && actualPlayer.money >= listOfBuildings[cell.buildingId].cost) {
             buyCell(cell, actualPlayer)
 
-            if (arguments?.getString("gameMode") == "gameMode2")
-                endOfRound()
+            endRound()
         }
     }
 

@@ -31,7 +31,7 @@ class PlayFragment : Fragment (){
             .navigate(PlayFragmentDirections.actionPlayDestinationToChooseFragment("gameMode3"))}
 
         binding.playButton4.setOnClickListener{findNavController()
-            .navigate(PlayFragmentDirections.actionPlayDestinationToChooseFragment("colorTest"))}
+            .navigate(PlayFragmentDirections.actionPlayDestinationToChooseFragment("gameMode4"))}
 
         return binding.root
     }
