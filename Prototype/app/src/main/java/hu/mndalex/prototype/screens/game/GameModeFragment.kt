@@ -26,6 +26,8 @@ class GameModeFragment : Fragment() {
 
     private var COLOR_ALPHA = 150
 
+    private var gameOver = false
+
     private val listOfBuildings =
         listOf(
             Building(0, "Hotel", 2000, 400),
@@ -371,9 +373,14 @@ class GameModeFragment : Fragment() {
     }
 
     private fun endRound() {
+        gameOver = true
+        for (cell in listOfCells)
+            if (cell.ownerId == -1)
+                gameOver = false
+
         listOfPlayers[actualPlayerId].money += listOfPlayers[actualPlayerId].profit
 
-        if (listOfPlayers[actualPlayerId].profit >= (listOfPlayers[nextPlayerId].profit * 3)) {
+        if (gameOver) {
             findNavController().navigate(
                 GameModeFragmentDirections.actionGameDestinationToEndDestination(
                     listOfPlayers[actualPlayerId].name,
