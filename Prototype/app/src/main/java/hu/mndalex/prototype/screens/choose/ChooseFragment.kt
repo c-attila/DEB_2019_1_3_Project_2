@@ -10,7 +10,7 @@ import androidx.navigation.fragment.findNavController
 import hu.mndalex.prototype.R
 import hu.mndalex.prototype.databinding.ChooseFragmentBinding
 
-class ChooseFragment : Fragment (){
+class ChooseFragment : Fragment() {
 
     lateinit var binding: ChooseFragmentBinding
 
@@ -19,12 +19,21 @@ class ChooseFragment : Fragment (){
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = DataBindingUtil.inflate(inflater, R.layout.choose_fragment,container,false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.choose_fragment, container, false)
 
-        binding.playButton.setOnClickListener{
-            findNavController().navigate(ChooseFragmentDirections.actionChooseFragmentToGameDestination(
-                arguments!!.getString("gameMode").toString(),
-                binding.numOfPlayers.text.toString().toInt()))
+        binding.playButton.setOnClickListener {
+            for (i in 1..9) {
+                val numOfPlayersString = binding.numOfPlayers.text.toString()
+                if (numOfPlayersString.isNotEmpty() && i == numOfPlayersString.toInt()) {
+                    findNavController().navigate(
+                        ChooseFragmentDirections.actionChooseFragmentToGameDestination(
+                            arguments!!.getString("gameMode").toString(),
+                            numOfPlayersString.toInt()
+                        )
+                    )
+                    break
+                }
+            }
         }
 
         return binding.root
