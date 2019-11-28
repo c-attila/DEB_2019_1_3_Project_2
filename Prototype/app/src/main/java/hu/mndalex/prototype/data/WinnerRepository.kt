@@ -6,7 +6,7 @@ import androidx.lifecycle.LiveData
 
 class WinnerRepository(application: Application) {
 
-    private var winnerDAO: WinnerDAO = TODO()
+    private var winnerDAO: WinnerDAO
 
     private var allWinners: LiveData<List<WinnerEntity>>
 
