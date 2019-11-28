@@ -227,20 +227,20 @@ class GameModeFragment : Fragment() {
 
     private fun setNavigationButtonOnClickListeners() {
         binding.buttonRight.setOnClickListener {
-            disableMoveButtons()
             onMoveHorizontally(1)
+            disableMoveButtons()
         }
         binding.buttonLeft.setOnClickListener {
-            disableMoveButtons()
             onMoveHorizontally(-1)
+            disableMoveButtons()
         }
         binding.buttonUp.setOnClickListener {
-            disableMoveButtons()
             onMoveVertically(-1)
+            disableMoveButtons()
         }
         binding.buttonDown.setOnClickListener {
-            disableMoveButtons()
             onMoveVertically(1)
+            disableMoveButtons()
         }
         binding.buttonBuy.setOnClickListener { onBuy() }
         binding.buttonSkip.setOnClickListener { endRound() }
