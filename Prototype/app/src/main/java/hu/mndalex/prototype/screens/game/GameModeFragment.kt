@@ -42,7 +42,7 @@ class GameModeFragment : Fragment() {
     private val listOfColors =
         listOf(
             listOf(Color.rgb(236, 219, 83), Color.argb(COLOR_ALPHA, 236, 219, 83)),
-            listOf(Color.rgb(0, 166, 140), Color.argb(COLOR_ALPHA, 0, 166, 140)),
+            listOf(Color.rgb(69, 239, 239), Color.argb(COLOR_ALPHA, 69, 239, 239)),
             listOf(Color.rgb(227, 65, 50), Color.argb(COLOR_ALPHA, 227, 65, 50)),
             listOf(Color.rgb(108, 160, 220), Color.argb(COLOR_ALPHA, 108, 160, 220)),
             listOf(Color.rgb(235, 150, 135), Color.argb(COLOR_ALPHA, 235, 150, 135)),
@@ -67,26 +67,30 @@ class GameModeFragment : Fragment() {
 
         initTableSize()
 
-        if (arguments!!.getString("gameMode") != "colorTest") {
+        if (arguments!!.getString("gameMode") != "testColors") {
             initPlayers()
 
             setGameInfoLayout(listOfPlayers[actualPlayerId])
 
             setNavigationButtonOnClickListeners()
         } else {
-            for (i in 0 until 9) {
-                if (i >= 7) {
-                    getCellFromTableLayout(2, i - 7).setBackgroundColor(listOfColors[i][0])
-                    getCellFromTableLayout(3, i - 7).setBackgroundColor(listOfColors[i][1])
-                } else {
-                    getCellFromTableLayout(0, i).setBackgroundColor(listOfColors[i][0])
-                    getCellFromTableLayout(1, i).setBackgroundColor(listOfColors[i][1])
-                }
-
-            }
+            testColors()
         }
 
         return binding.root
+    }
+
+    private fun testColors() {
+        for (i in 0 until 9) {
+            if (i >= 7) {
+                getCellFromTableLayout(2, i - 7).setBackgroundColor(listOfColors[i][0])
+                getCellFromTableLayout(3, i - 7).setBackgroundColor(listOfColors[i][1])
+            } else {
+                getCellFromTableLayout(0, i).setBackgroundColor(listOfColors[i][0])
+                getCellFromTableLayout(1, i).setBackgroundColor(listOfColors[i][1])
+            }
+
+        }
     }
 
     private fun initTableSize() {
@@ -222,12 +226,38 @@ class GameModeFragment : Fragment() {
     }
 
     private fun setNavigationButtonOnClickListeners() {
-        binding.buttonRight.setOnClickListener { onMoveHorizontally(1) }
-        binding.buttonLeft.setOnClickListener { onMoveHorizontally(-1) }
-        binding.buttonUp.setOnClickListener { onMoveVertically(-1) }
-        binding.buttonDown.setOnClickListener { onMoveVertically(1) }
+        binding.buttonRight.setOnClickListener {
+            disableMoveButtons()
+            onMoveHorizontally(1)
+        }
+        binding.buttonLeft.setOnClickListener {
+            disableMoveButtons()
+            onMoveHorizontally(-1)
+        }
+        binding.buttonUp.setOnClickListener {
+            disableMoveButtons()
+            onMoveVertically(-1)
+        }
+        binding.buttonDown.setOnClickListener {
+            disableMoveButtons()
+            onMoveVertically(1)
+        }
         binding.buttonBuy.setOnClickListener { onBuy() }
         binding.buttonSkip.setOnClickListener { endRound() }
+    }
+
+    private fun disableMoveButtons() {
+        val actualPlayer = listOfPlayers[actualPlayerId]
+        val x = actualPlayer.posX
+        val y = actualPlayer.posY
+        val cell = getCellFromList(x, y)
+
+        if (cell!!.ownerId != actualPlayerId) {
+            binding.buttonRight.isEnabled = false
+            binding.buttonLeft.isEnabled = false
+            binding.buttonUp.isEnabled = false
+            binding.buttonDown.isEnabled = false
+        }
     }
 
     /**
@@ -280,6 +310,8 @@ class GameModeFragment : Fragment() {
             posY,
             listOfPlayers[actualPlayerId].color
         )
+
+        refreshCellInfo(getCellFromList(posX1,posY)!!)
 
         if (arguments!!.getString("gameMode") == "gameMode3")
             payTax(posX1, posY)
@@ -348,6 +380,8 @@ class GameModeFragment : Fragment() {
             listOfPlayers[actualPlayerId].color
         )
 
+        refreshCellInfo(getCellFromList(posX,posY1)!!)
+
         if (arguments!!.getString("gameMode") == "gameMode3")
             payTax(posX, posY1)
 
@@ -399,7 +433,16 @@ class GameModeFragment : Fragment() {
             listOfPlayers[actualPlayerId]
         )
 
+        enableMoveButtons()
+
         logPlayers()
+    }
+
+    private fun enableMoveButtons() {
+        binding.buttonRight.isEnabled = true
+        binding.buttonLeft.isEnabled = true
+        binding.buttonUp.isEnabled = true
+        binding.buttonDown.isEnabled = true
     }
 
     private fun logPlayers() {
@@ -415,7 +458,8 @@ class GameModeFragment : Fragment() {
         if (cell!!.ownerId == -1 && actualPlayer.money >= listOfBuildings[cell.buildingId].cost) {
             buyCell(cell, actualPlayer)
 
-            endRound()
+            if (arguments!!.getString("gameMode") != "gameMode2")
+                endRound()
         }
     }
 
@@ -439,6 +483,19 @@ class GameModeFragment : Fragment() {
         binding.moneyTextView.text = "Money: " + actualPlayer.money
         binding.playerProfit.text = "Profit: " + actualPlayer.profit
         binding.buildingOwner.text = "Owner: " + actualPlayer.name
+    }
+
+    private fun refreshCellInfo(cell: Cell) {
+        val building = listOfBuildings[cell.buildingId]
+
+        binding.buildingName.text = "Name: " + building.name
+        binding.buildingCost.text = "Cost: " + building.cost
+        binding.buildingProfit.text = "Profit: " + building.profit
+        if (cell.ownerId == -1)
+            binding.buildingOwner.text = "Owner: None"
+        else
+            binding.buildingOwner.text = "Owner: " + listOfPlayers[cell.ownerId].name
+
     }
 
     private fun setGameInfoLayout(actualPlayer: Player) {

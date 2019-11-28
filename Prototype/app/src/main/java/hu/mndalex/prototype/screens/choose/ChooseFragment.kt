@@ -21,8 +21,13 @@ class ChooseFragment : Fragment() {
     ): View? {
         binding = DataBindingUtil.inflate(inflater, R.layout.choose_fragment, container, false)
 
+        if(arguments!!.getString("gameMode") == "testColors")
+            findNavController().navigate(ChooseFragmentDirections.actionChooseFragmentToGameDestination(
+                arguments!!.getString("gameMode").toString(),
+                0))
+
         binding.playButton.setOnClickListener {
-            for (i in 1..9) {
+            for (i in 2..9) {
                 val numOfPlayersString = binding.numOfPlayers.text.toString()
                 if (numOfPlayersString.isNotEmpty() && i == numOfPlayersString.toInt()) {
                     findNavController().navigate(
