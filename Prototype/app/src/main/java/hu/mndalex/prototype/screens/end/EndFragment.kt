@@ -7,10 +7,10 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import hu.mndalex.prototype.R
-import hu.mndalex.prototype.WinnerViewModel
 import hu.mndalex.prototype.data.WinnerEntity
 import hu.mndalex.prototype.databinding.EndFragmentBinding
-import kotlinx.android.synthetic.main.end_fragment.*
+import androidx.room.Room
+import hu.mndalex.prototype.data.WinnerDatabase
 
 class EndFragment : Fragment(){
 
@@ -21,6 +21,14 @@ class EndFragment : Fragment(){
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+
+        val db = Room.databaseBuilder(
+            activity!!.applicationContext,
+            WinnerDatabase::class.java, "database-name"
+        )   .allowMainThreadQueries()
+            .build()
+
+
         val name = arguments?.getString("name")
         val money = arguments?.getInt("money")
         val moneyDifference = arguments?.getInt("moneyDifference")
@@ -31,8 +39,7 @@ class EndFragment : Fragment(){
         binding.moneyValue.text = money.toString()
         binding.moneyDifferenceValue.text = moneyDifference.toString()
 
-        lateinit var winnerViewModel: WinnerViewModel
-        winnerViewModel.insert(WinnerEntity(name, money, moneyDifference))
+        db.winnerDAO().insert(WinnerEntity(name, money, moneyDifference))
 
         return binding.root
     }

@@ -1,6 +1,5 @@
 package hu.mndalex.prototype.data
 
-import androidx.lifecycle.LiveData
 import androidx.room.*
 
 @Dao
@@ -19,5 +18,5 @@ interface WinnerDAO {
     fun deleteAllWinners()
 
     @Query("SELECT * FROM winner_table ORDER BY time DESC")
-    fun getAllWinners(): LiveData<List<WinnerEntity>>
+    fun getAllWinners(): List<WinnerEntity>
 }

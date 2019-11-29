@@ -75,9 +75,6 @@
         android:name="hu.mndalex.prototype.screens.topList.TopListFragment"
         android:label="fragment_top_list"
         tools:layout="@layout/toplist_fragment" >
-        <argument
-            android:name="winners"
-            app:argType="hu.mndalex.prototype.data.Winners" />
     </fragment>
 
 </navigation>

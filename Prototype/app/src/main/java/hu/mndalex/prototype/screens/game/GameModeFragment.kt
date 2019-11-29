@@ -338,7 +338,8 @@ class GameModeFragment : Fragment() {
 
     private fun endOfRound() {
         listOfPlayers[actualPlayerId].money += listOfPlayers[actualPlayerId].profit
-        if (listOfPlayers[actualPlayerId].money >= (listOfPlayers[nextPlayerId].money * 4)) {
+        //Todo: set multiplier back to 4
+        if (listOfPlayers[actualPlayerId].money >= (listOfPlayers[nextPlayerId].money * 2)) {
             findNavController().navigate(
                 GameModeFragmentDirections.actionGameDestinationToEndDestination(
                     listOfPlayers[actualPlayerId].name,
