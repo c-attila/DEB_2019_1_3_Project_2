@@ -3,6 +3,7 @@ package hu.mndalex.prototype.POJO
 class Cell(
     var x: Int,
     var y: Int,
+    var color: Int,
     var buildingId: Int
     ) {
 
