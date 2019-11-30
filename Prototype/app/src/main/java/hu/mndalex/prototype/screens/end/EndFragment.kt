@@ -6,14 +6,16 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import hu.mndalex.prototype.R
 import hu.mndalex.prototype.data.WinnerEntity
 import hu.mndalex.prototype.databinding.EndFragmentBinding
 import androidx.room.Room
+import hu.mndalex.prototype.IOnBackPressed
 import hu.mndalex.prototype.data.WinnerDatabase
 import org.threeten.bp.LocalDateTime
 
-class EndFragment : Fragment(){
+class EndFragment : Fragment(), IOnBackPressed{
 
     private lateinit var binding: EndFragmentBinding
 
@@ -36,6 +38,13 @@ class EndFragment : Fragment(){
 
         binding = DataBindingUtil.inflate(
             inflater, R.layout.end_fragment, container, false)
+        binding.endButton1.setOnClickListener{
+            findNavController().navigate(EndFragmentDirections.actionEndDestinationToMenuDestination())
+        }
+        binding.endButton2.setOnClickListener{
+            findNavController().navigate(EndFragmentDirections.actionEndDestinationToToplistDestination())
+        }
+
         binding.playerName.text = name
         binding.moneyValue.text = money.toString()
         binding.moneyDifferenceValue.text = moneyDifference.toString()
@@ -43,5 +52,12 @@ class EndFragment : Fragment(){
         db.winnerDAO().insert(WinnerEntity(name, money, moneyDifference, LocalDateTime.now()))
 
         return binding.root
+    }
+
+    override fun onBackPressedd(): Boolean {
+        return run {
+            findNavController().navigate(EndFragmentDirections.actionEndDestinationToMenuDestination())
+            true
+        }
     }
 }

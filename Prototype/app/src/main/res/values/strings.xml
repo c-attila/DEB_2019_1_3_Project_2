@@ -17,4 +17,8 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="choose_title_text">Number Of Players</string>
     <string name="play">PLAY</string>
+    <string name="end_button1_text">Menu</string>
+    <string name="end_button2_text">Top players</string>
+    <string name="Toplist_button1_text">Back to menu</string>
+    <string name="menu_button3_text">Top players</string>
 </resources>

@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.fragment.findNavController
 import androidx.room.Room
 import hu.mndalex.prototype.R
 import hu.mndalex.prototype.data.WinnerDatabase
@@ -23,16 +24,20 @@ class TopListFragment : Fragment() {
 
     ): View {
 
+        binding = DataBindingUtil.inflate(
+            inflater, R.layout.toplist_fragment, container, false
+        )
+        binding.toplistButton1.setOnClickListener {
+            findNavController().navigate(TopListFragmentDirections.actionToplistDestinationToMenuDestination())
+        }
+
         val db = Room.databaseBuilder(
             activity!!.applicationContext,
             WinnerDatabase::class.java, "database-name"
-        )   .allowMainThreadQueries()
+        ).allowMainThreadQueries()
             .build()
 
-        binding = DataBindingUtil.inflate(
-            inflater, R.layout.toplist_fragment, container, false)
-
-        var winners = db.winnerDAO().getAllWinners()
+        var winners = db.winnerDAO().getTopTen()
         binding.textView.text = winners.toString()
         println(winners.size)
         println(winners.toString())

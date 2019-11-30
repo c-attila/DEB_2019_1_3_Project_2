@@ -56,6 +56,9 @@
         <argument
             android:name="moneyDifference"
             app:argType="integer" />
+        <action
+            android:id="@+id/action_end_destination_to_toplist_destination"
+            app:destination="@id/toplist_destination" />
     </fragment>
     <fragment
         android:id="@+id/chooseFragment"
@@ -75,6 +78,9 @@
         android:name="hu.mndalex.prototype.screens.topList.TopListFragment"
         android:label="fragment_top_list"
         tools:layout="@layout/toplist_fragment" >
+        <action
+            android:id="@+id/action_toplist_destination_to_menu_destination"
+            app:destination="@id/menu_destination" />
     </fragment>
 
 </navigation>
