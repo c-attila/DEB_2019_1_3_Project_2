@@ -1,0 +1,101 @@
+# Funkcionális specifikáció
+
+### 1. Bevezetés
+	A megrendelő egy olyan vállalat, mely a fő tevékenysége - cégek közötti partner-
+kapcsolatok kialakításának segítése - mellett nagy hangsúlyt fektet a kutatásra és az 
+innovatív megoldások alkalmazására, mellyel a cégek közötti hatékony együttműködés 
+kulcselemeinek megértését és javítását célozza meg.
+	Egyik projektjük egy olyan stratégiai játék fejlesztése, mely alkalmas lehet 
+az emberek döntéshozatali képességének és stratégiai gondolkodásának vizsgálatára. 
+Eredetileg a játékot a kutatási részleg pár alkalmazottja gondolta ki saját maguk 
+szórakoztatására, ám később úgy vélték, hogy érdemes lehet vele komolyabban is 
+foglalkozni, így megszületett az igény a játék szoftveres implementálására, hogy a 
+fejlesztése könnyebb legyen és az emberek számára is könnyen hozzáférhető legyen, 
+ezzel biztosítva "önkénteseket" a kutatásukhoz.
+
+### 2. Jelenlegi helyzet
+	Mivel a játék eredetileg nem egy tervezett projekt volt, hanem pár alkalmazott 
+saját szórakoztatására készült játék, így a fejlesztése sem a tervezett projektek 
+esetében szokásos módon folyt. A játék, mint potenciális kutatási projekt ötletét 
+a kutatási részlegen dolgozó egyik, pszichológia-szociológia területen tevékenykedő 
+alkalmazott vetette fel, de mivel akkor még nem nyilvánították a játékot hivatalos 
+projektté, így anyagi támogatást sem kapott.
+	Később, mivel elég ígéretesnek tűnt, projektté nyilvánították, és ennek megfelelően
+folyik a fejlesztése azóta. Jelenleg is fejlesztés alatt áll, a pontos játékszabályok 
+és a játék mezői, mezőértékei stb. még nem véglegesek. Ez a fejlesztés folyamán 
+eleinte nem jelentett nagy gondot, de később, ahogy a játék komplexitása nőtt, úgy lett 
+egyre körülményesebb a fejlesztés. Bizonyos módosítások esetén új prototípust kell 
+legyártani, melynek elkészítése időigényes, továbbá a játék jellegéből adódóan nehézkes 
+a játék állását nyomon követni már.
+	Jelenleg elég nagy igény van a játék szoftveres megvalósítására. Bár még nincs kész 
+a játék, várhatóan csak olyan módosítások lesznek már benne, amelyek a készülő szoftver 
+minimális módosítását követelik meg csupán.
+	Nyilvánvaló előny lenne a játékosok körönkénti pontjainak újraszámítása a nehézkes 
+kézi számoláshoz képest, ami rendkívüli mértékben felgyorsítaná a játék menetét, emellett 
+a jelenlegi egyetlen prototípus helyett a szoftveres megvalósításával egyszerre többen 
+tudnának játszani.
+	Mindez nagy mértékben felgyorsítaná a játék fejlesztését, finomítását, és a játék 
+végső soron úgyis szoftveres alkalmazásként lenne alkalmas arra, hogy minél több 
+ember tudjon vele játszani, segítve ezzel a vizsgálódást, mely életre hívta a projektet.
+
+### 3. Vágyálom rendszer
+	A játék egy táblán játszható stratégiai játék. A tábla mérete jó lenne ha
+változtatható lenne, attól függően, hogy mennyi ideig akarják játszani. A tábla
+mezőkből állna. Minden mező tartalmazna valamilyen befektetési lehetőséget.
+	A játékosok véletlenszerű helyről kezdjenek, de ezeket a poziciókat úgy kell
+meghatározni, hogy ne kerüljenek patthelyzetbe a játékosok. A játékosok az első 
+kockával való gurítást a kezdésért csinálják. Aki nagyobbat dob, az kezd.
+	Minden kör egy gurítással kezdődik. A kocka nem feltétlenül kell tartalmazzon
+1-től 6-ig számokat. Az a legjobb ha ezek a számok a pálya méretéhez igazodnak.
+A gurítás után a játékos annyit lép, ahányat gurított. Majd eldönti, hogy belevág-e
+a mező által felkínált lehetőségekbe.
+	Minden játékos látja előre egy bizonyos távolságban, hogy mit takarnak az egyes
+mezők. Minden játékos egy bizonyos kezdő egyenleggel kezd, amit a játék során befektet,
+gyarapít.
+	Az nyeri a játékot, aki eléri az ellenfél játékos egyenlegének egy bizonyos
+többszörösét. Vagy lehet időre menő játék is, ekkor az nyer, aki az idő lejártáig
+a legnagyobb egyenleget éri el.
+	A mezők által kínált befektetések egy bizonyos összegbe kerüljenek, illetve 
+körönként egy bizonyos profitot hozzanak. Olyan mezők is legyenek, amelyek valamilyen
+bónuszt nyújtsanak. Ezek a mezők csak akkor tárják fel tartalmukat, ha a játékos
+már rajta áll. Illetve, ha egy ilyen mezőre lép a játékos, akkor legyen kötelező
+élni a mező lehetőségeivel, akár rossz, akár jó az a játékosnak.
+	Jó lenne, ha lenne lehetőség a játékosok egymással való versenyeztetésére.
+Legjobb lenne, ha a nyeréskor elért egyenleg bekerülne egy listába, ahol rangsorolva
+vannak a játékosok. Persze fontos, hogy a különböző játékmódok különböző listákra
+legyenek rögzítve.
+
+### 4. Jelenlegi üzleti folyamatok
+	A jelenlegi folyamatokban egy papír alapú táblajátékkal van lehetőség lejátszani 
+egy kört. A szervezők egy terembe hívják a játékosokat/tesztalanyokat. A játékosok 
+előveszik a játék elemeit tartalmazó dobozt és elkezdik összerakni. A táblát 
+az asztalra teszik. Ezután összekeverik a megvásárolható javakat jelképező karton-
+lapocskákat. Ezeket lefordítva helyezik el a mezőkre. A játékpénzeket, amik a 
+pontokat reprezentálják, illetve a többi kelléket a tábla mellé helyezik. Ezután
+egy dobókocka segítségével eldöntik, hogy ki kezdjen, illetve, hogy melyik mezőn. 
+Aki nagyobbat dob, az kezd, illetve azon a mezőn, amit a dobókocka segítségével 
+megállapítottak. Ha a játék nem 6x6-os táblán történik, a kockával többet kell 
+dobni, vagy, ha kisebb a tábla mint 6x6, akkor nagyobb szám esetén újradobni. 
+Ha a játék elkezdődött és a bábuk is fel lettek helyezve kezdő mezejükre, a 
+játékosok felfordítják a lefordított kartonlapokat, attól függően, hogy mekkora 
+látóterük. Ezután elkezdenek lépegetni és mezőket megvásárolni. A kocka segítségével 
+döntik el, hogy ki mennyit léphet egy adott körben. A játék alapesetben addig 
+tart, amíg valamelyik játékos eléri a másik játékos pontjának egy meghatározott 
+többszörösét. A játék egy bizonyos idő letelte után is véget érhet. Ilyenkor az 
+nyer, aki a legtöbb pontttal rendelkezik.
+	A játék fejlesztői egy fejlesztés során úgy tudják tesztelni, kipróbálni azt, 
+ha legyártják az új, szükséges elemeket. Miután kitalálták, hogy min szeretnének 
+változtatni vagy milyen új funkciót szeretnének megvalósítani, felveszik a 
+kapcsolatot a táblajáték gyártójával. Nekik megadják a legyártani kívánt elemek 
+pontos leírását, mennyiségét (általában csak a minimálisan szükséges) és, hogy 
+mennyire sürgős a rendelésük. Ezután a gyártó elkészíti az új elemeket és 
+elküldi őket a megrendelőnek. Ez a szállítással együtt hetekbe telhet. Ha 
+megvannak az új alkotórészek, a fejlesztők kipróbálhatják az újításaikat.
+
+### 5. Igényelt üzleti folyamatok
+	A megrendelő igényei szerint egy játszma a számítógépen sokka könnyebben 
+lejátszható lesz, mint eddig papír alapon volt és a fejlesztési és tesztelési 
+folyamatok is sokkal gördülékenyebben fognak történni. A program segítségével 
+a játékosoknak nem kell a tábla összerakásával bajlódniuk, illetve kockadobással, 
+pontok számolásával sem. A fejlesztők sokkal hatékonyabban tudnak a játék 
+működésén módosítani és kiegészíteni azt.
