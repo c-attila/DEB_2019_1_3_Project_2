@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TableRow
 import android.widget.TextView
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -16,7 +17,6 @@ import hu.mndalex.prototype.POJO.Cell
 import hu.mndalex.prototype.POJO.Player
 import hu.mndalex.prototype.R
 import hu.mndalex.prototype.databinding.GameModeFragmentBinding
-import kotlinx.android.synthetic.main.play_fragment.*
 
 class GameModeFragment : Fragment() {
 
@@ -176,14 +176,14 @@ class GameModeFragment : Fragment() {
                 if (x >= 0 && x <= tableWidth - 1 && y >= 0 && y <= tableHeight - 1) {
                     val row = binding.tableLayout.getChildAt(y) as TableRow
                     val cell = row.getChildAt(x) as TextView
-                    if (!isThereAnyPlayer(x, y, radius))
+                    if (!isThereAnySurroundingPlayer(x, y, radius))
                         cell.text = ""
                 }
             }
         }
     }
 
-    private fun isThereAnyPlayer(posX: Int, posY: Int, radius: Int): Boolean {
+    private fun isThereAnySurroundingPlayer(posX: Int, posY: Int, radius: Int): Boolean {
         var otherPlayer = false
         for (player in listOfPlayers) {
             var x = player.posX
@@ -272,19 +272,15 @@ class GameModeFragment : Fragment() {
     private fun setNavigationButtonOnClickListeners() {
         binding.buttonRight.setOnClickListener {
             onMoveHorizontally(1)
-            disableMoveButtons()
         }
         binding.buttonLeft.setOnClickListener {
             onMoveHorizontally(-1)
-            disableMoveButtons()
         }
         binding.buttonUp.setOnClickListener {
             onMoveVertically(-1)
-            disableMoveButtons()
         }
         binding.buttonDown.setOnClickListener {
             onMoveVertically(1)
-            disableMoveButtons()
         }
         binding.buttonBuy.setOnClickListener { onBuy() }
         binding.buttonSkip.setOnClickListener { endRound() }
@@ -315,6 +311,7 @@ class GameModeFragment : Fragment() {
         if (checkBorderCollisionHorizontally(x, posX)) {
 
             moveHorizontally(posX, posY, x)
+            disableMoveButtons()
 
             if (arguments?.getString("gameMode") == "gameMode2")
                 endRound()
@@ -329,13 +326,22 @@ class GameModeFragment : Fragment() {
     ): Boolean {
         for (player in listOfPlayers)
             if (player != listOfPlayers[actualPlayerId])
-                if (actualPlayerPosX + x == player.posX && actualPlayerPosY == player.posY)
+                if (actualPlayerPosX + x == player.posX && actualPlayerPosY == player.posY) {
+                    Toast.makeText(context, "There's already a player in this direction!", Toast.LENGTH_SHORT).show()
                     return true
+                }
         return false
     }
 
-    private fun checkBorderCollisionHorizontally(x: Int, actualPlayerPosX: Int) =
-        (x > 0 && actualPlayerPosX + x < tableWidth) || (x < 0 && actualPlayerPosX + x > -1)
+    private fun checkBorderCollisionHorizontally(x: Int, actualPlayerPosX: Int): Boolean {
+        if ((x > 0 && actualPlayerPosX + x < tableWidth) || (x < 0 && actualPlayerPosX + x > -1)){
+            return true
+        }
+        else {
+            Toast.makeText(context, "You have reached the edge of the board.", Toast.LENGTH_SHORT).show()
+            return false
+        }
+    }
 
     private fun moveHorizontally(posX: Int, posY: Int, x: Int) {
         var posX1 = posX
@@ -384,6 +390,7 @@ class GameModeFragment : Fragment() {
         if (checkBorderCollisionVertically(y, actualPlayerPosY)) {
 
             moveVertically(actualPlayerPosX, actualPlayerPosY, y)
+            disableMoveButtons()
 
             if (arguments?.getString("gameMode") == "gameMode2")
                 endRound()
@@ -397,15 +404,22 @@ class GameModeFragment : Fragment() {
     ): Boolean {
         for (player in listOfPlayers)
             if (player != listOfPlayers[actualPlayerId])
-                if (actualPlayerPosX == player.posX && actualPlayerPosY + y == player.posY)
+                if (actualPlayerPosX == player.posX && actualPlayerPosY + y == player.posY) {
+                    Toast.makeText(context, "There's already a player in this direction!", Toast.LENGTH_SHORT).show()
                     return true
+                }
         return false
     }
 
-    private fun checkBorderCollisionVertically(
-        y: Int,
-        actualPlayerPosY: Int
-    ) = (y > 0 && actualPlayerPosY + y < tableHeight) || (y < 0 && actualPlayerPosY + y > -1)
+    private fun checkBorderCollisionVertically(y: Int, actualPlayerPosY: Int): Boolean {
+        if ((y > 0 && actualPlayerPosY + y < tableHeight) || (y < 0 && actualPlayerPosY + y > -1)) {
+            return true
+        } else {
+            Toast.makeText(context, "You have reached the edge of the board.", Toast.LENGTH_SHORT).show()
+            return false
+        }
+    }
+
 
     private fun moveVertically(
         posX: Int,
@@ -512,6 +526,9 @@ class GameModeFragment : Fragment() {
 
             if (arguments!!.getString("gameMode") != "gameMode2")
                 endRound()
+        }
+        else {
+            Toast.makeText(context, "Already sold or you don't have enough money!", Toast.LENGTH_SHORT).show()
         }
     }
 
