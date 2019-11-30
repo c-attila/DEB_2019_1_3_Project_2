@@ -7,7 +7,7 @@ class Converters {
 
     @TypeConverter
     fun fromTimestamp(value: Long?): LocalDateTime? {
-        return if (value == null) null else LocalDateTime.ofInstant(Instant.ofEpochMilli(value), ZoneId.systemDefault())
+        return if (value == null) null else LocalDateTime.ofInstant(Instant.ofEpochSecond(value), ZoneId.systemDefault())
     }
 
     @TypeConverter

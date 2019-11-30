@@ -11,6 +11,7 @@ import hu.mndalex.prototype.data.WinnerEntity
 import hu.mndalex.prototype.databinding.EndFragmentBinding
 import androidx.room.Room
 import hu.mndalex.prototype.data.WinnerDatabase
+import org.threeten.bp.LocalDateTime
 
 class EndFragment : Fragment(){
 
@@ -39,7 +40,7 @@ class EndFragment : Fragment(){
         binding.moneyValue.text = money.toString()
         binding.moneyDifferenceValue.text = moneyDifference.toString()
 
-        db.winnerDAO().insert(WinnerEntity(name, money, moneyDifference))
+        db.winnerDAO().insert(WinnerEntity(name, money, moneyDifference, LocalDateTime.now()))
 
         return binding.root
     }
