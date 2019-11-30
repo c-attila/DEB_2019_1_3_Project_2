@@ -19,4 +19,7 @@ interface WinnerDAO {
 
     @Query("SELECT * FROM winner_table ORDER BY time DESC")
     fun getAllWinners(): List<WinnerEntity>
+
+    @Query("SELECT * FROM winner_table ORDER BY moneyDifference DESC LIMIT 10")
+    fun getTopTen(): List<WinnerEntity>
 }
