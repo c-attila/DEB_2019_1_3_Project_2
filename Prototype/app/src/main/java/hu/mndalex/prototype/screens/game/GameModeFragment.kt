@@ -466,8 +466,7 @@ class GameModeFragment : Fragment() {
 
         listOfPlayers[actualPlayerId].money += listOfPlayers[actualPlayerId].profit
 
-        //TODO: Remove second condition
-        if (gameOver || listOfPlayers[actualPlayerId].money > listOfPlayers[nextPlayerId].money) {
+        if (gameOver) {
             findNavController().navigate(
                 GameModeFragmentDirections.actionGameDestinationToEndDestination(
                     listOfPlayers[actualPlayerId].name,
