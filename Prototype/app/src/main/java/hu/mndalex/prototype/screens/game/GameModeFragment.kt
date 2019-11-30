@@ -311,7 +311,7 @@ class GameModeFragment : Fragment() {
             listOfPlayers[actualPlayerId].color
         )
 
-        refreshCellInfo(getCellFromList(posX1,posY)!!)
+        refreshCellInfo(getCellFromList(posX1, posY)!!)
 
         if (arguments!!.getString("gameMode") == "gameMode3")
             payTax(posX1, posY)
@@ -380,7 +380,7 @@ class GameModeFragment : Fragment() {
             listOfPlayers[actualPlayerId].color
         )
 
-        refreshCellInfo(getCellFromList(posX,posY1)!!)
+        refreshCellInfo(getCellFromList(posX, posY1)!!)
 
         if (arguments!!.getString("gameMode") == "gameMode3")
             payTax(posX, posY1)
@@ -414,31 +414,32 @@ class GameModeFragment : Fragment() {
 
         listOfPlayers[actualPlayerId].money += listOfPlayers[actualPlayerId].profit
 
-        
+
         if (listOfPlayers[actualPlayerId].money >= (listOfPlayers[nextPlayerId].money * 4)) {
 
-        if (gameOver) {
-            findNavController().navigate(
-                GameModeFragmentDirections.actionGameDestinationToEndDestination(
-                    listOfPlayers[actualPlayerId].name,
-                    listOfPlayers[actualPlayerId].money,
-                    listOfPlayers[actualPlayerId].money - listOfPlayers[nextPlayerId].money
+            if (gameOver) {
+                findNavController().navigate(
+                    GameModeFragmentDirections.actionGameDestinationToEndDestination(
+                        listOfPlayers[actualPlayerId].name,
+                        listOfPlayers[actualPlayerId].money,
+                        listOfPlayers[actualPlayerId].money - listOfPlayers[nextPlayerId].money
+                    )
                 )
+            }
+
+            actualPlayerId = nextPlayerId
+            nextPlayerId++
+            if (nextPlayerId > listOfPlayers.size - 1)
+                nextPlayerId = 0
+
+            setGameInfoLayout(
+                listOfPlayers[actualPlayerId]
             )
+
+            enableMoveButtons()
+
+            logPlayers()
         }
-
-        actualPlayerId = nextPlayerId
-        nextPlayerId++
-        if (nextPlayerId > listOfPlayers.size - 1)
-            nextPlayerId = 0
-
-        setGameInfoLayout(
-            listOfPlayers[actualPlayerId]
-        )
-
-        enableMoveButtons()
-
-        logPlayers()
     }
 
     private fun enableMoveButtons() {
