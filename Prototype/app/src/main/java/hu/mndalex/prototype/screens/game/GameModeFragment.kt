@@ -414,32 +414,28 @@ class GameModeFragment : Fragment() {
 
         listOfPlayers[actualPlayerId].money += listOfPlayers[actualPlayerId].profit
 
-
-        if (listOfPlayers[actualPlayerId].money >= (listOfPlayers[nextPlayerId].money * 4)) {
-
-            if (gameOver) {
-                findNavController().navigate(
-                    GameModeFragmentDirections.actionGameDestinationToEndDestination(
-                        listOfPlayers[actualPlayerId].name,
-                        listOfPlayers[actualPlayerId].money,
-                        listOfPlayers[actualPlayerId].money - listOfPlayers[nextPlayerId].money
-                    )
+        if (gameOver) {
+            findNavController().navigate(
+                GameModeFragmentDirections.actionGameDestinationToEndDestination(
+                    listOfPlayers[actualPlayerId].name,
+                    listOfPlayers[actualPlayerId].money,
+                    listOfPlayers[actualPlayerId].money - listOfPlayers[nextPlayerId].money
                 )
-            }
-
-            actualPlayerId = nextPlayerId
-            nextPlayerId++
-            if (nextPlayerId > listOfPlayers.size - 1)
-                nextPlayerId = 0
-
-            setGameInfoLayout(
-                listOfPlayers[actualPlayerId]
             )
-
-            enableMoveButtons()
-
-            logPlayers()
         }
+
+        actualPlayerId = nextPlayerId
+        nextPlayerId++
+        if (nextPlayerId > listOfPlayers.size - 1)
+            nextPlayerId = 0
+
+        setGameInfoLayout(
+            listOfPlayers[actualPlayerId]
+        )
+
+        enableMoveButtons()
+
+        logPlayers()
     }
 
     private fun enableMoveButtons() {
