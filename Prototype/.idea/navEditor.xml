@@ -82,6 +82,11 @@
                         </option>
                         <option name="myPositions">
                           <map>
+                            <entry key="action_menu_destination_to_toplist_destination">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
                             <entry key="action_title_destination_to_play_destination">
                               <value>
                                 <LayoutPositions />
@@ -109,6 +114,18 @@
                               </value>
                             </entry>
                           </map>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
+                  <entry key="toplist_destination">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="525" />
+                            <option name="y" value="428" />
+                          </Point>
                         </option>
                       </LayoutPositions>
                     </value>

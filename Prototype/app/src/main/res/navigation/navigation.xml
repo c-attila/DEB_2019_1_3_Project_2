@@ -12,6 +12,9 @@
         <action
             android:id="@+id/action_title_destination_to_play_destination"
             app:destination="@id/play_destination" />
+        <action
+            android:id="@+id/action_menu_destination_to_toplist_destination"
+            app:destination="@id/toplist_destination" />
     </fragment>
     <fragment
         android:id="@+id/play_destination"
@@ -67,4 +70,11 @@
             android:name="gameMode"
             app:argType="string" />
     </fragment>
+    <fragment
+        android:id="@+id/toplist_destination"
+        android:name="hu.mndalex.prototype.screens.topList.TopListFragment"
+        android:label="fragment_top_list"
+        tools:layout="@layout/toplist_fragment" >
+    </fragment>
+
 </navigation>

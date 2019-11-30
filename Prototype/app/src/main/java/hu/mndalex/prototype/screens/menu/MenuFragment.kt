@@ -23,6 +23,11 @@ class MenuFragment : Fragment(){
         binding.menuButton1.setOnClickListener {
             findNavController().navigate(MenuFragmentDirections.actionTitleDestinationToPlayDestination())
         }
+
+        binding.menuButton3.setOnClickListener {
+            findNavController().navigate(MenuFragmentDirections.actionMenuDestinationToToplistDestination())
+        }
+
         return binding.root
     }
 
