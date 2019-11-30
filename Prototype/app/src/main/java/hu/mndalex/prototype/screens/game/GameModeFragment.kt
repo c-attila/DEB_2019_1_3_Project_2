@@ -16,6 +16,7 @@ import hu.mndalex.prototype.POJO.Cell
 import hu.mndalex.prototype.POJO.Player
 import hu.mndalex.prototype.R
 import hu.mndalex.prototype.databinding.GameModeFragmentBinding
+import kotlinx.android.synthetic.main.play_fragment.*
 
 class GameModeFragment : Fragment() {
 
@@ -169,6 +170,34 @@ class GameModeFragment : Fragment() {
         }
     }
 
+    private fun hideSurroundingCellsText(posX: Int, posY: Int, radius: Int = 1) {
+        for (x in posX - radius..posX + radius) {
+            for (y in posY - radius..posY + radius) {
+                if (x >= 0 && x <= tableWidth - 1 && y >= 0 && y <= tableHeight - 1) {
+                    val row = binding.tableLayout.getChildAt(y) as TableRow
+                    val cell = row.getChildAt(x) as TextView
+                    if (!isThereAnyPlayer(x, y, radius))
+                        cell.text = ""
+                }
+            }
+        }
+    }
+
+    private fun isThereAnyPlayer(posX: Int, posY: Int, radius: Int): Boolean {
+        var otherPlayer = false
+        for (player in listOfPlayers) {
+            var x = player.posX
+            var y = player.posY
+            if (x >= posX - radius && x <= posX + radius && y >= posY - radius && y <= posY + radius){
+                val (ActualPlayerPosX, ActualPlayerPosY) = getActualPlayerCoordinates()
+                if (x != ActualPlayerPosX || y != ActualPlayerPosY){
+                    otherPlayer = true
+                }
+            }
+        }
+        return otherPlayer
+    }
+
     private fun generateCellAtRight(posX: Int, posY: Int) {
         val row = binding.tableLayout.getChildAt(posY) as TableRow
         if (posX < tableWidth - 1) {
@@ -205,16 +234,31 @@ class GameModeFragment : Fragment() {
         }
     }
 
-    private fun setCell(cell: TextView, x: Int, y: Int) {
-        val building = listOfBuildings.shuffled().take(1)[0]
-        cell.text = building.name + "\n" + building.cost
-        cell.id = building.id
+    private fun setCell(cellTextView: TextView, x: Int, y: Int) {
 
-        listOfCells.add(
-            Cell(
-                x, y, resources.getColor(R.color.table_cell_background_color), building.id
+        var cell = getCellFromList(x, y)
+        if (cell == null){
+            val building = listOfBuildings.shuffled().take(1)[0]
+            cellTextView.text = building.name + "\n" + building.cost
+            cellTextView.id = building.id
+
+            listOfCells.add(
+                Cell(
+                    x, y, resources.getColor(R.color.table_cell_background_color), building.id
+                )
             )
-        )
+        }
+        else {
+            val building = listOfBuildings[cell.buildingId]
+            if (cell.ownerId == -1) {
+                cellTextView.text = building.name + "\n" + building.cost
+            }
+            else {
+                cellTextView.text = building.name + "\n" + listOfPlayers[actualPlayerId].name
+            }
+        }
+
+
     }
 
     private fun setCellBackgroundColor(x: Int, y: Int, color: Int) {
@@ -316,10 +360,14 @@ class GameModeFragment : Fragment() {
         if (arguments!!.getString("gameMode") == "gameMode3")
             payTax(posX1, posY)
 
-        if (arguments?.getString("gameMode") == "gameMode4")
+        if (arguments?.getString("gameMode") == "gameMode4") {
+            hideSurroundingCellsText(posX, posY, 2)
             generateSurroundingCells(posX1, posY, 2)
-        else
+        }
+        else {
+            hideSurroundingCellsText(posX, posY)
             generateSurroundingCells(posX1, posY)
+        }
 
         listOfPlayers[actualPlayerId].posX = posX1
         listOfPlayers[actualPlayerId].posY = posY
@@ -385,10 +433,14 @@ class GameModeFragment : Fragment() {
         if (arguments!!.getString("gameMode") == "gameMode3")
             payTax(posX, posY1)
 
-        if (arguments?.getString("gameMode") == "gameMode4")
+        if (arguments?.getString("gameMode") == "gameMode4") {
+            hideSurroundingCellsText(posX, posY, 2)
             generateSurroundingCells(posX, posY1, 2)
-        else
+        }
+        else {
+            hideSurroundingCellsText(posX, posY)
             generateSurroundingCells(posX, posY1)
+        }
 
         listOfPlayers[actualPlayerId].posX = posX
         listOfPlayers[actualPlayerId].posY = posY1
