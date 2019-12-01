@@ -14,7 +14,8 @@
             app:destination="@id/play_destination" />
         <action
             android:id="@+id/action_menu_destination_to_toplist_destination"
-            app:destination="@id/toplist_destination" />
+            app:destination="@id/toplist_destination"
+            app:popUpTo="@+id/play_destination" />
     </fragment>
     <fragment
         android:id="@+id/play_destination"
@@ -23,7 +24,8 @@
         tools:layout="@layout/play_fragment">
         <action
             android:id="@+id/action_play_destination_to_chooseFragment"
-            app:destination="@id/chooseFragment" />
+            app:destination="@id/chooseFragment"
+            app:popUpTo="@+id/play_destination" />
     </fragment>
     <fragment
         android:id="@+id/game_destination"
@@ -32,7 +34,8 @@
         tools:layout="@layout/game_mode_fragment" >
         <action
             android:id="@+id/action_game_destination_to_end_destination"
-            app:destination="@+id/end_destination" />
+            app:destination="@+id/end_destination"
+            app:popUpTo="@+id/play_destination" />
         <argument
             android:name="gameMode"
             app:argType="string" />
@@ -49,7 +52,8 @@
             app:destination="@id/menu_destination" />
         <action
             android:id="@+id/action_end_destination_to_toplist_destination"
-            app:destination="@id/toplist_destination" />
+            app:destination="@id/toplist_destination"
+            app:popUpTo="@+id/play_destination" />
         <argument
             android:name="players"
             app:argType="string[]" />
@@ -61,8 +65,8 @@
         tools:layout="@layout/choose_fragment">
         <action
             android:id="@+id/action_chooseFragment_to_game_destination"
-            app:destination="@id/game_destination" >
-        </action>
+            app:destination="@id/game_destination"
+            app:popUpTo="@+id/play_destination"></action>
         <argument
             android:name="gameMode"
             app:argType="string" />

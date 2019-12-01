@@ -10,15 +10,17 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import androidx.room.Room
 import hu.mndalex.prototype.R
 import hu.mndalex.prototype.databinding.EndFragmentBinding
 import hu.mndalex.prototype.IOnBackPressed
+import hu.mndalex.prototype.data.WinnerDatabase
+import hu.mndalex.prototype.data.WinnerEntity
+import java.time.LocalDateTime
 
 class EndFragment : Fragment(), IOnBackPressed {
 
     private lateinit var binding: EndFragmentBinding
-
-    var listOfPlayers = ArrayList<Any>()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -41,9 +43,9 @@ class EndFragment : Fragment(), IOnBackPressed {
         binding.endButton1.setOnClickListener {
             findNavController().navigate(EndFragmentDirections.actionEndDestinationToMenuDestination())
         }
-        binding.endButton2.setOnClickListener {
-            findNavController().navigate(EndFragmentDirections.actionEndDestinationToToplistDestination())
-        }
+//        binding.endButton2.setOnClickListener {
+//            findNavController().navigate(EndFragmentDirections.actionEndDestinationToToplistDestination())
+//        }
 
         buildScoreLayout(arrayOfPlayerScores)
 
@@ -58,10 +60,9 @@ class EndFragment : Fragment(), IOnBackPressed {
         val textViewWinnerStyle =
             ContextThemeWrapper(activity, R.style.score_text_view_winner_style)
 
-        var i = 0
-        for (player in arrayOfPlayerScores!!) {
+        for ((i, player) in arrayOfPlayerScores!!.withIndex()) {
             val wrapperLayout = ConstraintLayout(wrapperLayoutStyle)
-            var textView: TextView = if (i++ == 0)
+            var textView: TextView = if (i == 0)
                 TextView(textViewWinnerStyle)
             else
                 TextView(textViewStyle)

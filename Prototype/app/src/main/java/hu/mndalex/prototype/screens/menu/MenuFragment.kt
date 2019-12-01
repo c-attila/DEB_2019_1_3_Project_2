@@ -24,9 +24,9 @@ class MenuFragment : Fragment(){
             findNavController().navigate(MenuFragmentDirections.actionTitleDestinationToPlayDestination())
         }
 
-        binding.menuButton3.setOnClickListener {
-            findNavController().navigate(MenuFragmentDirections.actionMenuDestinationToToplistDestination())
-        }
+//        binding.menuButton3.setOnClickListener {
+//            findNavController().navigate(MenuFragmentDirections.actionMenuDestinationToToplistDestination())
+//        }
 
         return binding.root
     }

@@ -18,6 +18,7 @@ import hu.mndalex.prototype.pojo.Player
 import hu.mndalex.prototype.R
 import hu.mndalex.prototype.databinding.GameModeFragmentBinding
 
+@Suppress("DEPRECATION")
 class GameModeFragment : Fragment() {
 
     private lateinit var binding: GameModeFragmentBinding
