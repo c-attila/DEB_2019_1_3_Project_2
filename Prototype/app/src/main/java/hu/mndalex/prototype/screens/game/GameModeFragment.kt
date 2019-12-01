@@ -515,8 +515,8 @@ class GameModeFragment : Fragment() {
         if (cell!!.ownerId == -1 && actualPlayer.money >= listOfBuildings[cell.buildingId].cost) {
             buyCell(cell, actualPlayer)
 
-            if (arguments!!.getString("gameMode") != "gameMode2")
-                endRound()
+//            if (arguments!!.getString("gameMode") != "gameMode2")
+            endRound()
         } else {
             Toast.makeText(
                 context,
