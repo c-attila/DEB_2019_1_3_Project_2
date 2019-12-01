@@ -2,4 +2,5 @@
 <resources>
     <dimen name="cell_size">55dp</dimen>
     <dimen name="cell_text_size">12sp</dimen>
+    <dimen name="player_names_layout_height">430dp</dimen>
 </resources>

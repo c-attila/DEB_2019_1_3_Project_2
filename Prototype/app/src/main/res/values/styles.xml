@@ -72,4 +72,20 @@
         <item name="android:padding">2dp</item>
     </style>
 
+    <style name="player_name_edit_text_wrapper_layout_style">
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:background">@color/table_cell_background_color</item>
+        <item name="android:padding">3dp</item>
+    </style>
+
+    <style name="player_name_edit_text_style">
+        <item name="android:selectAllOnFocus">true</item>
+        <item name="android:editTextBackground">@color/background_color</item>
+        <item name="android:inputType">textPersonName</item>
+        <item name="android:ems">4</item>
+        <item name="android:maxLength">7</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:gravity">center</item>
+    </style>
+
 </resources>

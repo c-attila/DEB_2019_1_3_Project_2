@@ -67,32 +67,17 @@ class GameModeFragment : Fragment() {
 
         binding = DataBindingUtil.inflate(inflater, R.layout.game_mode_fragment, container, false)
 
+        val names = arguments!!.getStringArray("names")
+
         initTableSize()
 
-        if (arguments!!.getString("gameMode") != "testColors") {
-            initPlayers()
+        initPlayers(names)
 
-            setGameInfoLayout(listOfPlayers[actualPlayerId])
+        setGameInfoLayout(listOfPlayers[actualPlayerId])
 
-            setNavigationButtonOnClickListeners()
-        } else {
-            testColors()
-        }
+        setNavigationButtonOnClickListeners()
 
         return binding.root
-    }
-
-    private fun testColors() {
-        for (i in 0 until 9) {
-            if (i >= 7) {
-                getCellFromTableLayout(2, i - 7).setBackgroundColor(listOfColors[i][0])
-                getCellFromTableLayout(3, i - 7).setBackgroundColor(listOfColors[i][1])
-            } else {
-                getCellFromTableLayout(0, i).setBackgroundColor(listOfColors[i][0])
-                getCellFromTableLayout(1, i).setBackgroundColor(listOfColors[i][1])
-            }
-
-        }
     }
 
     private fun initTableSize() {
@@ -100,9 +85,9 @@ class GameModeFragment : Fragment() {
         tableWidth = (binding.tableLayout.getChildAt(0) as TableRow).childCount
     }
 
-    private fun initPlayers() {
+    private fun initPlayers(names: Array<String>?) {
         for (i in 0 until arguments?.getInt("numOfPlayers")!!) {
-            setPlayer(listOfColors[i][0], listOfColors[i][1], "Player" + (i + 1))
+            setPlayer(listOfColors[i][0], listOfColors[i][1], names!![i])
         }
     }
 
@@ -488,7 +473,11 @@ class GameModeFragment : Fragment() {
 
         if (gameOver) {
             findNavController().navigate(
-                GameModeFragmentDirections.actionGameDestinationToEndDestination(setTopList(listOfPlayers))
+                GameModeFragmentDirections.actionGameDestinationToEndDestination(
+                    setTopList(
+                        listOfPlayers
+                    )
+                )
             )
         }
 
@@ -614,9 +603,10 @@ class GameModeFragment : Fragment() {
     }
 
     private fun setTopList(listOfPlayers1: MutableList<Player>): Array<String> {
-        var listOfPlayers = listOfPlayers1.sortedWith(compareBy(Player::money, Player::profit)).reversed()
+        var listOfPlayers =
+            listOfPlayers1.sortedWith(compareBy(Player::money, Player::profit)).reversed()
 
-        val players = Array(listOfPlayers.size){""}
+        val players = Array(listOfPlayers.size) { "" }
 
         var i = 0
         for (player in listOfPlayers) {

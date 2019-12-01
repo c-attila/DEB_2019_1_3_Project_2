@@ -42,11 +42,15 @@
         <argument
             android:name="numOfPlayers"
             app:argType="integer" />
+        <argument
+            android:name="names"
+            app:argType="string[]" />
     </fragment>
     <fragment
         android:id="@+id/end_destination"
         android:name="hu.mndalex.prototype.screens.end.EndFragment"
-        android:label="end_fragment">
+        android:label="end_fragment"
+        tools:layout="@layout/end_fragment">
         <action
             android:id="@+id/action_end_destination_to_menu_destination"
             app:destination="@id/menu_destination" />
