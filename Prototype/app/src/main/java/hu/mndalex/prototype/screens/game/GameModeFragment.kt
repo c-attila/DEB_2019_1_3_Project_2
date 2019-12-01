@@ -12,9 +12,9 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import hu.mndalex.prototype.POJO.Building
-import hu.mndalex.prototype.POJO.Cell
-import hu.mndalex.prototype.POJO.Player
+import hu.mndalex.prototype.pojo.Building
+import hu.mndalex.prototype.pojo.Cell
+import hu.mndalex.prototype.pojo.Player
 import hu.mndalex.prototype.R
 import hu.mndalex.prototype.databinding.GameModeFragmentBinding
 
@@ -48,9 +48,9 @@ class GameModeFragment : Fragment() {
             listOf(Color.rgb(108, 160, 220), Color.argb(COLOR_ALPHA, 108, 160, 220)),
             listOf(Color.rgb(235, 150, 135), Color.argb(COLOR_ALPHA, 235, 150, 135)),
             listOf(Color.rgb(147, 71, 66), Color.argb(COLOR_ALPHA, 147, 71, 66)),
-            listOf(Color.rgb(235, 225, 223), Color.argb(COLOR_ALPHA, 235, 225, 223)),
+            listOf(Color.rgb(191, 216, 51), Color.argb(COLOR_ALPHA, 191, 216, 51)),
             listOf(Color.rgb(219, 178, 209), Color.argb(COLOR_ALPHA, 219, 178, 209)),
-            listOf(Color.rgb(191, 216, 51), Color.argb(COLOR_ALPHA, 191, 216, 51))
+            listOf(Color.rgb(235, 225, 223), Color.argb(COLOR_ALPHA, 235, 225, 223))
         )
 
     private var actualPlayerId = 0
@@ -188,9 +188,9 @@ class GameModeFragment : Fragment() {
         for (player in listOfPlayers) {
             var x = player.posX
             var y = player.posY
-            if (x >= posX - radius && x <= posX + radius && y >= posY - radius && y <= posY + radius){
+            if (x >= posX - radius && x <= posX + radius && y >= posY - radius && y <= posY + radius) {
                 val (ActualPlayerPosX, ActualPlayerPosY) = getActualPlayerCoordinates()
-                if (x != ActualPlayerPosX || y != ActualPlayerPosY){
+                if (x != ActualPlayerPosX || y != ActualPlayerPosY) {
                     otherPlayer = true
                 }
             }
@@ -237,7 +237,7 @@ class GameModeFragment : Fragment() {
     private fun setCell(cellTextView: TextView, x: Int, y: Int) {
 
         var cell = getCellFromList(x, y)
-        if (cell == null){
+        if (cell == null) {
             val building = listOfBuildings.shuffled().take(1)[0]
             cellTextView.text = building.name + "\n" + building.cost
             cellTextView.id = building.id
@@ -247,13 +247,11 @@ class GameModeFragment : Fragment() {
                     x, y, resources.getColor(R.color.table_cell_background_color), building.id
                 )
             )
-        }
-        else {
+        } else {
             val building = listOfBuildings[cell.buildingId]
             if (cell.ownerId == -1) {
                 cellTextView.text = building.name + "\n" + building.cost
-            }
-            else {
+            } else {
                 cellTextView.text = building.name + "\n" + listOfPlayers[actualPlayerId].name
             }
         }
@@ -327,18 +325,22 @@ class GameModeFragment : Fragment() {
         for (player in listOfPlayers)
             if (player != listOfPlayers[actualPlayerId])
                 if (actualPlayerPosX + x == player.posX && actualPlayerPosY == player.posY) {
-                    Toast.makeText(context, "There's already a player in this direction!", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                        context,
+                        "There's already a player in this direction!",
+                        Toast.LENGTH_SHORT
+                    ).show()
                     return true
                 }
         return false
     }
 
     private fun checkBorderCollisionHorizontally(x: Int, actualPlayerPosX: Int): Boolean {
-        if ((x > 0 && actualPlayerPosX + x < tableWidth) || (x < 0 && actualPlayerPosX + x > -1)){
+        if ((x > 0 && actualPlayerPosX + x < tableWidth) || (x < 0 && actualPlayerPosX + x > -1)) {
             return true
-        }
-        else {
-            Toast.makeText(context, "You have reached the edge of the board.", Toast.LENGTH_SHORT).show()
+        } else {
+            Toast.makeText(context, "You have reached the edge of the board.", Toast.LENGTH_SHORT)
+                .show()
             return false
         }
     }
@@ -369,8 +371,7 @@ class GameModeFragment : Fragment() {
         if (arguments?.getString("gameMode") == "gameMode4") {
             hideSurroundingCellsText(posX, posY, 2)
             generateSurroundingCells(posX1, posY, 2)
-        }
-        else {
+        } else {
             hideSurroundingCellsText(posX, posY)
             generateSurroundingCells(posX1, posY)
         }
@@ -405,7 +406,11 @@ class GameModeFragment : Fragment() {
         for (player in listOfPlayers)
             if (player != listOfPlayers[actualPlayerId])
                 if (actualPlayerPosX == player.posX && actualPlayerPosY + y == player.posY) {
-                    Toast.makeText(context, "There's already a player in this direction!", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                        context,
+                        "There's already a player in this direction!",
+                        Toast.LENGTH_SHORT
+                    ).show()
                     return true
                 }
         return false
@@ -415,7 +420,8 @@ class GameModeFragment : Fragment() {
         if ((y > 0 && actualPlayerPosY + y < tableHeight) || (y < 0 && actualPlayerPosY + y > -1)) {
             return true
         } else {
-            Toast.makeText(context, "You have reached the edge of the board.", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, "You have reached the edge of the board.", Toast.LENGTH_SHORT)
+                .show()
             return false
         }
     }
@@ -450,8 +456,7 @@ class GameModeFragment : Fragment() {
         if (arguments?.getString("gameMode") == "gameMode4") {
             hideSurroundingCellsText(posX, posY, 2)
             generateSurroundingCells(posX, posY1, 2)
-        }
-        else {
+        } else {
             hideSurroundingCellsText(posX, posY)
             generateSurroundingCells(posX, posY1)
         }
@@ -482,11 +487,7 @@ class GameModeFragment : Fragment() {
 
         if (gameOver) {
             findNavController().navigate(
-                GameModeFragmentDirections.actionGameDestinationToEndDestination(
-                    listOfPlayers[actualPlayerId].name,
-                    listOfPlayers[actualPlayerId].money,
-                    listOfPlayers[actualPlayerId].money - listOfPlayers[nextPlayerId].money
-                )
+                GameModeFragmentDirections.actionGameDestinationToEndDestination(setTopList(listOfPlayers))
             )
         }
 
@@ -526,9 +527,12 @@ class GameModeFragment : Fragment() {
 
             if (arguments!!.getString("gameMode") != "gameMode2")
                 endRound()
-        }
-        else {
-            Toast.makeText(context, "Already sold or you don't have enough money!", Toast.LENGTH_SHORT).show()
+        } else {
+            Toast.makeText(
+                context,
+                "Already sold or you don't have enough money!",
+                Toast.LENGTH_SHORT
+            ).show()
         }
     }
 
@@ -606,6 +610,19 @@ class GameModeFragment : Fragment() {
         val posX = listOfPlayers[actualPlayerId].posX
         val posY = listOfPlayers[actualPlayerId].posY
         return Pair(posX, posY)
+    }
+
+    private fun setTopList(listOfPlayers1: MutableList<Player>): Array<String> {
+        var listOfPlayers = listOfPlayers1.sortedWith(compareBy(Player::money, Player::profit)).reversed()
+
+        val players = Array(listOfPlayers.size){""}
+
+        var i = 0
+        for (player in listOfPlayers) {
+            players[i++] = player.toString()
+        }
+
+        return players
     }
 
 }

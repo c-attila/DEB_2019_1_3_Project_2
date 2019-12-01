@@ -1,4 +1,4 @@
-package hu.mndalex.prototype.POJO
+package hu.mndalex.prototype.pojo
 
 class Cell(
     var x: Int,

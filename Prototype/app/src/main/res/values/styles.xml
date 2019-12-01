@@ -59,4 +59,13 @@
         <item name="android:textSize">@dimen/cell_text_size</item>
     </style>
 
+    <style name="score_text_view_style">
+        <item name="android:textSize">30sp</item>
+        <item name="android:background">@color/table_cell_background_color</item>
+    </style>
+
+    <style name="wrapper_layout_style">
+        <item name="android:padding">2dp</item>
+    </style>
+
 </resources>

@@ -3,129 +3,60 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <LinearLayout
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/end_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:background="@color/background_color"
+        tools:context=".screens.end.EndFragment">
+
+        <ScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            app:layout_constraintBottom_toTopOf="@+id/constraintLayout2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:id="@+id/scoreLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+        </ScrollView>
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/end_layout"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/background_color"
-            tools:context=".screens.end.EndFragment">
+            android:id="@+id/constraintLayout2"
+            android:layout_width="159dp"
+            android:layout_height="200dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
 
-            <TextView
-                android:id="@+id/endMoney"
-                android:layout_width="75dp"
-                android:layout_height="70dp"
-                android:layout_marginStart="32dp"
-                android:layout_marginTop="264dp"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:text="@string/money"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/endPlayer"
-                android:layout_width="82dp"
-                android:layout_height="56dp"
-                android:layout_marginStart="32dp"
-                android:layout_marginTop="160dp"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:text="@string/player"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/endMoneyDifference"
-                android:layout_width="125dp"
-                android:layout_height="52dp"
-                android:layout_marginStart="32dp"
-                android:layout_marginTop="384dp"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:text="@string/money_difference"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/endTitle"
-                android:layout_width="194dp"
-                android:layout_height="38dp"
+            <Button
+                android:id="@+id/end_button1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="40dp"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:text="@string/winner"
+                android:text="@string/end_button1_text"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.493"
+                app:layout_constraintHorizontal_bias="0.492"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/playerName"
+            <Button
+                android:id="@+id/end_button2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="88dp"
-                android:layout_marginTop="96dp"
-                android:text="TextView"
-                app:layout_constraintStart_toEndOf="@+id/endPlayer"
-                app:layout_constraintTop_toBottomOf="@+id/endTitle" />
-
-            <TextView
-                android:id="@+id/moneyValue"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="92dp"
-                android:layout_marginTop="196dp"
-                android:text="TextView"
-                app:layout_constraintStart_toEndOf="@+id/endMoney"
-                app:layout_constraintTop_toBottomOf="@+id/endTitle" />
-
-            <TextView
-                android:id="@+id/moneyDifferenceValue"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="40dp"
-                android:layout_marginTop="312dp"
-                android:text="TextView"
-                app:layout_constraintStart_toEndOf="@+id/endMoneyDifference"
-                app:layout_constraintTop_toBottomOf="@+id/endTitle" />
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="159dp"
-                android:layout_height="200dp"
+                android:text="@string/end_button2_text"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/moneyDifferenceValue"
-                app:layout_constraintVertical_bias="0.573">
-
-                <Button
-                    android:id="@+id/end_button1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="40dp"
-                    android:text="@string/end_button1_text"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.492"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <Button
-                    android:id="@+id/end_button2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/end_button2_text"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/end_button1" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                app:layout_constraintTop_toBottomOf="@+id/end_button1" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

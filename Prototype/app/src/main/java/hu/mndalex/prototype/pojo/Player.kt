@@ -1,6 +1,4 @@
-package hu.mndalex.prototype.POJO
-
-import android.graphics.Color
+package hu.mndalex.prototype.pojo
 
 class Player(
     var posX: Int,
@@ -11,7 +9,7 @@ class Player(
     var profit: Int,
     var name: String){
     override fun toString(): String {
-        return "Player(posX=$posX, posY=$posY, color=$color, money=$money, profit=$profit, name='$name')"
+        return "$name: $money"
     }
 
 }
