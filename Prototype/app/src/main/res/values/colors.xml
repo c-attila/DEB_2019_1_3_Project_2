@@ -7,4 +7,5 @@
     <color name="background_color">#929292</color>
     <color name="table_cell_background_color">#D1D1D1</color>
     <color name="player_cell_background_color">#1AFF00</color>
+    <color name="score_text_view_winner_color">#1AFF00</color>
 </resources>

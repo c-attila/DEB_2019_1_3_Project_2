@@ -619,7 +619,7 @@ class GameModeFragment : Fragment() {
 
         var i = 0
         for (player in listOfPlayers) {
-            players[i++] = player.toString()
+            players[i++] = "$i. $player"
         }
 
         return players

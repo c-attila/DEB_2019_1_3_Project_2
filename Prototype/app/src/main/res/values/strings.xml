@@ -1,13 +1,13 @@
 <resources>
-    <string name="app_name">Project2_Prototype</string>
-    <string name="menu_title_text">Menu</string>
+    <string name="app_name">Ecopoly</string>
+    <string name="menu_title_text">@string/app_name</string>
     <string name="menu_button1_text">Play</string>
     <string name="menu_button2_text">Options</string>
-    <string name="play_title_text">Play</string>
-    <string name="play_button1">Game Mode 1</string>
-    <string name="play_button2">Game Mode 2</string>
-    <string name="play_button3">Game Mode 3</string>
-    <string name="play_button4">Game Mode 4</string>
+    <string name="play_title_text">Game Modes</string>
+    <string name="play_button1">Arcade</string>
+    <string name="play_button2">Quick</string>
+    <string name="play_button3">Pay Tax</string>
+    <string name="play_button4">Far Away</string>
     <string name="play_button5">Test Colors</string>
     <string name="play_button6">Custom Game Mode</string>
     <string name="money">Money:</string>

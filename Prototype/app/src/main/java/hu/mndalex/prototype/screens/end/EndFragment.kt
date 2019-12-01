@@ -55,10 +55,16 @@ class EndFragment : Fragment(), IOnBackPressed {
     private fun buildScoreLayout(arrayOfPlayerScores: Array<String>?) {
         val wrapperLayoutStyle = ContextThemeWrapper(activity, R.style.wrapper_layout_style)
         val textViewStyle = ContextThemeWrapper(activity, R.style.score_text_view_style)
+        val textViewWinnerStyle =
+            ContextThemeWrapper(activity, R.style.score_text_view_winner_style)
 
+        var i = 0
         for (player in arrayOfPlayerScores!!) {
             val wrapperLayout = ConstraintLayout(wrapperLayoutStyle)
-            val textView = TextView(textViewStyle)
+            var textView: TextView = if (i++ == 0)
+                TextView(textViewWinnerStyle)
+            else
+                TextView(textViewStyle)
             textView.text = player
 
             wrapperLayout.addView(textView)

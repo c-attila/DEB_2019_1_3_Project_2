@@ -64,6 +64,10 @@
         <item name="android:background">@color/table_cell_background_color</item>
     </style>
 
+    <style name="score_text_view_winner_style" parent="score_text_view_style">
+        <item name="android:background">@color/score_text_view_winner_color</item>
+    </style>
+
     <style name="wrapper_layout_style">
         <item name="android:padding">2dp</item>
     </style>
