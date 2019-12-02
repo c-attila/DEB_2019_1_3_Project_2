@@ -61,6 +61,12 @@
         <argument
             android:name="players"
             app:argType="string[]" />
+        <argument
+            android:name="name"
+            app:argType="string" />
+        <argument
+            android:name="money"
+            app:argType="integer" />
     </fragment>
     <fragment
         android:id="@+id/chooseFragment"

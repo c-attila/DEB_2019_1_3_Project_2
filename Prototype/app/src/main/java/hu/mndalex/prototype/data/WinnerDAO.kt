@@ -17,9 +17,9 @@ interface WinnerDAO {
     @Query("DELETE FROM winner_table")
     fun deleteAllWinners()
 
-    @Query("SELECT * FROM winner_table ORDER BY time DESC")
+    @Query("SELECT * FROM winner_table")
     fun getAllWinners(): List<WinnerEntity>
 
-    @Query("SELECT * FROM winner_table ORDER BY moneyDifference DESC LIMIT 10")
+    @Query("SELECT * FROM winner_table ORDER BY money DESC LIMIT 10")
     fun getTopTen(): List<WinnerEntity>
 }

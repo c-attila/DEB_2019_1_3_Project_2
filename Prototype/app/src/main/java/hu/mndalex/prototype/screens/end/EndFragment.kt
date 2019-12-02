@@ -28,14 +28,16 @@ class EndFragment : Fragment(), IOnBackPressed {
         savedInstanceState: Bundle?
     ): View {
 
-//        val db = Room.databaseBuilder(
-//            activity!!.applicationContext,
-//            WinnerDatabase::class.java, "database-name"
-//        )   .allowMainThreadQueries()
-//            .build()
+        val db = Room.databaseBuilder(
+            activity!!.applicationContext,
+            WinnerDatabase::class.java, "database-name"
+        )   .allowMainThreadQueries()
+            .build()
 
 
         val arrayOfPlayerScores = arguments!!.getStringArray("players")
+        val name = arguments!!.getString("name")
+        val money = arguments!!.getInt("money")
 
         binding = DataBindingUtil.inflate(
             inflater, R.layout.end_fragment, container, false
@@ -43,13 +45,13 @@ class EndFragment : Fragment(), IOnBackPressed {
         binding.endButton1.setOnClickListener {
             findNavController().navigate(EndFragmentDirections.actionEndDestinationToMenuDestination())
         }
-//        binding.endButton2.setOnClickListener {
+//        binding.topListButton.setOnClickListener {
 //            findNavController().navigate(EndFragmentDirections.actionEndDestinationToToplistDestination())
 //        }
 
         buildScoreLayout(arrayOfPlayerScores)
 
-//        db.winnerDAO().insert(WinnerEntity(name, money, moneyDifference, LocalDateTime.now()))
+        db.winnerDAO().insert(WinnerEntity(name, money))
 
         return binding.root
     }

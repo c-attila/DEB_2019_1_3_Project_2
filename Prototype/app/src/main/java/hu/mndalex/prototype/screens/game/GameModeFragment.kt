@@ -472,11 +472,11 @@ class GameModeFragment : Fragment() {
         listOfPlayers[actualPlayerId].money += listOfPlayers[actualPlayerId].profit
 
         if (gameOver) {
+            val top: Pair<Player, Array<String>> = setTopList(listOfPlayers)
+            Log.i("Top Player: ", top.first.toString())
             findNavController().navigate(
                 GameModeFragmentDirections.actionGameDestinationToEndDestination(
-                    setTopList(
-                        listOfPlayers
-                    )
+                    top.second, top.first.name, top.first.money
                 )
             )
         }
@@ -602,7 +602,7 @@ class GameModeFragment : Fragment() {
         return Pair(posX, posY)
     }
 
-    private fun setTopList(listOfPlayers1: MutableList<Player>): Array<String> {
+    private fun setTopList(listOfPlayers1: MutableList<Player>): Pair<Player, Array<String>> {
         var listOfPlayers =
             listOfPlayers1.sortedWith(compareBy(Player::money, Player::profit)).reversed()
 
@@ -613,7 +613,7 @@ class GameModeFragment : Fragment() {
             players[i++] = "$i. $player"
         }
 
-        return players
+        return Pair(listOfPlayers[0], players)
     }
 
 }

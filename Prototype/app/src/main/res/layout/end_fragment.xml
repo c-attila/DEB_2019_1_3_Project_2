@@ -42,7 +42,6 @@
                 android:layout_height="wrap_content"
                 android:text="@string/end_button1_text"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.492"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
