@@ -314,7 +314,7 @@
 
         <variable
             name="gameModeFragment"
-            type="hu.mndalex.prototype.screens.game.GameModeFragment" />
+            type="hu.mndalex.prototype.screens.game.GameFragment" />
     </data>
 
 </layout>

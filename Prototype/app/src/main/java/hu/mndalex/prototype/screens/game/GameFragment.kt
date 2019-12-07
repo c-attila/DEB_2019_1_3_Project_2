@@ -16,12 +16,12 @@ import hu.mndalex.prototype.pojo.Building
 import hu.mndalex.prototype.pojo.Cell
 import hu.mndalex.prototype.pojo.Player
 import hu.mndalex.prototype.R
-import hu.mndalex.prototype.databinding.GameModeFragmentBinding
+import hu.mndalex.prototype.databinding.GameFragmentBinding
 
 @Suppress("DEPRECATION")
-class GameModeFragment : Fragment() {
+class GameFragment : Fragment() {
 
-    private lateinit var binding: GameModeFragmentBinding
+    private lateinit var binding: GameFragmentBinding
 
     private var tableWidth = 0
     private var tableHeight = 0
@@ -65,7 +65,7 @@ class GameModeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        binding = DataBindingUtil.inflate(inflater, R.layout.game_mode_fragment, container, false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.game_fragment, container, false)
 
         val names = arguments!!.getStringArray("names")
 
@@ -475,7 +475,7 @@ class GameModeFragment : Fragment() {
             val top: Pair<Player, Array<String>> = setTopList(listOfPlayers)
             Log.i("Top Player: ", top.first.toString())
             findNavController().navigate(
-                GameModeFragmentDirections.actionGameDestinationToEndDestination(
+                GameFragmentDirections.actionGameDestinationToEndDestination(
                     top.second, top.first.name, top.first.money
                 )
             )

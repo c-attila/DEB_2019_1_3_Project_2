@@ -29,9 +29,9 @@
     </fragment>
     <fragment
         android:id="@+id/game_destination"
-        android:name="hu.mndalex.prototype.screens.game.GameModeFragment"
+        android:name="hu.mndalex.prototype.screens.game.GameFragment"
         android:label="game_fragment"
-        tools:layout="@layout/game_mode_fragment" >
+        tools:layout="@layout/game_fragment" >
         <action
             android:id="@+id/action_game_destination_to_end_destination"
             app:destination="@+id/end_destination"
