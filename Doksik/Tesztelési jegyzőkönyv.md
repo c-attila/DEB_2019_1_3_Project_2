@@ -12,5 +12,10 @@
 | 8 | Lépés és vásárlás tesztelése (One step mode) | A játékos csak lépni vagy vásárolni tud egy körben | **Cornea Attila** |
 | 9 | Üres sztring játékosnévnek | Üres sztring esetén a Playerx lesz a játékos neve | **Cornea Attila** |
 | 10 | End képernyő tesztelése | Az end képernyő megjelenik és a helyes adatokat mutatja | **Cornea Attila** |
+| 11 | Játékmódok tesztelése | Minden játékmód a saját feladatának megfelelően működik | **Kovács Attila** |
+| 12 | Körönkénti profit beérkezésének tesztelése az összes játékmód esetében | A körönkénti profitok helyes mennyiségben és helyes időben érkeznek meg a játékosok számára az összes játékmódban | **Kovács Attila** |
+| 13 | Játékosszínek tesztelése | Adott számú játékos esetén minden játékosnak más-más színt generál a program, a színek nem zavaróak a szem számára | **Kovács Attila** |
+| 14 | Az vásárlások árának tesztelése tőkéből való levonás esetében | Az összes vásárolható ingatlan esetében helyes összeg kerül levonásra a tőkéből | **Kovács Attila** |
+| 15 | A játékosok számának megadási mezőjébe szöveg beírása | A mező megfelelen működik, nem enged szöveget beírni oda, ahová számot vár | **Kovács Attila** |
 |  |  |  |  |
 |  |  |  |  |
