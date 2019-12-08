@@ -16,6 +16,7 @@ import hu.mndalex.prototype.pojo.Player
 class GameController(
     private val binding: GameFragmentBinding,
     private val resources: Resources,
+    private val gameFragment: GameFragment,
     private val names: Array<String>,
     private val numOfPlayers: Int,
     private val gameMode: String
@@ -69,7 +70,7 @@ class GameController(
     }
 
     fun initGameInfoLayout() {
-        setGameInfoLayout(listOfPlayers[actualPlayerId)
+        setGameInfoLayout(listOfPlayers[actualPlayerId])
     }
 
     fun setNavigationButtonOnClickListeners() {
@@ -102,11 +103,147 @@ class GameController(
             moveHorizontally(posX, posY, x)
             disableMoveButtons()
 
-            if (arguments?.getString("gameMode") == "gameMode2")
+            if (gameMode == "gameMode2")
                 endRound()
 
         }
     }
+
+    private fun disableMoveButtons() {
+        val actualPlayer = listOfPlayers[actualPlayerId]
+        val x = actualPlayer.posX
+        val y = actualPlayer.posY
+        val cell = getCellFromList(x, y)
+
+        if (cell!!.ownerId != actualPlayerId) {
+            binding.buttonRight.isEnabled = false
+            binding.buttonLeft.isEnabled = false
+            binding.buttonUp.isEnabled = false
+            binding.buttonDown.isEnabled = false
+        }
+    }
+
+
+    private fun moveHorizontally(posX: Int, posY: Int, x: Int) {
+        var posX1 = posX
+        var cell = getCellFromList(posX, posY)
+
+        setCellBackgroundColor(
+            posX1,
+            posY,
+            cell!!.color
+        )
+
+        posX1 += x
+
+        setCellBackgroundColor(
+            posX1,
+            posY,
+            listOfPlayers[actualPlayerId].color
+        )
+
+        refreshCellInfo(getCellFromList(posX1, posY)!!)
+
+        if (gameMode == "gameMode3")
+            payTax(posX1, posY)
+
+        if (gameMode == "gameMode4") {
+            hideSurroundingCellsText(posX, posY, 2)
+            generateSurroundingCells(posX1, posY, 2)
+        } else {
+            hideSurroundingCellsText(posX, posY)
+            generateSurroundingCells(posX1, posY)
+        }
+
+        listOfPlayers[actualPlayerId].posX = posX1
+        listOfPlayers[actualPlayerId].posY = posY
+    }
+
+    private fun hideSurroundingCellsText(posX: Int, posY: Int, radius: Int = 1) {
+        for (x in posX - radius..posX + radius) {
+            for (y in posY - radius..posY + radius) {
+                if (x >= 0 && x <= tableWidth - 1 && y >= 0 && y <= tableHeight - 1) {
+                    val row = binding.tableLayout.getChildAt(y) as TableRow
+                    val cell = row.getChildAt(x) as TextView
+                    if (!isThereAnySurroundingPlayer(x, y, radius))
+                        cell.text = ""
+                }
+            }
+        }
+    }
+
+    private fun isThereAnySurroundingPlayer(posX: Int, posY: Int, radius: Int): Boolean {
+        var otherPlayer = false
+        for (player in listOfPlayers) {
+            var x = player.posX
+            var y = player.posY
+            if (x >= posX - radius && x <= posX + radius && y >= posY - radius && y <= posY + radius) {
+                val (ActualPlayerPosX, ActualPlayerPosY) = getActualPlayerCoordinates()
+                if (x != ActualPlayerPosX || y != ActualPlayerPosY) {
+                    otherPlayer = true
+                }
+            }
+        }
+        return otherPlayer
+    }
+
+    private fun payTax(posX1: Int, posY: Int) {
+        val cell = getCellFromList(posX1, posY)
+
+        if (cell!!.ownerId != -1 && cell!!.ownerId != actualPlayerId) {
+            val profit = listOfBuildings[cell.buildingId].profit
+            listOfPlayers[actualPlayerId].money -= profit
+            listOfPlayers[cell.ownerId].money += profit
+        }
+
+        refreshMoneyProfitOwner(listOfPlayers[actualPlayerId])
+    }
+
+
+    private fun refreshCellInfo(cell: Cell) {
+        val building = listOfBuildings[cell.buildingId]
+
+        binding.buildingName.text = "Name: " + building.name
+        binding.buildingCost.text = "Cost: " + building.cost
+        binding.buildingProfit.text = "Profit: " + building.profit
+        if (cell.ownerId == -1)
+            binding.buildingOwner.text = "Owner: None"
+        else
+            binding.buildingOwner.text = "Owner: " + listOfPlayers[cell.ownerId].name
+
+    }
+
+
+
+    private fun checkBorderCollisionHorizontally(x: Int, actualPlayerPosX: Int): Boolean {
+        if ((x > 0 && actualPlayerPosX + x < tableWidth) || (x < 0 && actualPlayerPosX + x > -1)) {
+            return true
+        } else {
+            Toast.makeText(gameFragment.context, "You have reached the edge of the board.", Toast.LENGTH_SHORT)
+                .show()
+            return false
+        }
+    }
+
+
+    private fun checkPlayerCollisionHorizontally(
+        actualPlayerPosX: Int,
+        actualPlayerPosY: Int,
+        x: Int
+    ): Boolean {
+        for (player in listOfPlayers)
+            if (player != listOfPlayers[actualPlayerId])
+                if (actualPlayerPosX + x == player.posX && actualPlayerPosY == player.posY) {
+                    Toast.makeText(
+                        gameFragment.context,
+                        "There's already a player in this direction!",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                    return true
+                }
+        return false
+    }
+
 
     /**
      * Only work with 1 or -1 parameter
@@ -121,10 +258,79 @@ class GameController(
             moveVertically(actualPlayerPosX, actualPlayerPosY, y)
             disableMoveButtons()
 
-            if (arguments?.getString("gameMode") == "gameMode2")
+            if (gameMode == "gameMode2")
                 endRound()
         }
     }
+
+    private fun moveVertically(
+        posX: Int,
+        posY: Int,
+        y: Int
+    ) {
+        var posY1 = posY
+        var cell = getCellFromList(posX, posY)
+        setCellBackgroundColor(
+            posX,
+            posY1,
+            cell!!.color
+        )
+
+        posY1 += y
+
+        setCellBackgroundColor(
+            posX,
+            posY1,
+            listOfPlayers[actualPlayerId].color
+        )
+
+        refreshCellInfo(getCellFromList(posX, posY1)!!)
+
+        if (gameMode == "gameMode3")
+            payTax(posX, posY1)
+
+        if (gameMode == "gameMode4") {
+            hideSurroundingCellsText(posX, posY, 2)
+            generateSurroundingCells(posX, posY1, 2)
+        } else {
+            hideSurroundingCellsText(posX, posY)
+            generateSurroundingCells(posX, posY1)
+        }
+
+        listOfPlayers[actualPlayerId].posX = posX
+        listOfPlayers[actualPlayerId].posY = posY1
+    }
+
+
+    private fun checkBorderCollisionVertically(y: Int, actualPlayerPosY: Int): Boolean {
+        if ((y > 0 && actualPlayerPosY + y < tableHeight) || (y < 0 && actualPlayerPosY + y > -1)) {
+            return true
+        } else {
+            Toast.makeText(gameFragment.context, "You have reached the edge of the board.", Toast.LENGTH_SHORT)
+                .show()
+            return false
+        }
+    }
+
+
+    private fun checkPlayerCollisionVertically(
+        actualPlayerPosX: Int,
+        actualPlayerPosY: Int,
+        y: Int
+    ): Boolean {
+        for (player in listOfPlayers)
+            if (player != listOfPlayers[actualPlayerId])
+                if (actualPlayerPosX == player.posX && actualPlayerPosY + y == player.posY) {
+                    Toast.makeText(
+                        gameFragment.context,
+                        "There's already a player in this direction!",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                    return true
+                }
+        return false
+    }
+
 
     private fun onBuy() {
         val actualPlayer = listOfPlayers[actualPlayerId]
@@ -137,12 +343,34 @@ class GameController(
             endRound()
         } else {
             Toast.makeText(
-                context,
+                gameFragment.context,
                 "Already sold or you don't have enough money!",
                 Toast.LENGTH_SHORT
             ).show()
         }
     }
+
+    private fun buyCell(
+        cell: Cell,
+        actualPlayer: Player
+    ) {
+        val building = listOfBuildings[cell.buildingId]
+        actualPlayer.money -= building.cost
+        actualPlayer.profit += building.profit
+        cell.ownerId = actualPlayerId
+        cell.color = actualPlayer.colorOfOwnedCell
+
+        refreshMoneyProfitOwner(actualPlayer)
+
+        val cellTextView = getCellFromTableLayout(cell.x, cell.y)
+        cellTextView.text = building.name
+    }
+
+    private fun getCellFromTableLayout(x: Int, y: Int): TextView {
+        return (binding.tableLayout.getChildAt(y) as TableRow).getChildAt(x) as TextView
+    }
+
+
 
     private fun endRound() {
         gameOver = true
@@ -155,7 +383,7 @@ class GameController(
         if (gameOver) {
             val top: Pair<Player, Array<String>> = setTopList(listOfPlayers)
             Log.i("Top Player: ", top.first.toString())
-            findNavController().navigate(
+            gameFragment.findNavController().navigate(
                 GameFragmentDirections.actionGameDestinationToEndDestination(
                     top.second, top.first.name, top.first.money
                 )
@@ -174,6 +402,35 @@ class GameController(
         enableMoveButtons()
 
         logPlayers()
+    }
+
+    private fun logPlayers() {
+        for (player in listOfPlayers) {
+            Log.i("Player: ", player.toString())
+        }
+    }
+
+
+    private fun enableMoveButtons() {
+        binding.buttonRight.isEnabled = true
+        binding.buttonLeft.isEnabled = true
+        binding.buttonUp.isEnabled = true
+        binding.buttonDown.isEnabled = true
+    }
+
+
+    private fun setTopList(listOfPlayers1: MutableList<Player>): Pair<Player, Array<String>> {
+        var listOfPlayers =
+            listOfPlayers1.sortedWith(compareBy(Player::money, Player::profit)).reversed()
+
+        val players = Array(listOfPlayers.size) { "" }
+
+        var i = 0
+        for (player in listOfPlayers) {
+            players[i++] = "$i. $player"
+        }
+
+        return Pair(listOfPlayers[0], players)
     }
 
 
@@ -308,6 +565,16 @@ class GameController(
         val posX = listOfPlayers[actualPlayerId].posX
         val posY = listOfPlayers[actualPlayerId].posY
         return Pair(posX, posY)
+    }
+
+    private fun setCellBackgroundColor(x: Int, y: Int, color: Int) {
+        getCellFromTableLayout(x, y).setBackgroundColor(color)
+    }
+
+    private fun refreshMoneyProfitOwner(actualPlayer: Player) {
+        binding.moneyTextView.text = "Money: " + actualPlayer.money
+        binding.playerProfit.text = "Profit: " + actualPlayer.profit
+        binding.buildingOwner.text = "Owner: " + actualPlayer.name
     }
 
 
