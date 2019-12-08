@@ -17,5 +17,8 @@
 | 13 | Játékosszínek tesztelése | Adott számú játékos esetén minden játékosnak más-más színt generál a program, a színek nem zavaróak a szem számára | **Kovács Attila** |
 | 14 | Az vásárlások árának tesztelése tőkéből való levonás esetében | Az összes vásárolható ingatlan esetében helyes összeg kerül levonásra a tőkéből | **Kovács Attila** |
 | 15 | A játékosok számának megadási mezőjébe szöveg beírása | A mező megfelelen működik, nem enged szöveget beírni oda, ahová számot vár | **Kovács Attila** |
-|  |  |  |  |
-|  |  |  |  |
+| 16 | Játékosok számának 0 vagy 1 érték adása | A játékot nem lehet elkezdeni 0 vagy 1 játékossal | **Murvai András** |
+| 17 | Látómező generálás | A látómezők minden játékmódban szabályosan generálódnak | **Murvai András** |
+| 18 | Játékos tájékoztatása a vétel sikertelenségéről | A játékos értesül arról, hogy a mező megvétele sikertelen volt, ha már a mezőt valaki megvette vagy nincs elég pénze azt kifizetni | **Murvai András** |
+| 19 | Játékos tájékoztatása másik játékossal való ütközésről | Ha a játékos a már foglalt mezőre lépést megkísérli, akkor erről értesül | **Murvai András** |
+| 20 | Játékos tájékoztatása pályaszéllel való ütközésről | Ha a játékos a pályán kívülre akarna lépni, arról értesül | **Murvai András** |
